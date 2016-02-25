@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -116,10 +116,10 @@
             </objects>
             <point key="canvasLocation" x="-85.5" y="1011.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Add a Service-->
         <scene sceneID="isg-t1-nPJ">
             <objects>
-                <viewController id="rDB-Tz-G8x" sceneMemberID="viewController">
+                <viewController title="Add a Service" id="rDB-Tz-G8x" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qwv-Zh-eMI"/>
                         <viewControllerLayoutGuide type="bottom" id="N5Z-Sb-Zf4"/>
@@ -131,7 +131,7 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAf-0A-Tfh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Add a Service" id="l9u-C4-pTc"/>
+                                    <navigationItem title="Title" id="isM-Xw-S9R"/>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLE-3C-oyb">

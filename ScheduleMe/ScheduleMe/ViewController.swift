@@ -10,15 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var weatherCondition: UILabel!
     var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+<<<<<<< HEAD
         
         
         
+=======
+        ref.observeEventType(.Value, withBlock: {
+            snapshot in
+            self.weatherCondition.text = snapshot.value as? String
+            
+        })
+>>>>>>> e23d1b3a6c307599d9235cdff5228193552c9e6b
         
     }
 
@@ -28,5 +37,10 @@ class ViewController: UIViewController {
     }
 
 
+
+    @IBAction func updateWeatherButton(sender: UIButton) {
+        ref.setValue(sender.titleLabel?.text)
+        
+    }
 }
 

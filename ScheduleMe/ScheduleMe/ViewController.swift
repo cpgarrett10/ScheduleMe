@@ -10,16 +10,36 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    var login = false
     
-    
-    var login:Int = 1
     @IBOutlet var accountLabel: UILabel!
+    @IBOutlet var loginSignUp: UIButton!
+    @IBOutlet var switchLoginSceen: UIButton!
     
     @IBOutlet var weatherCondition: UILabel!
     var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
 
     @IBAction func SignUp(sender: AnyObject) {
-        login = 0
+        
+        
+        if self.login == false {
+            
+            login = true
+            
+            self.accountLabel.text = "Already have an account?"
+            self.switchLoginSceen.setTitle("Login", forState: .Normal)
+            self.loginSignUp.setTitle("Sign Up", forState: .Normal)
+            
+        } else {
+            
+            login = false
+            
+            self.accountLabel.text = "Don't have an account?"
+            self.switchLoginSceen.setTitle("Sign Up", forState: .Normal)
+            self.loginSignUp.setTitle("Login", forState: .Normal)
+        
+        }
+    
     }
     
     override func viewDidLoad() {
@@ -32,11 +52,7 @@ class ViewController: UIViewController {
             
             
             
-            if self.login == 1 {
-                
-                self.accountLabel.text = "Already have an account?"
-                
-            }
+            
             
             
         })

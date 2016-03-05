@@ -62,6 +62,9 @@ class ViewController: UIViewController {
                         print("You have successfully logged in")
                         
                         //send them to home screen
+                        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                        let serviceViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("serviceView") as UIViewController
+                        self.presentViewController(serviceViewController, animated: true, completion: nil)
                     }
             })
             

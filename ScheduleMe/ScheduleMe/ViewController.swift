@@ -17,17 +17,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-<<<<<<< HEAD
         
         
         
-=======
         ref.observeEventType(.Value, withBlock: {
             snapshot in
             self.weatherCondition.text = snapshot.value as? String
             
         })
->>>>>>> e23d1b3a6c307599d9235cdff5228193552c9e6b
         
     }
 

@@ -17,6 +17,7 @@
 		AF77C8761C7905AA0031936C /* ScheduleMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C8751C7905AA0031936C /* ScheduleMeTests.swift */; };
 		AF77C8811C7905AA0031936C /* ScheduleMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C8801C7905AA0031936C /* ScheduleMeUITests.swift */; };
 		C880B3ED1C8B794E009B4441 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */; };
+		C880B3EF1C8B8C37009B4441 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		AF77C8821C7905AA0031936C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8744D021C7F868900AEB172 /* ScheduleMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
+		C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		DADB8404ED457EB042CABDBA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 				AF77C8641C7905A90031936C /* ScheduleMe.xcdatamodeld */,
 				C8744D021C7F868900AEB172 /* ScheduleMe-Bridging-Header.h */,
 				C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */,
+				C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */,
 			);
 			path = ScheduleMe;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF77C8601C7905A90031936C /* ViewController.swift in Sources */,
+				C880B3EF1C8B8C37009B4441 /* UserProfileViewController.swift in Sources */,
 				AF77C85E1C7905A90031936C /* AppDelegate.swift in Sources */,
 				C880B3ED1C8B794E009B4441 /* ServiceViewController.swift in Sources */,
 				AF77C8661C7905A90031936C /* ScheduleMe.xcdatamodeld in Sources */,

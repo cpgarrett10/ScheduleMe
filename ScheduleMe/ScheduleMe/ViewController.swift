@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var login = true
+    var login = 1 //Login = 1 SignUp = 2 ForgotPassword = 3
     
     @IBOutlet var accountLabel: UILabel!
     @IBOutlet var loginSignUp: UIButton!
@@ -18,30 +18,63 @@ class ViewController: UIViewController {
     @IBOutlet var UsernameTxt: UITextField!
     @IBOutlet var PasswordTxt: UITextField!
     @IBOutlet var weatherCondition: UILabel!
+    @IBOutlet var ForgotPassButton: UIButton!
+    
+    
+    @IBAction func forgotPassClick(sender: AnyObject) {
+        
+        login = 3
+        
+        self.accountLabel.text = "Know you password?"
+        self.switchLoginSceen.setTitle("Login", forState: .Normal)
+        self.loginSignUp.setTitle("Submit", forState: .Normal)
+        self.PasswordTxt.hidden = true
+        self.UsernameTxt.text = ""
+        self.PasswordTxt.text = ""
+        self.ForgotPassButton.hidden = true
+        
+    }
     
     var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
 
     @IBAction func SignUp(sender: AnyObject) {
         
-        if self.login == true {
+        if self.login == 1 {
             
-            login = false
+            login = 2
             
             self.accountLabel.text = "Already have an account?"
             self.switchLoginSceen.setTitle("Login", forState: .Normal)
             self.loginSignUp.setTitle("Sign Up", forState: .Normal)
+            self.PasswordTxt.hidden = false
             self.UsernameTxt.text = ""
             self.PasswordTxt.text = ""
+            self.ForgotPassButton.hidden = true
             
-        } else {
             
-            login = true
+        } else if self.login == 2 {
+            
+            login = 1
             
             self.accountLabel.text = "Don't have an account?"
             self.switchLoginSceen.setTitle("Sign Up", forState: .Normal)
             self.loginSignUp.setTitle("Login", forState: .Normal)
+            self.PasswordTxt.hidden = false
             self.UsernameTxt.text = ""
             self.PasswordTxt.text = ""
+            self.ForgotPassButton.hidden = false
+        
+        } else if self.login == 3 {
+        
+            login = 1
+            
+            self.accountLabel.text = "Don't have an account?"
+            self.switchLoginSceen.setTitle("Sign Up", forState: .Normal)
+            self.loginSignUp.setTitle("Login", forState: .Normal)
+            self.PasswordTxt.hidden = false
+            self.UsernameTxt.text = ""
+            self.PasswordTxt.text = ""
+            self.ForgotPassButton.hidden = false
         
         }
     
@@ -49,7 +82,7 @@ class ViewController: UIViewController {
     
     @IBAction func loginSignUp(sender: AnyObject) {
     
-        if self.login == true {
+        if self.login == 1 {
             //Login logic
             ref.authUser(UsernameTxt.text, password: PasswordTxt.text,
                 withCompletionBlock: { error, authData in
@@ -65,11 +98,14 @@ class ViewController: UIViewController {
                         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                         let serviceViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("serviceView") as UIViewController
                         self.presentViewController(serviceViewController, animated: true, completion: nil)
+                        
+                        let uid = self.ref.authData.uid
+                        print("Here is the uID that you can use everywhere: \(uid)")
                     }
             })
             
             
-        } else {
+        } else if self.login == 2 {
             
             ref.createUser(UsernameTxt.text, password: PasswordTxt.text,
                 withValueCompletionBlock: { error, result in
@@ -86,6 +122,35 @@ class ViewController: UIViewController {
                     }
             })
             //sign up logic
+            
+        } else if self.login == 3 {
+            
+            // Enter Pass reset logic here
+            
+            ref.resetPasswordForUser(UsernameTxt.text, withCompletionBlock: { error in
+                if error != nil {
+                    // There was an error processing the request
+                } else {
+                    
+                    // Password reset sent successfully
+                    print("Password reset sent successfully")
+                }
+            })
+            
+            print("I am going to reset my password")
+            
+            //LET USER KNOW THEY HAVE A PASSWORD RESET EMAIL WAITING
+            
+            login = 1
+            
+            self.accountLabel.text = "Don't have an account?"
+            self.switchLoginSceen.setTitle("Sign Up", forState: .Normal)
+            self.loginSignUp.setTitle("Login", forState: .Normal)
+            self.PasswordTxt.hidden = false
+            self.UsernameTxt.text = ""
+            self.PasswordTxt.text = ""
+            self.ForgotPassButton.hidden = false
+            
             
         }
     
@@ -115,5 +180,6 @@ class ViewController: UIViewController {
         ref.setValue(sender.titleLabel?.text)
         
     }
+
 }
 

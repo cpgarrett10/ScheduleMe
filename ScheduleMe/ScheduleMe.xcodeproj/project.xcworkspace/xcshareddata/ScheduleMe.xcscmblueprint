@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D269958FAF50E00845E97F5CB935776ABDFDBA5F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3996D874CC26343E779FAE82830CA8A5164EC561" : 0,
+    "D269958FAF50E00845E97F5CB935776ABDFDBA5F" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9B03C538-D70C-40D6-B838-6211D0DC7D10",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3996D874CC26343E779FAE82830CA8A5164EC561" : "",
+    "D269958FAF50E00845E97F5CB935776ABDFDBA5F" : "ScheduleMe\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ScheduleMe",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ScheduleMe\/ScheduleMe.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cpgarrett10\/ScheduleMe-App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3996D874CC26343E779FAE82830CA8A5164EC561"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cpgarrett10\/ScheduleMe.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D269958FAF50E00845E97F5CB935776ABDFDBA5F"
+    }
+  ]
+}

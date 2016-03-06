@@ -9,21 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-ScheduleMe.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-ScheduleMeTests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-ScheduleMeUITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +22,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5E1846CBAD6BA5B01ED80EE42A880209</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C06900910C3A6326D437273407CBB0AC</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C3D7C68DC3EED49FDE540B393700E9E0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F872703D17855CFE390A03677CA9F7E2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

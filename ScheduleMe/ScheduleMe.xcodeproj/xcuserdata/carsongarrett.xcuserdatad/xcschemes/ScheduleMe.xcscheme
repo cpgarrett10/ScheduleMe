@@ -20,6 +20,34 @@
                ReferencedContainer = "container:ScheduleMe.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AF77C8701C7905AA0031936C"
+               BuildableName = "ScheduleMeTests.xctest"
+               BlueprintName = "ScheduleMeTests"
+               ReferencedContainer = "container:ScheduleMe.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AF77C87B1C7905AA0031936C"
+               BuildableName = "ScheduleMeUITests.xctest"
+               BlueprintName = "ScheduleMeUITests"
+               ReferencedContainer = "container:ScheduleMe.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,26 +56,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AF77C8701C7905AA0031936C"
-               BuildableName = "ScheduleMeTests.xctest"
-               BlueprintName = "ScheduleMeTests"
-               ReferencedContainer = "container:ScheduleMe.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "AF77C87B1C7905AA0031936C"
-               BuildableName = "ScheduleMeUITests.xctest"
-               BlueprintName = "ScheduleMeUITests"
-               ReferencedContainer = "container:ScheduleMe.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

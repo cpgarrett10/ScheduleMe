@@ -38,8 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0DFF3F625E23EC4072371AED /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		0E3964F3045AC573A63D4B3F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		6991A681E3346F122B9E5605 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		9BDEB84AA614F97CC50724B9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		AF77C85A1C7905A90031936C /* ScheduleMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF77C85D1C7905A90031936C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF77C85F1C7905A90031936C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		C8744D021C7F868900AEB172 /* ScheduleMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		DADB8404ED457EB042CABDBA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,21 +86,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		10518D88722FF4A444F75185 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DADB8404ED457EB042CABDBA /* Pods.debug.xcconfig */,
-				6991A681E3346F122B9E5605 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6BCF2D57362BE29B50C5CCAA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				0E3964F3045AC573A63D4B3F /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		78A96F5A015476F2949348D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BDEB84AA614F97CC50724B9 /* Pods.debug.xcconfig */,
+				0DFF3F625E23EC4072371AED /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		AF77C8511C7905A90031936C = {
@@ -110,8 +110,8 @@
 				AF77C8741C7905AA0031936C /* ScheduleMeTests */,
 				AF77C87F1C7905AA0031936C /* ScheduleMeUITests */,
 				AF77C85B1C7905A90031936C /* Products */,
-				10518D88722FF4A444F75185 /* Pods */,
 				6BCF2D57362BE29B50C5CCAA /* Frameworks */,
+				78A96F5A015476F2949348D0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -491,7 +491,7 @@
 		};
 		AF77C8861C7905AA0031936C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DADB8404ED457EB042CABDBA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 9BDEB84AA614F97CC50724B9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -507,7 +507,7 @@
 		};
 		AF77C8871C7905AA0031936C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6991A681E3346F122B9E5605 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 0DFF3F625E23EC4072371AED /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;

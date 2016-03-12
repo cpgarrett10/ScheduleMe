@@ -10,8 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    
+    
+    
     var login = 1 //Login = 1 SignUp = 2 ForgotPassword = 3
     
+    @IBOutlet weak var gradientView: GradientView!
     @IBOutlet var accountLabel: UILabel!
     @IBOutlet var loginSignUp: UIButton!
     @IBOutlet var switchLoginSceen: UIButton!
@@ -160,7 +165,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-      
+        
+      //self.gradientView.initGradient()
+    
         
         
         

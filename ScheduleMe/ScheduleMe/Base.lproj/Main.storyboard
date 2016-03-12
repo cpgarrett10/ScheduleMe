@@ -9,6 +9,7 @@
         <!--LoginPage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController title="LoginPage" id="BYZ-38-t0r" customClass="ViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -87,6 +88,10 @@
                                     <action selector="updateWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qAR-9h-eCJ"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RwH-rM-llg">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -97,11 +102,11 @@
                         <outlet property="SwitchLoginSceen" destination="UVP-zj-2On" id="qAQ-Te-Qnj"/>
                         <outlet property="UsernameTxt" destination="cwl-c2-YIQ" id="IfI-uH-1y6"/>
                         <outlet property="accountLabel" destination="fl4-s4-EHW" id="joK-UB-J7h"/>
+                        <outlet property="gradientView" destination="RwH-rM-llg" id="Y4t-qc-tBq"/>
                         <outlet property="loginSignUp" destination="Tyr-bk-i4Z" id="whm-lb-1iq"/>
                         <outlet property="weatherCondition" destination="stt-7g-fvb" id="fDZ-3O-oHu"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-98.5" y="246.5"/>
         </scene>

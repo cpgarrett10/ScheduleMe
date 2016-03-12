@@ -11,10 +11,25 @@ import UIKit
 class ServiceViewController : UIViewController {
     
     var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
-
+    
+/*
+    self.dataSource = FirebaseTableViewDataSource(ref: ref,
+    modelClass: FDataSnapshot.self,
+    cellClass: UITableViewCell.self,
+    cellReuseIdentifier: "<YOUR-REUSE-IDENTIFIER>",
+    view: self.tableView)
+    
+    self.dataSource.populateCellWithBlock { (cell: UITableViewCell, obj: NSObject) -> Void in
+    let snap = obj as! FDataSnapshot // Force cast to an FDataSnapshot
+    /* Populate cell with contents of the snapshot */
+    }
+    
+    self.tableView.dataSource = self.dataSource
     
     
- /*   override func viewDidLoad() {
+    
+    
+   override func viewDidLoad() {
        super.viewDidLoad()
 
         // 1

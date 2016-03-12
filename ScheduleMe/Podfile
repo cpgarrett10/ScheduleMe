@@ -1,1 +1,2 @@
 pod 'Firebase', '>= 2.5.0'
+pod 'FirebaseUI', '~> 0.3'       # Pull in all Firebase UI features

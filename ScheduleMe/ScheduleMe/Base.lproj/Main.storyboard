@@ -150,6 +150,9 @@
                                 <rect key="frame" x="304" y="219" width="45" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Update"/>
+                                <connections>
+                                    <action selector="UpdateUserProfile:" destination="gSX-Rh-dxq" eventType="touchUpInside" id="ETR-9B-m2b"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHm-ef-2ZX">
                                 <rect key="frame" x="136" y="84" width="213" height="30"/>
@@ -221,6 +224,11 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="EmailTxt" destination="69T-P3-FXV" id="56t-K5-hRA"/>
+                        <outlet property="FirstNameTxt" destination="nHm-ef-2ZX" id="77Q-SA-Mdt"/>
+                        <outlet property="LastNameTxt" destination="fp3-fh-BHM" id="VMI-rQ-yzh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOM-4N-Gdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

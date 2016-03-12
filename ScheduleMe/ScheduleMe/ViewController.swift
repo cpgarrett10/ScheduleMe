@@ -164,13 +164,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+
         
       //self.gradientView.initGradient()
     
         
         
         
+
         
         ref.observeEventType(.Value, withBlock: {
             snapshot in

@@ -9,7 +9,6 @@
         <!--LoginPage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController title="LoginPage" id="BYZ-38-t0r" customClass="ViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -107,6 +106,7 @@
                         <outlet property="weatherCondition" destination="stt-7g-fvb" id="fDZ-3O-oHu"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-98.5" y="246.5"/>
         </scene>
@@ -168,7 +168,13 @@
                                     <rect key="frame" x="0.0" y="0.0" width="363" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <items>
-                                        <navigationItem title="Services" id="5xA-aC-wQT"/>
+                                        <navigationItem title="Services" id="5xA-aC-wQT">
+                                            <barButtonItem key="rightBarButtonItem" title="Add Service" id="igN-YE-lkJ">
+                                                <connections>
+                                                    <segue destination="rDB-Tz-G8x" kind="show" id="Gzh-ca-18I"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </navigationItem>
                                     </items>
                                 </navigationBar>
                             </tableView>
@@ -235,7 +241,13 @@
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAf-0A-Tfh">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="isM-Xw-S9R"/>
+                                    <navigationItem title="Title" id="isM-Xw-S9R">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="e7B-Jb-Zqq">
+                                            <connections>
+                                                <segue destination="gSX-Rh-dxq" kind="show" id="LVZ-HH-e3k"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLE-3C-oyb">
@@ -455,4 +467,7 @@
     <resources>
         <image name="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" width="1290" height="1290"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="LVZ-HH-e3k"/>
+    </inferredMetricsTieBreakers>
 </document>

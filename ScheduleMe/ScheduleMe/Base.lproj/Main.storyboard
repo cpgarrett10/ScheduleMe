@@ -566,7 +566,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ed0-tt-8tw">
-                                <rect key="frame" x="16" y="113" width="343" height="539"/>
+                                <rect key="frame" x="16" y="108" width="343" height="544"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -591,7 +591,7 @@
                             <constraint firstItem="C0f-Wm-FTN" firstAttribute="leading" secondItem="3Bq-fZ-Yi7" secondAttribute="leadingMargin" id="dHx-hE-f7h"/>
                             <constraint firstAttribute="trailingMargin" secondItem="C0f-Wm-FTN" secondAttribute="trailing" id="g33-4z-SKT"/>
                             <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="Dno-wi-ybV" secondAttribute="bottom" constant="10" id="lJ0-aY-q7l"/>
-                            <constraint firstItem="Ed0-tt-8tw" firstAttribute="top" secondItem="C0f-Wm-FTN" secondAttribute="bottom" constant="5" id="prs-TI-slM"/>
+                            <constraint firstItem="Ed0-tt-8tw" firstAttribute="top" secondItem="C0f-Wm-FTN" secondAttribute="bottom" id="prs-TI-slM"/>
                             <constraint firstAttribute="trailing" secondItem="FIx-ZH-MJ7" secondAttribute="trailing" id="vuy-Xg-bTU"/>
                             <constraint firstItem="G9f-cL-eYB" firstAttribute="top" secondItem="Ed0-tt-8tw" secondAttribute="bottom" id="w0J-Hk-zm2"/>
                             <constraint firstItem="Ed0-tt-8tw" firstAttribute="leading" secondItem="3Bq-fZ-Yi7" secondAttribute="leadingMargin" id="x4f-yW-s4W"/>
@@ -625,6 +625,6 @@
         <image name="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" width="1290" height="1290"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="LVZ-HH-e3k"/>
+        <segue reference="dVH-Nt-1YP"/>
     </inferredMetricsTieBreakers>
 </document>

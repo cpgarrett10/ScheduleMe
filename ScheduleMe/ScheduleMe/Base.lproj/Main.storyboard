@@ -484,34 +484,63 @@
             </objects>
             <point key="canvasLocation" x="434.5" y="1037.5"/>
         </scene>
-        <!--NavigationPage-->
-        <scene sceneID="pm3-CF-PxX">
+        <!--Transition View Controller-->
+        <scene sceneID="qZy-Cz-N05">
             <objects>
-                <viewController title="NavigationPage" id="D9r-XX-cYP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="tranView" id="2gH-Xc-zdd" customClass="TransitionViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2fF-5G-o3S"/>
-                        <viewControllerLayoutGuide type="bottom" id="XOp-TO-fGK"/>
+                        <viewControllerLayoutGuide type="top" id="dV7-gz-ITW"/>
+                        <viewControllerLayoutGuide type="bottom" id="ueO-2O-Vkb"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ZaU-V3-lef">
+                    <view key="view" contentMode="scaleToFill" id="bYt-Ns-jUU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="De9-9g-70d">
-                                <rect key="frame" x="139" y="256" width="97" height="30"/>
-                                <state key="normal" title="Find a Service"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-9y-sOB">
-                                <rect key="frame" x="128" y="325" width="119" height="30"/>
-                                <state key="normal" title="Provide a Service"/>
-                            </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4vp-pp-y1J" customClass="GradientView" customModule="ScheduleMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IF2-dl-guu">
+                                        <rect key="frame" x="107" y="238" width="161" height="58"/>
+                                        <state key="normal" title="FIND A SERVICE">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="JIV-FC-yIF" kind="show" id="hlG-aH-E4M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUN-5G-kyn">
+                                        <rect key="frame" x="107" y="351" width="161" height="58"/>
+                                        <state key="normal" title="PROVIDE A SERVICE">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gSX-Rh-dxq" kind="show" id="L0Z-5j-OER"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="IF2-dl-guu" firstAttribute="top" secondItem="4vp-pp-y1J" secondAttribute="top" constant="238" id="1pK-9T-v3o"/>
+                                    <constraint firstItem="gUN-5G-kyn" firstAttribute="leading" secondItem="IF2-dl-guu" secondAttribute="leading" id="SVO-M3-SDb"/>
+                                    <constraint firstAttribute="trailing" secondItem="gUN-5G-kyn" secondAttribute="trailing" constant="107" id="gac-OM-5xy"/>
+                                    <constraint firstItem="IF2-dl-guu" firstAttribute="leading" secondItem="4vp-pp-y1J" secondAttribute="leading" constant="107" id="gjc-uo-et1"/>
+                                    <constraint firstItem="gUN-5G-kyn" firstAttribute="leading" secondItem="4vp-pp-y1J" secondAttribute="leading" constant="107" id="rp8-5W-nOV"/>
+                                    <constraint firstAttribute="trailing" secondItem="IF2-dl-guu" secondAttribute="trailing" constant="107" id="vb9-Te-iO5"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="FindAServiceLabel" destination="IF2-dl-guu" id="Lps-Kh-C7s"/>
+                        <outlet property="ProvideAServiceLabel" destination="gUN-5G-kyn" id="ZhF-9N-AIQ"/>
+                        <outlet property="gradientView" destination="4vp-pp-y1J" id="vhx-DR-iIo"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jxR-yW-hjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vKT-Wn-Iae" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348.5" y="246.5"/>
+            <point key="canvasLocation" x="340.5" y="246.5"/>
         </scene>
         <!--FeaturedPage-->
         <scene sceneID="ANu-Is-1L1">
@@ -528,7 +557,7 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIx-ZH-MJ7">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="1am-h4-Ao4">
+                                    <navigationItem id="1am-h4-Ao4">
                                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="O3G-7g-byD">
                                             <connections>
                                                 <segue destination="gSX-Rh-dxq" kind="show" id="dVH-Nt-1YP"/>
@@ -603,5 +632,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dVH-Nt-1YP"/>
+        <segue reference="hlG-aH-E4M"/>
     </inferredMetricsTieBreakers>
 </document>

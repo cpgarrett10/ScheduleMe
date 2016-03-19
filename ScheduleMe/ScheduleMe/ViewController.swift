@@ -120,8 +120,8 @@ class ViewController: UIViewController {
                         
                         //send them to home screen
                         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-                        let serviceViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("serviceView") as UIViewController
-                        self.presentViewController(serviceViewController, animated: true, completion: nil)
+                        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageView") as UIViewController
+                        self.presentViewController(MainPageViewController, animated: true, completion: nil)
                         
                         
                         print("Here is the uID that you can use everywhere: \(uid)")
@@ -185,8 +185,8 @@ class ViewController: UIViewController {
                                     
                                     //send them to home screen
                                     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-                                    let serviceViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("serviceView") as UIViewController
-                                    self.presentViewController(serviceViewController, animated: true, completion: nil)
+                                    let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageView") as UIViewController
+                                    self.presentViewController(MainPageViewController, animated: true, completion: nil)
                                     
                                     
                                     print("Here is the uID that you can use everywhere: \(uid)")

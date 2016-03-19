@@ -251,7 +251,7 @@
         <!--Add a Service-->
         <scene sceneID="isg-t1-nPJ">
             <objects>
-                <viewController title="Add a Service" id="rDB-Tz-G8x" customClass="ServiceViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="serviceView" title="Add a Service" id="rDB-Tz-G8x" customClass="ServiceViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qwv-Zh-eMI"/>
                         <viewControllerLayoutGuide type="bottom" id="N5Z-Sb-Zf4"/>
@@ -539,7 +539,7 @@
         <!--FeaturedPage-->
         <scene sceneID="ANu-Is-1L1">
             <objects>
-                <viewController storyboardIdentifier="serviceView" title="FeaturedPage" id="JIV-FC-yIF" customClass="MainPageViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainPageView" title="FeaturedPage" id="JIV-FC-yIF" customClass="MainPageViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dno-wi-ybV"/>
                         <viewControllerLayoutGuide type="bottom" id="G9f-cL-eYB"/>

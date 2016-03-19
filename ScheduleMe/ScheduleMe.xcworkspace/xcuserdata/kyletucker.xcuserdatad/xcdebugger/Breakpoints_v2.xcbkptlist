@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScheduleMe/ViewController.swift"
-            timestampString = "479498297.243206"
+            timestampString = "479521137.969717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "loginSignUp(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ScheduleMe/UserProfileViewController.swift"
-            timestampString = "479504371.662653"
+            timestampString = "480096724.603075"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"

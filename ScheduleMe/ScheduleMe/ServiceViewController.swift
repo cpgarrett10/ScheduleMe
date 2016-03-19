@@ -11,46 +11,51 @@ import UIKit
 class ServiceViewController : UIViewController {
     
     var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
-    
-/*
-    self.dataSource = FirebaseTableViewDataSource(ref: ref,
-    modelClass: FDataSnapshot.self,
-    cellClass: UITableViewCell.self,
-    cellReuseIdentifier: "<YOUR-REUSE-IDENTIFIER>",
-    view: self.tableView)
-    
-    self.dataSource.populateCellWithBlock { (cell: UITableViewCell, obj: NSObject) -> Void in
-    let snap = obj as! FDataSnapshot // Force cast to an FDataSnapshot
-    /* Populate cell with contents of the snapshot */
-    }
-    
-    self.tableView.dataSource = self.dataSource
-    
-    
-    
-    
-   override func viewDidLoad() {
-       super.viewDidLoad()
+    let uid = Firebase(url: "https://schedulemecapstone.firebaseio.com/").authData.uid
 
-        // 1
-        ref.observeEventType(.Value, withBlock: { snapshot in
-            
-            // 2
-            var newItems = [String]()
-            
-            // 3
-            for item in snapshot.children {
-                newItems.append(item.value)
-            }
-            
-            print(newItems)
-            
-            // 5
-//            self.items = newItems
-//            self.tableView.reloadData()
+    @IBOutlet var TitleTxt: UITextField!
+    @IBOutlet var TypeTxt: UITextField!
+    @IBOutlet var SrvcEmailTxt: UITextField!
+    @IBOutlet var PhoneTxt: UITextField!
+    @IBOutlet var PriceTxt: UITextField!
+    @IBOutlet var StreetAddressTxt: UITextField!
+    @IBOutlet var CityTxt: UITextField!
+    @IBOutlet var StateTxt: UITextField!
+    @IBOutlet var ZipTxt: UITextField!
+    @IBOutlet var DistanceMilesTxt: UITextField!
+        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let usersRef = ref.childByAppendingPath("users")
+        let userIDRef = usersRef.childByAppendingPath(uid)
+        
+        //DO AN IF STATEMENT TO CHECK IF ALL FIELDS EXIST, IF NOT CREATE THEM THEN UPDATE THEM, OTHERWISE UPDATE THEM
+        
+        userIDRef.observeEventType(.Value, withBlock: { snapshot in
+            print(snapshot.value)
+            self.TitleTxt.text = snapshot.value.objectForKey("Title") as? String
+            self.TypeTxt.text = snapshot.value.objectForKey("Type") as? String
+            self.SrvcEmailTxt.text = snapshot.value.objectForKey("SrvcEmail") as? String
+            }, withCancelBlock: { error in
+                print(error.description)
         })
-    
-    
+            
     }
-*/
+        
+    @IBAction func AddUpdateServiceBtn(sender: AnyObject) {
+        
+        //DO AN IF STATEMENT TO CHECK IF ALL FIELDS EXIST, IF NOT CREATE THEM THEN UPDATE THEM, OTHERWISE UPDATE THEM
+        
+        let usersRef = ref.childByAppendingPath("users")
+        let userIDRef = usersRef.childByAppendingPath(uid)
+        //let nickname = ["nickname": "Amazing Grace"]
+        
+        userIDRef.updateChildValues([
+            "Title": TitleTxt.text!,
+            "Type": TypeTxt.text!,
+            "SrvcEmail": SrvcEmailTxt.text!
+            ])
+        
+    }
 }

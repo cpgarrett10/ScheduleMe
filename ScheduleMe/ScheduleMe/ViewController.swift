@@ -92,25 +92,44 @@ class ViewController: UIViewController {
             ref.authUser(UsernameTxt.text, password: PasswordTxt.text,
                 withCompletionBlock: { error, authData in
                     if error != nil {
-                        // There was an error logging in to this account
+                        // an error occurred while attempting login
+                        if let errorCode = FAuthenticationError(rawValue: error.code) {
+                            switch (errorCode) {
+                            case .UserDoesNotExist:
+                                print("Handle invalid user")
+                            case .InvalidEmail:
+                                print("Handle invalid email")
+                            case .InvalidPassword:
+                                print("Handle invalid password")
+                            default:
+                                print("Handle default situation")
+                            }
+                        }
                         
-                        print("You have failed to loggin" + error.debugDescription)
+                        print("You have failed to log in" + error.debugDescription)
+                    
                     } else {
+                        
+                        let uid = self.ref.authData.uid
+                        
                         // We are now logged in
                         print("You have successfully logged in")
+                        
+                        print(uid)
                         
                         //send them to home screen
                         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                         let serviceViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("serviceView") as UIViewController
                         self.presentViewController(serviceViewController, animated: true, completion: nil)
                         
-                        let uid = self.ref.authData.uid
+                        
                         print("Here is the uID that you can use everywhere: \(uid)")
                     }
             })
             
             
         } else if self.login == 2 {
+            //sign up logic
             
             ref.createUser(UsernameTxt.text, password: PasswordTxt.text,
                 withValueCompletionBlock: { error, result in
@@ -122,11 +141,62 @@ class ViewController: UIViewController {
                         let uid = result["uid"] as? String
                         print("Successfully created user account with uid: \(uid)")
                         
+                        //Log user in -- turn thi sinto a function
+                        
+                        self.ref.authUser(self.UsernameTxt.text, password: self.PasswordTxt.text,
+                            withCompletionBlock: { error, authData in
+                                if error != nil {
+                                    // an error occurred while attempting login
+                                    if let errorCode = FAuthenticationError(rawValue: error.code) {
+                                        switch (errorCode) {
+                                        case .UserDoesNotExist:
+                                            print("Handle invalid user")
+                                        case .InvalidEmail:
+                                            print("Handle invalid email")
+                                        case .InvalidPassword:
+                                            print("Handle invalid password")
+                                        default:
+                                            print("Handle default situation")
+                                        }
+                                    }
+                                    
+                                    print("You have failed to log in" + error.debugDescription)
+                                    
+                                } else {
+                                    
+                                    let uid = self.ref.authData.uid
+                                    
+                                    // We are now logged in
+                                    print("You have successfully logged in")
+                                    
+                                    print(uid)
+                                    
+                                    //create new user dictionary
+                                    let newUser = [
+                                        "provider": authData.provider,
+                                        "email": authData.providerData["email"] as? NSString as? String,
+                                        "profileImage": authData.providerData["profileImageURL"] as? NSString as? String
+                                        
+                                    ]
+                                    
+                                    //send dictionary to actaully create a new user in users in Firebase
+                                    self.ref.childByAppendingPath("users").childByAppendingPath(authData.uid).setValue(newUser)
+                                    
+                                    //send them to home screen
+                                    let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+                                    let serviceViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("serviceView") as UIViewController
+                                    self.presentViewController(serviceViewController, animated: true, completion: nil)
+                                    
+                                    
+                                    print("Here is the uID that you can use everywhere: \(uid)")
+                                }
+                        })
+
                         //send them to first time experience
                         
                     }
             })
-            //sign up logic
+            
             
         } else if self.login == 3 {
             

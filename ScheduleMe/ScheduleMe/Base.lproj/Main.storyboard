@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -122,18 +122,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0X-fF-WnB">
-                                <rect key="frame" x="-4" y="20" width="383" height="44"/>
-                                <items>
-                                    <navigationItem title="User Profile" id="Qnm-fv-3W3">
-                                        <barButtonItem key="rightBarButtonItem" title="Back" id="GFd-YY-dGW">
-                                            <connections>
-                                                <segue destination="JIV-FC-yIF" kind="show" id="WkA-iP-doB"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Hpi-0U-EJe">
                                 <rect key="frame" x="26" y="84" width="100" height="100"/>
                                 <constraints>
@@ -186,6 +174,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0X-fF-WnB">
+                                <rect key="frame" x="-4" y="20" width="383" height="44"/>
+                                <items>
+                                    <navigationItem title="User Profile" id="Qnm-fv-3W3">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="GFd-YY-dGW">
+                                            <connections>
+                                                <segue destination="JIV-FC-yIF" kind="show" id="WkA-iP-doB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -237,7 +237,7 @@
         <!--Add a Service-->
         <scene sceneID="isg-t1-nPJ">
             <objects>
-                <viewController title="Add a Service" id="rDB-Tz-G8x" sceneMemberID="viewController">
+                <viewController title="Add a Service" id="rDB-Tz-G8x" customClass="ServiceViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qwv-Zh-eMI"/>
                         <viewControllerLayoutGuide type="bottom" id="N5Z-Sb-Zf4"/>
@@ -246,18 +246,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAf-0A-Tfh">
-                                <rect key="frame" x="0.0" y="17" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Service" id="isM-Xw-S9R">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="e7B-Jb-Zqq">
-                                            <connections>
-                                                <segue destination="gSX-Rh-dxq" kind="show" id="LVZ-HH-e3k"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zLE-3C-oyb">
                                 <rect key="frame" x="19" y="81" width="106" height="101"/>
                                 <constraints>
@@ -341,8 +329,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-aq-ZLl">
-                                <rect key="frame" x="135" y="622" width="104" height="30"/>
-                                <state key="normal" title="Submit Service"/>
+                                <rect key="frame" x="146" y="622" width="83" height="30"/>
+                                <state key="normal" title="Add Service"/>
+                                <connections>
+                                    <action selector="AddUpdateServiceBtn:" destination="rDB-Tz-G8x" eventType="touchUpInside" id="0aR-DQ-QFv"/>
+                                    <segue destination="gSX-Rh-dxq" kind="show" id="Xp6-JT-TlL"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7y-Lb-T3z">
                                 <rect key="frame" x="103" y="238" width="22" height="22"/>
@@ -357,6 +349,18 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAf-0A-Tfh">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Service" id="isM-Xw-S9R">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="e7B-Jb-Zqq">
+                                            <connections>
+                                                <segue destination="gSX-Rh-dxq" kind="show" id="LVZ-HH-e3k"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -471,10 +475,22 @@
                         </variation>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="CityTxt" destination="D04-WW-r9p" id="DAF-rD-zQ9"/>
+                        <outlet property="DistanceMilesTxt" destination="w7t-gO-rfK" id="LZ0-pg-EPS"/>
+                        <outlet property="PhoneTxt" destination="SGf-Pn-3Eg" id="sOA-np-8nz"/>
+                        <outlet property="PriceTxt" destination="y85-rg-Tej" id="GRN-NJ-u0a"/>
+                        <outlet property="SrvcEmailTxt" destination="jTO-xe-sJM" id="tPv-r9-Jf1"/>
+                        <outlet property="StateTxt" destination="DZC-tH-R1P" id="GBE-Hx-Qr2"/>
+                        <outlet property="StreetAddressTxt" destination="IZB-bW-K0g" id="Yla-8c-z7t"/>
+                        <outlet property="TitleTxt" destination="aLA-4u-8Ej" id="e4e-yP-ipp"/>
+                        <outlet property="TypeTxt" destination="iQY-h5-5bI" id="e7H-4p-JWH"/>
+                        <outlet property="ZipTxt" destination="FH4-tX-GJP" id="VKO-ci-Iec"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhi-Cz-YYv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348.5" y="1011.5"/>
+            <point key="canvasLocation" x="434.5" y="1037.5"/>
         </scene>
         <!--NavigationPage-->
         <scene sceneID="pm3-CF-PxX">
@@ -508,7 +524,7 @@
         <!--FeaturedPage-->
         <scene sceneID="ANu-Is-1L1">
             <objects>
-                <viewController storyboardIdentifier="serviceView" title="FeaturedPage" id="JIV-FC-yIF" customClass="ServiceViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="serviceView" title="FeaturedPage" id="JIV-FC-yIF" customClass="MainPageViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dno-wi-ybV"/>
                         <viewControllerLayoutGuide type="bottom" id="G9f-cL-eYB"/>

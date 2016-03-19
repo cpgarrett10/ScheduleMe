@@ -23,7 +23,6 @@ class ViewController: UIViewController {
     @IBOutlet var switchLoginSceen: UIButton!
     @IBOutlet var UsernameTxt: UITextField!
     @IBOutlet var PasswordTxt: UITextField!
-    @IBOutlet var weatherCondition: UILabel!
     @IBOutlet var ForgotPassButton: UIButton!
     
     
@@ -250,15 +249,6 @@ class ViewController: UIViewController {
         scheduleMeLabel.layer.borderWidth = 3
         scheduleMeLabel.layer.borderColor = UIColor.whiteColor().CGColor
     
-        
-
-        
-        ref.observeEventType(.Value, withBlock: {
-            snapshot in
-            self.weatherCondition.text = snapshot.value as? String
-            
-            
-        })
         
     }
 

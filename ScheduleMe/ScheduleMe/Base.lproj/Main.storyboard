@@ -18,6 +18,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="gradientView" translatesAutoresizingMaskIntoConstraints="NO" id="RwH-rM-llg" customClass="GradientView" customModule="ScheduleMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyr-bk-i4Z">
+                                        <rect key="frame" x="141" y="335" width="93" height="30"/>
+                                        <state key="normal" title="LOGIN">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loginSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7Z-4I-csI"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUC-3M-HZj">
+                                        <rect key="frame" x="83" y="132" width="209" height="57"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="ScheduleMe">
+                                                <attributes>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <font key="NSFont" size="29" name="AvenirNext-Regular"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cpgarrett10@gmail.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cwl-c2-YIQ">
                                 <rect key="frame" x="85" y="240" width="204" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -29,25 +57,21 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Don't have an account?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl4-s4-EHW" userLabel="AccountLabel">
-                                <rect key="frame" x="57" y="368" width="176" height="21"/>
+                                <rect key="frame" x="57" y="388" width="176" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UVP-zj-2On">
-                                <rect key="frame" x="242" y="364" width="76" height="30"/>
+                                <rect key="frame" x="242" y="384" width="76" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Sign Up"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="SignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m46-TP-th1"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ScheduleMe" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qUC-3M-HZj">
-                                <rect key="frame" x="85" y="164" width="204" height="38"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vGx-ai-SMG">
                                 <rect key="frame" x="296" y="617" width="59" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
@@ -62,18 +86,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tyr-bk-i4Z">
-                                <rect key="frame" x="140" y="324" width="93" height="30"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginSignUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S7Z-4I-csI"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qfJ-rl-y7u">
-                                <rect key="frame" x="130" y="413" width="115" height="30"/>
+                                <rect key="frame" x="130" y="433" width="115" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Forgot Password">
-                                    <color key="titleColor" red="0.56243864529999998" green="0.56243864529999998" blue="0.56243864529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="forgotPassClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMz-Hp-xQj"/>
@@ -87,10 +104,6 @@
                                     <action selector="updateWeatherButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qAR-9h-eCJ"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RwH-rM-llg">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -103,6 +116,7 @@
                         <outlet property="accountLabel" destination="fl4-s4-EHW" id="joK-UB-J7h"/>
                         <outlet property="gradientView" destination="RwH-rM-llg" id="Y4t-qc-tBq"/>
                         <outlet property="loginSignUp" destination="Tyr-bk-i4Z" id="whm-lb-1iq"/>
+                        <outlet property="scheduleMeLabel" destination="qUC-3M-HZj" id="myd-v6-w9A"/>
                         <outlet property="weatherCondition" destination="stt-7g-fvb" id="fDZ-3O-oHu"/>
                     </connections>
                 </viewController>
@@ -486,6 +500,7 @@
                         <outlet property="TitleTxt" destination="aLA-4u-8Ej" id="e4e-yP-ipp"/>
                         <outlet property="TypeTxt" destination="iQY-h5-5bI" id="e7H-4p-JWH"/>
                         <outlet property="ZipTxt" destination="FH4-tX-GJP" id="VKO-ci-Iec"/>
+                        <outlet property="descriptionTextView" destination="7D0-5h-48S" id="UF9-LN-vsH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhi-Cz-YYv" userLabel="First Responder" sceneMemberID="firstResponder"/>

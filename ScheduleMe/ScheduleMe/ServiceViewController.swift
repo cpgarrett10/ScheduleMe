@@ -13,6 +13,7 @@ class ServiceViewController : UIViewController {
     var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
     let uid = Firebase(url: "https://schedulemecapstone.firebaseio.com/").authData.uid
 
+    @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var TitleTxt: UITextField!
     @IBOutlet var TypeTxt: UITextField!
     @IBOutlet var SrvcEmailTxt: UITextField!
@@ -29,6 +30,13 @@ class ServiceViewController : UIViewController {
         
         let usersRef = ref.childByAppendingPath("users")
         let userIDRef = usersRef.childByAppendingPath(uid)
+        
+        
+        descriptionTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
+        descriptionTextView.layer.borderWidth = 1.0
+        descriptionTextView.layer.cornerRadius = 5
+        
+        
         
         //DO AN IF STATEMENT TO CHECK IF ALL FIELDS EXIST, IF NOT CREATE THEM THEN UPDATE THEM, OTHERWISE UPDATE THEM
         

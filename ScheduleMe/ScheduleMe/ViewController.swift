@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     
     var login = 1 //Login = 1 SignUp = 2 ForgotPassword = 3
     
+    @IBOutlet var scheduleMeLabel: UILabel!
     @IBOutlet weak var gradientView: GradientView!
     @IBOutlet var accountLabel: UILabel!
     @IBOutlet var loginSignUp: UIButton!
@@ -32,7 +33,7 @@ class ViewController: UIViewController {
         
         self.accountLabel.text = "Know you password?"
         self.switchLoginSceen.setTitle("Login", forState: .Normal)
-        self.loginSignUp.setTitle("Submit", forState: .Normal)
+        self.loginSignUp.setTitle("SUBMIT", forState: .Normal)
         self.PasswordTxt.hidden = true
         self.UsernameTxt.text = ""
         self.PasswordTxt.text = ""
@@ -50,7 +51,7 @@ class ViewController: UIViewController {
             
             self.accountLabel.text = "Already have an account?"
             self.switchLoginSceen.setTitle("Login", forState: .Normal)
-            self.loginSignUp.setTitle("Sign Up", forState: .Normal)
+            self.loginSignUp.setTitle("SIGN UP", forState: .Normal)
             self.PasswordTxt.hidden = false
             self.UsernameTxt.text = ""
             self.PasswordTxt.text = ""
@@ -63,7 +64,7 @@ class ViewController: UIViewController {
             
             self.accountLabel.text = "Don't have an account?"
             self.switchLoginSceen.setTitle("Sign Up", forState: .Normal)
-            self.loginSignUp.setTitle("Login", forState: .Normal)
+            self.loginSignUp.setTitle("LOGIN", forState: .Normal)
             self.PasswordTxt.hidden = false
             self.UsernameTxt.text = ""
             self.PasswordTxt.text = ""
@@ -75,7 +76,7 @@ class ViewController: UIViewController {
             
             self.accountLabel.text = "Don't have an account?"
             self.switchLoginSceen.setTitle("Sign Up", forState: .Normal)
-            self.loginSignUp.setTitle("Login", forState: .Normal)
+            self.loginSignUp.setTitle("LOGIN", forState: .Normal)
             self.PasswordTxt.hidden = false
             self.UsernameTxt.text = ""
             self.PasswordTxt.text = ""
@@ -152,7 +153,7 @@ class ViewController: UIViewController {
                                         case .UserDoesNotExist:
                                             print("Handle invalid user")
                                         case .InvalidEmail:
-                                            print("Handle invalid email")
+                                            print("Handle invalid email") 
                                         case .InvalidPassword:
                                             print("Handle invalid password")
                                         default:
@@ -220,7 +221,7 @@ class ViewController: UIViewController {
             
             self.accountLabel.text = "Don't have an account?"
             self.switchLoginSceen.setTitle("Sign Up", forState: .Normal)
-            self.loginSignUp.setTitle("Login", forState: .Normal)
+            self.loginSignUp.setTitle("LOGIN", forState: .Normal)
             self.PasswordTxt.hidden = false
             self.UsernameTxt.text = ""
             self.PasswordTxt.text = ""
@@ -236,10 +237,19 @@ class ViewController: UIViewController {
         // Do anyadditional setup after loading the view, typically from a nib.
 
         
-      //self.gradientView.initGradient()
+     self.gradientView.initGradient()
     
+        loginSignUp.backgroundColor = UIColor.clearColor()
+        loginSignUp.layer.cornerRadius = 5
+        loginSignUp.layer.borderWidth = 1
+        loginSignUp.layer.borderColor = UIColor.whiteColor().CGColor
         
         
+        scheduleMeLabel.backgroundColor = UIColor.clearColor()
+        scheduleMeLabel.layer.cornerRadius = 5
+        scheduleMeLabel.layer.borderWidth = 3
+        scheduleMeLabel.layer.borderColor = UIColor.whiteColor().CGColor
+    
         
 
         

@@ -13,12 +13,27 @@ class TransitionViewController: UIViewController{
     @IBOutlet weak var gradientView: GradientView!
     @IBOutlet weak var FindAServiceLabel: UIButton!
     @IBOutlet weak var ProvideAServiceLabel: UIButton!
+    var timer = NSTimer()
+    var test = 1
+    @IBOutlet weak var testLabel: UILabel!
+    
+    
+    func changeGradient(){
+        
+        
+        self.gradientView.initGradient()
+       
+        
+        
+    }
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.gradientView.initGradient()
+//        self.gradientView.initGradient()
+        
+        timer = NSTimer.scheduledTimerWithTimeInterval(0.1, target: self, selector: Selector("changeGradient"), userInfo: nil, repeats: true)
         
         
                 FindAServiceLabel.backgroundColor = UIColor.clearColor()
@@ -32,7 +47,7 @@ class TransitionViewController: UIViewController{
                 ProvideAServiceLabel.layer.borderWidth = 1
                 ProvideAServiceLabel.layer.borderColor = UIColor.whiteColor().CGColor
         
-        
+
     }
     
     

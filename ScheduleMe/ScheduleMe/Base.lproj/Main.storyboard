@@ -153,7 +153,7 @@
                                         <navigationItem title="Services" id="5xA-aC-wQT">
                                             <barButtonItem key="rightBarButtonItem" title="Add Service" id="igN-YE-lkJ">
                                                 <connections>
-                                                    <segue destination="rDB-Tz-G8x" kind="show" id="Gzh-ca-18I"/>
+                                                    <segue destination="rDB-Tz-G8x" kind="show" identifier="AddServiceSegue" id="Gzh-ca-18I"/>
                                                 </connections>
                                             </barButtonItem>
                                         </navigationItem>

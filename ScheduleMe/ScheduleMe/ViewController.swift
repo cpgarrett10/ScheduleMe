@@ -119,7 +119,7 @@ class ViewController: UIViewController {
                         
                         //send them to home screen
                         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-                        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageView") as UIViewController
+                        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("transView") as UIViewController
                         self.presentViewController(MainPageViewController, animated: true, completion: nil)
                         
                         
@@ -184,7 +184,7 @@ class ViewController: UIViewController {
                                     
                                     //send them to home screen
                                     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-                                    let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("MainPageView") as UIViewController
+                                    let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("transView") as UIViewController
                                     self.presentViewController(MainPageViewController, animated: true, completion: nil)
                                     
                                     

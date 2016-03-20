@@ -30,30 +30,34 @@ class UserProfileViewController : UIViewController {
         //let servicesRef = ref.childByAppendingPath("services")
         
         userIDRef.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot.value)
+            
+            //Pull in Name & Email from Firebase
             self.FirstNameTxt.text = snapshot.value.objectForKey("FirstName") as? String
             self.LastNameTxt.text = snapshot.value.objectForKey("LastName") as? String
             self.EmailTxt.text = snapshot.value.objectForKey("email") as? String
             
+            //Print what our counter is at
+            print(snapshot.value)
             print(snapshot.value.objectForKey("ServiceCounter") as? String)
             let result = snapshot.value.objectForKey("ServiceCounter") as? String
-            
-            if result != nil {
-                self.serviceCounter = result!
-            } else {
-                self.serviceCounter = "0"
-                userIDRef.updateChildValues([
-                    "ServiceCounter": self.serviceCounter
-                    ])
-            }
-            
             print(result)
             print(self.serviceCounter)
-            print(snapshot.value.objectForKey("ServiceCounter") as? String)
             
+            //If counter != null then pull it, if == null then create it as 0
+                if result != nil {
+                    self.serviceCounter = result!
+                } else {
+                    self.serviceCounter = "0"
+                    userIDRef.updateChildValues([
+                        "ServiceCounter": self.serviceCounter
+                    ])
+                }
+            
+
             }, withCancelBlock: { error in
                 print(error.description)
         })
+        print(self.serviceCounter)
         
         /*
         self.dataSource = FirebaseTableViewDataSource(ref: servicesRef, cellReuseIdentifier: "Cell", view: self.UserServicesTable)
@@ -103,14 +107,6 @@ class UserProfileViewController : UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "AddServiceSegue") {
-            
-            let servicesRef = ref.childByAppendingPath("services")
-            let servicesIDRef = servicesRef.childByAppendingPath("\(uid)Service\(serviceCounter)")
-            
-            //Create a Service with the proper USERID
-            servicesIDRef.updateChildValues([
-                "uid": uid!
-                ])
             
             let destinationViewController = segue.destinationViewController as! ServiceViewController
             destinationViewController.serviceCounter = self.serviceCounter

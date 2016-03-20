@@ -35,32 +35,43 @@ class ServiceViewController : UIViewController {
         descriptionTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
         descriptionTextView.layer.borderWidth = 1.0
         descriptionTextView.layer.cornerRadius = 5
-        
-        //let servicesCounter = servicesCounterFunc()
+
         let servicesRef = ref.childByAppendingPath("services")
         let servicesIDRef = servicesRef.childByAppendingPath(serviceID)
         
-        //DO AN IF STATEMENT TO CHECK IF ALL FIELDS EXIST, IF NOT CREATE THEM THEN UPDATE THEM, OTHERWISE UPDATE THEM
+ 
         
-        //IF ServiceExists Then use the corresponding number ELSE Use the next value in the counter- Therefore use a number
-        
+        if AddEdit == "Edit" {
         // USE ONLY ON UPDATING A SERVICE
-        servicesIDRef.observeEventType(.Value, withBlock: { snapshot in
-            print(snapshot.value)
-            self.TitleTxt.text = snapshot.value.objectForKey("Title") as? String
-            self.TypeTxt.text = snapshot.value.objectForKey("Type") as? String
-            self.SrvcEmailTxt.text = snapshot.value.objectForKey("ServiceEmail") as? String
-            self.PhoneTxt.text = snapshot.value.objectForKey("Phone") as? String
-            self.PriceTxt.text = snapshot.value.objectForKey("Price") as? String
-            self.StreetAddressTxt.text = snapshot.value.objectForKey("StreetAddress") as? String
-            self.CityTxt.text = snapshot.value.objectForKey("City") as? String
-            self.StateTxt.text = snapshot.value.objectForKey("State") as? String
-            self.ZipTxt.text = snapshot.value.objectForKey("Zip") as? String
-            self.DistanceMilesTxt.text = snapshot.value.objectForKey("DistanceMiles") as? String
-            self.descriptionTextView.text = snapshot.value.objectForKey("Description") as? String
-            }, withCancelBlock: { error in
+            servicesIDRef.observeEventType(.Value, withBlock: { snapshot in
+                print(snapshot.value)
+                self.TitleTxt.text = snapshot.value.objectForKey("Title") as? String
+                self.TypeTxt.text = snapshot.value.objectForKey("Type") as? String
+                self.SrvcEmailTxt.text = snapshot.value.objectForKey("ServiceEmail") as? String
+                self.PhoneTxt.text = snapshot.value.objectForKey("Phone") as? String
+                self.PriceTxt.text = snapshot.value.objectForKey("Price") as? String
+                self.StreetAddressTxt.text = snapshot.value.objectForKey("StreetAddress") as? String
+                self.CityTxt.text = snapshot.value.objectForKey("City") as? String
+                self.StateTxt.text = snapshot.value.objectForKey("State") as? String
+                self.ZipTxt.text = snapshot.value.objectForKey("Zip") as? String
+                self.DistanceMilesTxt.text = snapshot.value.objectForKey("DistanceMiles") as? String
+                self.descriptionTextView.text = snapshot.value.objectForKey("Description") as? String
+                }, withCancelBlock: { error in
                 print(error.description)
-        })
+            })
+        } else {
+            self.TitleTxt.text = ""
+            self.TypeTxt.text = ""
+            self.SrvcEmailTxt.text = ""
+            self.PhoneTxt.text = ""
+            self.PriceTxt.text = ""
+            self.StreetAddressTxt.text = ""
+            self.CityTxt.text = ""
+            self.StateTxt.text = ""
+            self.ZipTxt.text = ""
+            self.DistanceMilesTxt.text = ""
+            self.descriptionTextView.text = ""
+        }
         
         
     }
@@ -69,8 +80,8 @@ class ServiceViewController : UIViewController {
         
         let servicesRef = ref.childByAppendingPath("services")
         let servicesIDRef = servicesRef.childByAppendingPath(serviceID)
-        
-        
+ 
+        //Create/Update Service with the all details
         servicesIDRef.updateChildValues([
             "Title": TitleTxt.text!,
             "Type": TypeTxt.text!,
@@ -88,11 +99,14 @@ class ServiceViewController : UIViewController {
             ])
         
         if AddEdit == "Add" {
+            
+            //Create Path to update ServiceID Counter
             let usersRef = ref.childByAppendingPath("users")
             let userIDRef = usersRef.childByAppendingPath(uid)
             
+            //Update ServiceID Counter
             userIDRef.updateChildValues([
-                "ServiceCounter": (Int(self.serviceCounter)! + 1)
+                "ServiceCounter": String((Int(self.serviceCounter)! + 1))
                 ])
         }
         

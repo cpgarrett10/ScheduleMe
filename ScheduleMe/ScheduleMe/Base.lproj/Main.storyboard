@@ -149,6 +149,11 @@
                                 <navigationBar key="tableFooterView" contentMode="scaleToFill" id="hmz-ju-mtP">
                                     <rect key="frame" x="0.0" y="0.0" width="363" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <textAttributes key="titleTextAttributes">
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </textAttributes>
                                     <items>
                                         <navigationItem title="Services" id="5xA-aC-wQT">
                                             <barButtonItem key="rightBarButtonItem" title="Add Service" id="igN-YE-lkJ">
@@ -167,6 +172,11 @@
                             </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O0X-fF-WnB">
                                 <rect key="frame" x="-4" y="20" width="383" height="44"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="User Profile" id="Qnm-fv-3W3">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="GFd-YY-dGW">
@@ -342,6 +352,11 @@
                             </label>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VAf-0A-Tfh">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Service" id="isM-Xw-S9R">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="e7B-Jb-Zqq">
@@ -580,8 +595,13 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIx-ZH-MJ7">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Title" id="1am-h4-Ao4">
+                                    <navigationItem id="1am-h4-Ao4">
                                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="O3G-7g-byD">
                                             <connections>
                                                 <segue destination="gSX-Rh-dxq" kind="show" id="dVH-Nt-1YP"/>
@@ -655,7 +675,7 @@
         <image name="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" width="1290" height="1290"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="41p-lX-HVB"/>
-        <segue reference="3i4-Ny-tQE"/>
+        <segue reference="WkA-iP-doB"/>
+        <segue reference="Xp6-JT-TlL"/>
     </inferredMetricsTieBreakers>
 </document>

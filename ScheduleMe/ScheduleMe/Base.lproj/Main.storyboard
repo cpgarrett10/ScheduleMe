@@ -487,7 +487,7 @@
         <!--NavigationPage-->
         <scene sceneID="pm3-CF-PxX">
             <objects>
-                <viewController storyboardIdentifier="transView" title="NavigationPage" id="D9r-XX-cYP" customClass="TransitionViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transView" title="NavigationPage" id="D9r-XX-cYP" customClass="TransitionViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2fF-5G-o3S"/>
                         <viewControllerLayoutGuide type="bottom" id="XOp-TO-fGK"/>
@@ -496,18 +496,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="De9-9g-70d">
-                                <rect key="frame" x="139" y="256" width="97" height="30"/>
-                                <state key="normal" title="Find a Service"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-9y-sOB">
-                                <rect key="frame" x="128" y="325" width="119" height="30"/>
-                                <state key="normal" title="Provide a Service"/>
-                            </button>
+                            <view contentMode="scaleToFill" misplaced="YES" restorationIdentifier="gradientView" translatesAutoresizingMaskIntoConstraints="NO" id="lUq-aW-NG3" customClass="GradientView" customModule="ScheduleMe" customModuleProvider="target">
+                                <rect key="frame" x="-0.5" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12l-Fn-6uE">
+                                        <rect key="frame" x="90" y="380" width="194" height="61"/>
+                                        <state key="normal" title="PROVIDE A SERVICE">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="gSX-Rh-dxq" kind="show" id="3i4-Ny-tQE"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="De9-9g-70d">
+                                        <rect key="frame" x="90" y="253" width="194" height="61"/>
+                                        <state key="normal" title="FIND A SERVICE">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="JIV-FC-yIF" kind="show" id="41p-lX-HVB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="De9-9g-70d" firstAttribute="top" secondItem="lUq-aW-NG3" secondAttribute="top" constant="248" id="2e6-BZ-pwQ"/>
+                                    <constraint firstItem="De9-9g-70d" firstAttribute="leading" secondItem="lUq-aW-NG3" secondAttribute="leading" constant="90" id="4Qr-v2-OVU"/>
+                                    <constraint firstItem="12l-Fn-6uE" firstAttribute="leading" secondItem="De9-9g-70d" secondAttribute="leading" id="5TV-vH-8RN"/>
+                                    <constraint firstItem="12l-Fn-6uE" firstAttribute="top" secondItem="De9-9g-70d" secondAttribute="bottom" constant="66" id="LgF-YT-BMw"/>
+                                    <constraint firstItem="De9-9g-70d" firstAttribute="leading" secondItem="lUq-aW-NG3" secondAttribute="leading" constant="117" id="VDv-uR-Dpb"/>
+                                    <constraint firstItem="12l-Fn-6uE" firstAttribute="leading" secondItem="De9-9g-70d" secondAttribute="leading" id="WpX-Hi-BIM"/>
+                                    <constraint firstAttribute="trailing" secondItem="12l-Fn-6uE" secondAttribute="trailing" constant="91" id="Xci-Mg-nKd"/>
+                                    <constraint firstItem="12l-Fn-6uE" firstAttribute="trailing" secondItem="De9-9g-70d" secondAttribute="trailing" id="dvA-bE-iNF"/>
+                                    <constraint firstAttribute="trailing" secondItem="De9-9g-70d" secondAttribute="trailing" constant="118" id="hAi-Z1-aWI"/>
+                                    <constraint firstItem="De9-9g-70d" firstAttribute="top" secondItem="lUq-aW-NG3" secondAttribute="top" constant="253" id="hxV-ci-KW8"/>
+                                    <constraint firstItem="12l-Fn-6uE" firstAttribute="leading" secondItem="lUq-aW-NG3" secondAttribute="leading" constant="90" id="iw5-tb-G4d"/>
+                                    <constraint firstItem="12l-Fn-6uE" firstAttribute="trailing" secondItem="De9-9g-70d" secondAttribute="trailing" id="izQ-nw-tEd"/>
+                                    <constraint firstAttribute="trailing" secondItem="De9-9g-70d" secondAttribute="trailing" constant="91" id="q0s-7p-GtA"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="2e6-BZ-pwQ"/>
+                                        <exclude reference="VDv-uR-Dpb"/>
+                                        <exclude reference="hAi-Z1-aWI"/>
+                                        <exclude reference="5TV-vH-8RN"/>
+                                        <exclude reference="WpX-Hi-BIM"/>
+                                        <exclude reference="dvA-bE-iNF"/>
+                                        <exclude reference="izQ-nw-tEd"/>
+                                    </mask>
+                                </variation>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XOp-TO-fGK" firstAttribute="top" secondItem="lUq-aW-NG3" secondAttribute="bottom" id="0kf-h5-Njx"/>
+                            <constraint firstItem="lUq-aW-NG3" firstAttribute="top" secondItem="ZaU-V3-lef" secondAttribute="topMargin" id="LH3-Bd-ScO"/>
+                            <constraint firstItem="lUq-aW-NG3" firstAttribute="leading" secondItem="ZaU-V3-lef" secondAttribute="leadingMargin" constant="-20" id="qSd-qW-VJR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lUq-aW-NG3" secondAttribute="trailing" constant="-20" id="wDx-YP-9EP"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="findAServiceLabel" destination="De9-9g-70d" id="jcV-nc-QLu"/>
+                        <outlet property="gradientView" destination="lUq-aW-NG3" id="Jhg-VN-Z6D"/>
+                        <outlet property="provideAServiceLabel" destination="12l-Fn-6uE" id="O99-0S-KjD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxR-yW-hjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -602,6 +655,7 @@
         <image name="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" width="1290" height="1290"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dVH-Nt-1YP"/>
+        <segue reference="41p-lX-HVB"/>
+        <segue reference="3i4-Ny-tQE"/>
     </inferredMetricsTieBreakers>
 </document>

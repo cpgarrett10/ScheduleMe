@@ -487,7 +487,7 @@
         <!--NavigationPage-->
         <scene sceneID="pm3-CF-PxX">
             <objects>
-                <viewController title="NavigationPage" id="D9r-XX-cYP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="transView" title="NavigationPage" id="D9r-XX-cYP" customClass="TransitionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2fF-5G-o3S"/>
                         <viewControllerLayoutGuide type="bottom" id="XOp-TO-fGK"/>
@@ -511,7 +511,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxR-yW-hjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="348.5" y="246.5"/>
+            <point key="canvasLocation" x="350.5" y="246.5"/>
         </scene>
         <!--FeaturedPage-->
         <scene sceneID="ANu-Is-1L1">

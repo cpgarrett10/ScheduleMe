@@ -28,9 +28,17 @@ class ServiceViewController : UIViewController {
     @IBOutlet var ZipTxt: UITextField!
     @IBOutlet var DistanceMilesTxt: UITextField!
     @IBOutlet var ServiceImg: UIImageView!
+    @IBOutlet weak var addServiceButtonLabel: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        addServiceButtonLabel.backgroundColor = UIColor.clearColor()
+        addServiceButtonLabel.layer.cornerRadius = 5
+        addServiceButtonLabel.layer.borderWidth = 1
+        addServiceButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
+        
         
         descriptionTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
         descriptionTextView.layer.borderWidth = 1.0

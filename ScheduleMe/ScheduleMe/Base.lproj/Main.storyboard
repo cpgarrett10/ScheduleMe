@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -123,15 +123,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygt-fu-SrX">
                                 <rect key="frame" x="61" y="189" width="30" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Edit"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxf-yz-vkW">
-                                <rect key="frame" x="215" y="212" width="45" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Update"/>
-                                <connections>
-                                    <action selector="UpdateUserProfile:" destination="gSX-Rh-dxq" eventType="touchUpInside" id="ETR-9B-m2b"/>
-                                </connections>
+                                <state key="normal" title="EDIT">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHm-ef-2ZX">
                                 <rect key="frame" x="136" y="84" width="213" height="30"/>
@@ -187,6 +181,18 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxf-yz-vkW">
+                                <rect key="frame" x="192" y="212" width="102" height="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                                <size key="titleShadowOffset" width="5" height="5"/>
+                                <state key="normal" title="UPDATE">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="UpdateUserProfile:" destination="gSX-Rh-dxq" eventType="touchUpInside" id="ETR-9B-m2b"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -204,11 +210,13 @@
                             <constraint firstItem="chU-LM-JlM" firstAttribute="leading" secondItem="BZp-XU-fuX" secondAttribute="leadingMargin" constant="-20" id="RhY-uD-qZF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nHm-ef-2ZX" secondAttribute="trailing" constant="15" id="TH1-Yh-7HB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="69T-P3-FXV" secondAttribute="trailing" constant="10" id="UWm-0r-tEJ"/>
+                            <constraint firstItem="qxf-yz-vkW" firstAttribute="centerX" secondItem="69T-P3-FXV" secondAttribute="centerX" id="VGj-sw-2vN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="O0X-fF-WnB" secondAttribute="trailing" constant="-20" id="YSD-wd-kwV"/>
                             <constraint firstItem="69T-P3-FXV" firstAttribute="top" secondItem="fp3-fh-BHM" secondAttribute="bottom" constant="15" id="YfG-2v-8Z4"/>
                             <constraint firstItem="nHm-ef-2ZX" firstAttribute="top" secondItem="O0X-fF-WnB" secondAttribute="bottom" constant="20" id="bAM-FT-uY0"/>
                             <constraint firstItem="O0X-fF-WnB" firstAttribute="centerX" secondItem="BZp-XU-fuX" secondAttribute="centerX" id="dhO-Lr-OZt"/>
                             <constraint firstItem="chU-LM-JlM" firstAttribute="top" secondItem="69T-P3-FXV" secondAttribute="bottom" constant="45" id="eYd-ug-59K"/>
+                            <constraint firstItem="qxf-yz-vkW" firstAttribute="top" secondItem="69T-P3-FXV" secondAttribute="bottom" constant="8" id="oPB-oH-9TJ"/>
                             <constraint firstItem="69T-P3-FXV" firstAttribute="leading" secondItem="Hpi-0U-EJe" secondAttribute="trailing" constant="10" id="sbv-tR-Bnr"/>
                             <constraint firstItem="qxf-yz-vkW" firstAttribute="top" secondItem="69T-P3-FXV" secondAttribute="bottom" constant="5" id="sq6-7Y-iDS"/>
                             <constraint firstItem="O0X-fF-WnB" firstAttribute="leading" secondItem="Hpi-0U-EJe" secondAttribute="trailing" constant="20" id="uhQ-ro-Zkm"/>
@@ -225,6 +233,8 @@
                                 <exclude reference="uhQ-ro-Zkm"/>
                                 <exclude reference="TH1-Yh-7HB"/>
                                 <exclude reference="Era-t8-zga"/>
+                                <exclude reference="sq6-7Y-iDS"/>
+                                <exclude reference="whx-4Y-12Z"/>
                             </mask>
                         </variation>
                     </view>
@@ -233,6 +243,8 @@
                         <outlet property="EmailTxt" destination="69T-P3-FXV" id="56t-K5-hRA"/>
                         <outlet property="FirstNameTxt" destination="nHm-ef-2ZX" id="77Q-SA-Mdt"/>
                         <outlet property="LastNameTxt" destination="fp3-fh-BHM" id="VMI-rQ-yzh"/>
+                        <outlet property="editButtonLabel" destination="ygt-fu-SrX" id="TeM-2Z-NoO"/>
+                        <outlet property="updateButtonLabel" destination="qxf-yz-vkW" id="FbQ-8J-ovM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOM-4N-Gdr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -259,8 +271,10 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0k3-yd-gKe">
-                                <rect key="frame" x="61" y="189" width="30" height="30"/>
-                                <state key="normal" title="Edit"/>
+                                <rect key="frame" x="60" y="189" width="33" height="30"/>
+                                <state key="normal" title="EDIT">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aLA-4u-8Ej">
                                 <rect key="frame" x="136" y="84" width="213" height="30"/>
@@ -289,6 +303,10 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7y-Lb-T3z">
                                 <rect key="frame" x="104" y="229" width="22" height="22"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUU-99-U0V">
                                 <rect key="frame" x="26" y="234" width="63" height="12"/>
@@ -330,14 +348,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-aq-ZLl">
-                                <rect key="frame" x="26" y="622" width="323" height="30"/>
-                                <state key="normal" title="Add Service"/>
-                                <connections>
-                                    <action selector="AddUpdateServiceBtn:" destination="rDB-Tz-G8x" eventType="touchUpInside" id="0aR-DQ-QFv"/>
-                                    <segue destination="gSX-Rh-dxq" kind="show" id="Xp6-JT-TlL"/>
-                                </connections>
-                            </button>
                             <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="km1-lO-xuK">
                                 <rect key="frame" x="6" y="212" width="120" height="15"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -371,6 +381,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7v4-aq-ZLl">
+                                <rect key="frame" x="89" y="623" width="196" height="30"/>
+                                <state key="normal" title="ADD SERVICE">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="AddUpdateServiceBtn:" destination="rDB-Tz-G8x" eventType="touchUpInside" id="0aR-DQ-QFv"/>
+                                    <segue destination="gSX-Rh-dxq" kind="show" id="Xp6-JT-TlL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -476,13 +496,13 @@
                                 <exclude reference="Wtc-gB-pVh"/>
                                 <exclude reference="h5c-Zu-Gts"/>
                                 <exclude reference="qfy-D4-0cB"/>
-                                <exclude reference="SdF-hz-XXT"/>
-                                <exclude reference="bCb-6n-UaX"/>
-                                <exclude reference="e4a-A3-U5F"/>
                                 <exclude reference="6tP-FM-ATM"/>
                                 <exclude reference="CxL-ni-Td2"/>
                                 <exclude reference="ePJ-AB-jeX"/>
                                 <exclude reference="nGW-PX-QiP"/>
+                                <exclude reference="SdF-hz-XXT"/>
+                                <exclude reference="bCb-6n-UaX"/>
+                                <exclude reference="e4a-A3-U5F"/>
                                 <exclude reference="Vvt-aB-cjX"/>
                                 <exclude reference="WtN-sH-BXv"/>
                                 <exclude reference="JzU-U1-qGX"/>
@@ -502,6 +522,7 @@
                         <outlet property="TitleTxt" destination="aLA-4u-8Ej" id="e4e-yP-ipp"/>
                         <outlet property="TypeTxt" destination="iQY-h5-5bI" id="e7H-4p-JWH"/>
                         <outlet property="ZipTxt" destination="FH4-tX-GJP" id="VKO-ci-Iec"/>
+                        <outlet property="addServiceButtonLabel" destination="7v4-aq-ZLl" id="DXi-tk-QzW"/>
                         <outlet property="descriptionTextView" destination="7D0-5h-48S" id="UF9-LN-vsH"/>
                     </connections>
                 </viewController>

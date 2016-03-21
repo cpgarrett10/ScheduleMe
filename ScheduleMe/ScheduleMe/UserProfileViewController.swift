@@ -15,6 +15,8 @@ class UserProfileViewController : UIViewController {
     var serviceCounter = "-1"
     //var dataSource: FirebaseTableViewDataSource!
     
+    @IBOutlet weak var updateButtonLabel: UIButton!
+    @IBOutlet weak var editButtonLabel: UIButton!
     @IBOutlet var FirstNameTxt: UITextField!
     @IBOutlet var LastNameTxt: UITextField!
     @IBOutlet var EmailTxt: UITextField!
@@ -24,6 +26,17 @@ class UserProfileViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        updateButtonLabel.backgroundColor = UIColor.clearColor()
+        updateButtonLabel.layer.cornerRadius = 5
+        updateButtonLabel.layer.borderWidth = 1
+        updateButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
+        
+        editButtonLabel.backgroundColor = UIColor.clearColor()
+        editButtonLabel.layer.cornerRadius = 5
+        editButtonLabel.layer.borderWidth = 1
+        editButtonLabel.layer.borderColor = UIColor.whiteColor().CGColor
         
         let usersRef = ref.childByAppendingPath("users")
         let userIDRef = usersRef.childByAppendingPath(uid)

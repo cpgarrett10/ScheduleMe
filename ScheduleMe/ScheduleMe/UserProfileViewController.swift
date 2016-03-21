@@ -23,10 +23,14 @@ class UserProfileViewController : UIViewController {
     @IBOutlet var EmailTxt: UITextField!
     @IBOutlet var UserServicesTable: UITableView!
     
+    @IBOutlet weak var profilePic: UIImageView!
     //var kyleisawesome = ["FirstName": "Kyle" , "LastName":"Tucker", "Email":"cpgarrett10@gmail.com"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // use round profile pic
+        profilePic.layer.cornerRadius = profilePic.frame.size.width / 2.0
         
         
         updateButtonLabel.backgroundColor = UIColor.clearColor()

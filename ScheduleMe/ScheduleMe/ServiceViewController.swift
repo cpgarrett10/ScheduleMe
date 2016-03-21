@@ -34,6 +34,9 @@ class ServiceViewController : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // use round photo
+        ServiceImg.layer.cornerRadius = ServiceImg.frame.size.width / 2.0
+        
         
         addServiceButtonLabel.backgroundColor = UIColor.clearColor()
         addServiceButtonLabel.layer.cornerRadius = 5

@@ -247,6 +247,7 @@
                         <outlet property="FirstNameTxt" destination="nHm-ef-2ZX" id="77Q-SA-Mdt"/>
                         <outlet property="LastNameTxt" destination="fp3-fh-BHM" id="VMI-rQ-yzh"/>
                         <outlet property="editButtonLabel" destination="ygt-fu-SrX" id="TeM-2Z-NoO"/>
+                        <outlet property="profilePic" destination="Hpi-0U-EJe" id="P1C-qc-XJe"/>
                         <outlet property="updateButtonLabel" destination="qxf-yz-vkW" id="FbQ-8J-ovM"/>
                     </connections>
                 </viewController>
@@ -522,6 +523,7 @@
                         <outlet property="DistanceMilesTxt" destination="w7t-gO-rfK" id="LZ0-pg-EPS"/>
                         <outlet property="PhoneTxt" destination="SGf-Pn-3Eg" id="sOA-np-8nz"/>
                         <outlet property="PriceTxt" destination="y85-rg-Tej" id="GRN-NJ-u0a"/>
+                        <outlet property="ServiceImg" destination="zLE-3C-oyb" id="hbm-MR-XS5"/>
                         <outlet property="SrvcEmailTxt" destination="jTO-xe-sJM" id="tPv-r9-Jf1"/>
                         <outlet property="StateTxt" destination="DZC-tH-R1P" id="GBE-Hx-Qr2"/>
                         <outlet property="StreetAddressTxt" destination="IZB-bW-K0g" id="Yla-8c-z7t"/>

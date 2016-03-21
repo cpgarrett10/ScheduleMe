@@ -10,6 +10,11 @@ import UIKit
 
 class MainPageViewController : UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+
+    
     
     /* CARSONS CODE
     self.dataSource = FirebaseTableViewDataSource(ref: ref,

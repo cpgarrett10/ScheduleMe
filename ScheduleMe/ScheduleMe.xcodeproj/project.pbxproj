@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		951DBD1F43B6BAC490EC8D65 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E3964F3045AC573A63D4B3F /* libPods.a */; };
+		48D3C55CB53D23C5F417EB5E /* Pods_ScheduleMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5DE32EC9595FBF1409BF0C /* Pods_ScheduleMe.framework */; };
 		AF021A301C9E63FE0010BA35 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */; };
 		AF77C85E1C7905A90031936C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C85D1C7905A90031936C /* AppDelegate.swift */; };
 		AF77C8601C7905A90031936C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C85F1C7905A90031936C /* ViewController.swift */; };
@@ -44,9 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0E3964F3045AC573A63D4B3F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DFF933B8EB924497428F96B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		A57A803B2EBEC6D5475A5C18 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		90C18DBECB229DD855C23D0D /* Pods-ScheduleMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe.release.xcconfig"; sourceTree = "<group>"; };
 		AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
 		AF77C85A1C7905A90031936C /* ScheduleMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF77C85D1C7905A90031936C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		C8B940A11C9DB261002F8DDB /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		C8D90B5D1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"; sourceTree = "<group>"; };
+		CA8C9667C9DFD2D4BADCDCF1 /* Pods-ScheduleMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe.debug.xcconfig"; sourceTree = "<group>"; };
+		DF5DE32EC9595FBF1409BF0C /* Pods_ScheduleMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				951DBD1F43B6BAC490EC8D65 /* libPods.a in Frameworks */,
+				48D3C55CB53D23C5F417EB5E /* Pods_ScheduleMe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,19 +98,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		17C480A117D82196763E399F /* Pods */ = {
+		436E69C9D69BD07E9BA8D568 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A57A803B2EBEC6D5475A5C18 /* Pods.debug.xcconfig */,
-				8DFF933B8EB924497428F96B /* Pods.release.xcconfig */,
+				CA8C9667C9DFD2D4BADCDCF1 /* Pods-ScheduleMe.debug.xcconfig */,
+				90C18DBECB229DD855C23D0D /* Pods-ScheduleMe.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		6BCF2D57362BE29B50C5CCAA /* Frameworks */ = {
+		59A1A66ABE18E6CDBAA7B468 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0E3964F3045AC573A63D4B3F /* libPods.a */,
+				DF5DE32EC9595FBF1409BF0C /* Pods_ScheduleMe.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -122,8 +122,8 @@
 				AF77C8741C7905AA0031936C /* ScheduleMeTests */,
 				AF77C87F1C7905AA0031936C /* ScheduleMeUITests */,
 				AF77C85B1C7905A90031936C /* Products */,
-				6BCF2D57362BE29B50C5CCAA /* Frameworks */,
-				17C480A117D82196763E399F /* Pods */,
+				436E69C9D69BD07E9BA8D568 /* Pods */,
+				59A1A66ABE18E6CDBAA7B468 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -341,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F200F07815A19986B1C192AB /* Embed Pods Frameworks */ = {
@@ -356,7 +356,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -515,7 +515,7 @@
 		};
 		AF77C8861C7905AA0031936C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A57A803B2EBEC6D5475A5C18 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CA8C9667C9DFD2D4BADCDCF1 /* Pods-ScheduleMe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
@@ -531,7 +531,7 @@
 		};
 		AF77C8871C7905AA0031936C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8DFF933B8EB924497428F96B /* Pods.release.xcconfig */;
+			baseConfigurationReference = 90C18DBECB229DD855C23D0D /* Pods-ScheduleMe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;

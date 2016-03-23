@@ -184,7 +184,7 @@
                                     <action selector="UpdateUserProfile:" destination="gSX-Rh-dxq" eventType="touchUpInside" id="ETR-9B-m2b"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Hpi-0U-EJe">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="Hpi-0U-EJe">
                                 <rect key="frame" x="26" y="66" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="w1c-gu-gBT"/>
@@ -267,7 +267,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="zLE-3C-oyb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="zLE-3C-oyb">
                                 <rect key="frame" x="26" y="84" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="McJ-Cp-oHF"/>
@@ -727,11 +727,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" width="1290" height="1290"/>
+        <image name="defaultProfilePic" width="1290" height="1290"/>
         <image name="homeIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dVH-Nt-1YP"/>
+        <segue reference="Xp6-JT-TlL"/>
         <segue reference="WkA-iP-doB"/>
     </inferredMetricsTieBreakers>
 </document>

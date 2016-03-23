@@ -21,7 +21,6 @@
 		C880B3ED1C8B794E009B4441 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */; };
 		C880B3EF1C8B8C37009B4441 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */; };
 		C8B940A21C9DB261002F8DDB /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B940A11C9DB261002F8DDB /* MainPageViewController.swift */; };
-		C8D90B5E1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8D90B5D1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +62,6 @@
 		C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		C8B940A11C9DB261002F8DDB /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		C8D90B5D1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"; sourceTree = "<group>"; };
 		CA8C9667C9DFD2D4BADCDCF1 /* Pods-ScheduleMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe.debug.xcconfig"; sourceTree = "<group>"; };
 		DF5DE32EC9595FBF1409BF0C /* Pods_ScheduleMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -148,7 +146,6 @@
 				C8B940A11C9DB261002F8DDB /* MainPageViewController.swift */,
 				C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */,
 				AF9A028D1C947EAA0048887C /* GradientView.swift */,
-				C8D90B5D1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg */,
 				AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */,
 			);
 			path = ScheduleMe;
@@ -283,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF77C86B1C7905A90031936C /* LaunchScreen.storyboard in Resources */,
-				C8D90B5E1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg in Resources */,
 				AF77C8681C7905A90031936C /* Assets.xcassets in Resources */,
 				AF77C8631C7905A90031936C /* Main.storyboard in Resources */,
 			);

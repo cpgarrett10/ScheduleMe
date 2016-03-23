@@ -125,7 +125,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="User Profile" id="Qnm-fv-3W3">
-                                        <barButtonItem key="rightBarButtonItem" image="home25pix.png" id="GFd-YY-dGW">
+                                        <barButtonItem key="rightBarButtonItem" image="homeIcon" id="GFd-YY-dGW">
                                             <connections>
                                                 <segue destination="JIV-FC-yIF" kind="show" id="WkA-iP-doB"/>
                                             </connections>
@@ -728,10 +728,10 @@
     </scenes>
     <resources>
         <image name="default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg" width="1290" height="1290"/>
-        <image name="home25pix.png" width="25" height="25"/>
+        <image name="homeIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="41p-lX-HVB"/>
         <segue reference="dVH-Nt-1YP"/>
+        <segue reference="WkA-iP-doB"/>
     </inferredMetricsTieBreakers>
 </document>

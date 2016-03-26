@@ -190,8 +190,6 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
                 let servicesRef = ref.childByAppendingPath("services")
                 let servicesIDRef = servicesRef.childByAppendingPath(serviceID)
                 
-                print(servicesIDRef)
-                
                 //servicesIDRef.removeValue() NEED TO FIX
             }
         }

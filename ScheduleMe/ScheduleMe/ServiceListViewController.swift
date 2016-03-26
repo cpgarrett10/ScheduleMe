@@ -86,6 +86,23 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         
         return cell
     }
+    
+    // MARK: Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showService" {
+            
+            let singleServiceViewController = segue.destinationViewController as! SingleServiceViewController
+            
+            if let selectedCell = sender as? ServiceTableViewCell {
+                let indexPath = serviceTableView.indexPathForCell(selectedCell)
+                let selectedService = self.services[indexPath!.row]
+                
+                singleServiceViewController.service = selectedService
+            }
+            
+        }
+    }
 
     
 

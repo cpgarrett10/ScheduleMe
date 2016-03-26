@@ -20,7 +20,7 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
     var decodedImage:UIImage?
     
     @IBOutlet weak var updateButtonLabel: UIButton!
-    @IBOutlet weak var editButtonLabel: UIButton!
+    @IBOutlet var editButtonLabel: UIButton!
     @IBOutlet var FirstNameTxt: UITextField!
     @IBOutlet var LastNameTxt: UITextField!
     @IBOutlet var EmailTxt: UITextField!
@@ -157,10 +157,6 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
     
     @IBAction func editProfileImage(sender: AnyObject) {
         
-            
-            // Hide keyboard
-            //nameTextField.resignFirstResponder()
-            
             let imagePickerController = UIImagePickerController()
             
             // only allow pictures to be selected, not taken (use to .Camera to take photo)
@@ -170,9 +166,6 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
             
             // show image picker
             self.presentViewController(imagePickerController, animated: true, completion: nil)
-        
-        
-    
     }
     
     

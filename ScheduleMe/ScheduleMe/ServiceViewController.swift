@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ServiceViewController : UIViewController {
+class ServiceViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
     let uid = Firebase(url: "https://schedulemecapstone.firebaseio.com/").authData.uid
@@ -17,6 +17,10 @@ class ServiceViewController : UIViewController {
     var AddEdit: String = ""
     var serviceID: String = ""
     var serviceBoolean = true
+    var base64Image: String = ""
+    var decodedData:NSData?
+    var decodedImage:UIImage?
+    var serviceImageTEMP:UIImage?
     
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var TitleTxt: UITextField!
@@ -32,22 +36,24 @@ class ServiceViewController : UIViewController {
     @IBOutlet var ServiceImg: UIImageView!
     @IBOutlet weak var addServiceButtonLabel: UIButton!
     @IBOutlet weak var commuteButtonLabel: UIButton!
-    @IBAction func commuteButton(sender: AnyObject) {
+    @IBOutlet var editServiceImage: UIButton!
+    @IBOutlet var serviceImage: UIImageView!
+    
+    
+    //From Dan for editing/dismissing image on edit image action
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         
-        
-        if serviceBoolean == true{
-            
-            self.DistanceMilesTxt.hidden = false
-            serviceBoolean = false
-            
-        }else{
-            
-            self.DistanceMilesTxt.hidden = true
-            serviceBoolean = true
-        }
-        
-        
+        // if cancel, dismiss
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        self.serviceImageTEMP = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.serviceImage.image = self.serviceImageTEMP
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +85,6 @@ class ServiceViewController : UIViewController {
         if AddEdit == "Edit" {
         // USE ONLY ON UPDATING A SERVICE
             servicesIDRef.observeEventType(.Value, withBlock: { snapshot in
-                print(snapshot.value)
                 self.TitleTxt.text = snapshot.value.objectForKey("Title") as? String
                 self.TypeTxt.text = snapshot.value.objectForKey("Type") as? String
                 self.SrvcEmailTxt.text = snapshot.value.objectForKey("ServiceEmail") as? String
@@ -91,6 +96,13 @@ class ServiceViewController : UIViewController {
                 self.ZipTxt.text = snapshot.value.objectForKey("Zip") as? String
                 self.DistanceMilesTxt.text = snapshot.value.objectForKey("DistanceMiles") as? String
                 self.descriptionTextView.text = snapshot.value.objectForKey("Description") as? String
+                
+                //load current image
+                self.base64Image = (snapshot.value.objectForKey("Base64Image") as? String)!
+                self.decodedData = NSData(base64EncodedString: self.base64Image, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+                self.decodedImage = UIImage(data: self.decodedData!)!
+                self.serviceImage.image = self.decodedImage
+                
                 }, withCancelBlock: { error in
                 print(error.description)
             })
@@ -106,16 +118,18 @@ class ServiceViewController : UIViewController {
             self.ZipTxt.text = ""
             self.DistanceMilesTxt.text = ""
             self.descriptionTextView.text = ""
+            serviceImage.image = UIImage(named: "defaultServiceImage")
         }
-        
         
     }
     
     @IBAction func AddUpdateServiceBtn(sender: AnyObject) {
-        
         let servicesRef = ref.childByAppendingPath("services")
         let servicesIDRef = servicesRef.childByAppendingPath(serviceID)
- 
+        
+        let imageData: NSData = UIImageJPEGRepresentation(serviceImageTEMP!, 0.1)!
+        let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
         //Create/Update Service with the all details
         servicesIDRef.updateChildValues([
             "Title": TitleTxt.text!,
@@ -129,7 +143,8 @@ class ServiceViewController : UIViewController {
             "Zip": ZipTxt.text!,
             "DistanceMiles": DistanceMilesTxt.text!,
             "Description": descriptionTextView.text!,
-            "uid": uid!
+            "uid": uid!,
+            "Base64Image": base64String
             
             ])
         
@@ -145,6 +160,27 @@ class ServiceViewController : UIViewController {
                 ])
         }
         
+    }
+    
+    @IBAction func commuteButton(sender: AnyObject) {
+        if serviceBoolean == true{
+            self.DistanceMilesTxt.hidden = false
+            serviceBoolean = false
+        }else{
+            self.DistanceMilesTxt.hidden = true
+            serviceBoolean = true
+        }
+    }
+    
+    @IBAction func editServiceImage(sender: AnyObject) {
+        let imagePickerController = UIImagePickerController()
+        
+        // only allow pictures to be selected, not taken (use to .Camera to take photo)
+        imagePickerController.sourceType = .PhotoLibrary
+        imagePickerController.delegate = self
+        
+        // show image picker
+        self.presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {

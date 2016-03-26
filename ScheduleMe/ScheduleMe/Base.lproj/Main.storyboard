@@ -133,13 +133,6 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygt-fu-SrX">
-                                <rect key="frame" x="61" y="188" width="30" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="EDIT">
-                                    <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fp3-fh-BHM">
                                 <rect key="frame" x="136" y="130" width="213" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -173,6 +166,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxf-yz-vkW">
+                                <rect key="frame" x="202" y="215" width="81" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
+                                <size key="titleShadowOffset" width="5" height="5"/>
+                                <state key="normal" title="UPDATE">
+                                    <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="UpdateUserProfile:" destination="gSX-Rh-dxq" eventType="touchUpInside" id="ETR-9B-m2b"/>
+                                </connections>
+                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nHm-ef-2ZX">
                                 <rect key="frame" x="136" y="85" width="213" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -185,16 +190,14 @@
                                     <constraint firstAttribute="height" constant="100" id="wBq-mX-6yh"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qxf-yz-vkW">
-                                <rect key="frame" x="202" y="215" width="81" height="26"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygt-fu-SrX">
+                                <rect key="frame" x="61" y="188" width="30" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <inset key="contentEdgeInsets" minX="15" minY="5" maxX="15" maxY="5"/>
-                                <size key="titleShadowOffset" width="5" height="5"/>
-                                <state key="normal" title="UPDATE">
+                                <state key="normal" title="EDIT">
                                     <color key="titleColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="UpdateUserProfile:" destination="gSX-Rh-dxq" eventType="touchUpInside" id="ETR-9B-m2b"/>
+                                    <action selector="editProfileImage:" destination="gSX-Rh-dxq" eventType="touchUpInside" id="qoT-nq-rkv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -249,7 +252,9 @@
                         <outlet property="EmailTxt" destination="69T-P3-FXV" id="56t-K5-hRA"/>
                         <outlet property="FirstNameTxt" destination="nHm-ef-2ZX" id="77Q-SA-Mdt"/>
                         <outlet property="LastNameTxt" destination="fp3-fh-BHM" id="VMI-rQ-yzh"/>
+                        <outlet property="ProfileImage" destination="Hpi-0U-EJe" id="B9I-zV-tS1"/>
                         <outlet property="editButtonLabel" destination="ygt-fu-SrX" id="TeM-2Z-NoO"/>
+                        <outlet property="profileImage" destination="Hpi-0U-EJe" id="oIX-bR-cnN"/>
                         <outlet property="profilePic" destination="Hpi-0U-EJe" id="P1C-qc-XJe"/>
                         <outlet property="updateButtonLabel" destination="qxf-yz-vkW" id="FbQ-8J-ovM"/>
                     </connections>

@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet var UsernameTxt: UITextField!
     @IBOutlet var PasswordTxt: UITextField!
     @IBOutlet var ForgotPassButton: UIButton!
+    var defaultProfileImage = UIImage(named: "defaultProfilePic")!
     
     
     @IBAction func forgotPassClick(sender: AnyObject) {
@@ -166,7 +167,12 @@ class ViewController: UIViewController {
                                 } else {
                                     
                                     let uid = self.ref.authData.uid
+                                    let imageData: NSData = UIImageJPEGRepresentation(self.defaultProfileImage, 0.1)!
+                                    let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
                                     
+                                    print(base64String)
+ 
+ 
                                     // We are now logged in
                                     print("You have successfully logged in")
                                     
@@ -176,7 +182,7 @@ class ViewController: UIViewController {
                                     let newUser = [
                                         "provider": authData.provider,
                                         "email": authData.providerData["email"] as? NSString as? String,
-                                        "profileImage": authData.providerData["profileImageURL"] as? NSString as? String
+                                        "profileImage": base64String
                                         
                                     ]
                                     

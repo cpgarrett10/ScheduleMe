@@ -9,12 +9,15 @@
 import UIKit
 import Firebase
 
-class UserProfileViewController : UIViewController {
+class UserProfileViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
     let uid = Firebase(url: "https://schedulemecapstone.firebaseio.com/").authData.uid
     var serviceCounter = "-1"
-    //var dataSource: FirebaseTableViewDataSource!
+
+    var base64String: String = ""
+    var decodedData:NSData?
+    var decodedImage:UIImage?
     
     @IBOutlet weak var updateButtonLabel: UIButton!
     @IBOutlet weak var editButtonLabel: UIButton!
@@ -22,9 +25,35 @@ class UserProfileViewController : UIViewController {
     @IBOutlet var LastNameTxt: UITextField!
     @IBOutlet var EmailTxt: UITextField!
     @IBOutlet var UserServicesTable: UITableView!
+    @IBOutlet var profileImage: UIImageView!
     
     @IBOutlet weak var profilePic: UIImageView!
     //var kyleisawesome = ["FirstName": "Kyle" , "LastName":"Tucker", "Email":"cpgarrett10@gmail.com"]
+    
+
+    
+    //From Dan for editing/dismissing image on edit image action
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        // if cancel, dismiss
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let imageData: NSData = UIImageJPEGRepresentation(selectedImage, 0.1)!
+        let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
+        //Prep to set FirebaseImage
+        let usersRef = ref.childByAppendingPath("users")
+        let userIDRef = usersRef.childByAppendingPath(uid)
+        
+        userIDRef.updateChildValues([
+            "profileImage": base64String
+            ])
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,21 +75,21 @@ class UserProfileViewController : UIViewController {
         let usersRef = ref.childByAppendingPath("users")
         let userIDRef = usersRef.childByAppendingPath(uid)
         //let servicesRef = ref.childByAppendingPath("services")
-        
+        //let imageUrl = ref.authData.providerData["profileImageURL"]
+
         userIDRef.observeEventType(.Value, withBlock: { snapshot in
             
             //Pull in Name & Email from Firebase
             self.FirstNameTxt.text = snapshot.value.objectForKey("FirstName") as? String
             self.LastNameTxt.text = snapshot.value.objectForKey("LastName") as? String
             self.EmailTxt.text = snapshot.value.objectForKey("email") as? String
+            self.base64String = (snapshot.value.objectForKey("profileImage") as? String)!
             
-            //Print what our counter is at
-            print(snapshot.value)
-            print(snapshot.value.objectForKey("ServiceCounter") as? String)
+            self.decodedData = NSData(base64EncodedString: self.base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+            self.decodedImage = UIImage(data: self.decodedData!)!
+            self.profileImage.image = self.decodedImage
+   
             let result = snapshot.value.objectForKey("ServiceCounter") as? String
-            print(result)
-            print(self.serviceCounter)
-            
             //If counter != null then pull it, if == null then create it as 0
                 if result != nil {
                     self.serviceCounter = result!
@@ -75,7 +104,10 @@ class UserProfileViewController : UIViewController {
             }, withCancelBlock: { error in
                 print(error.description)
         })
-        print(self.serviceCounter)
+
+        
+        
+        
         
         /*
         self.dataSource = FirebaseTableViewDataSource(ref: servicesRef, cellReuseIdentifier: "Cell", view: self.UserServicesTable)
@@ -122,6 +154,27 @@ class UserProfileViewController : UIViewController {
         })
         */
     }
+    
+    @IBAction func editProfileImage(sender: AnyObject) {
+        
+            
+            // Hide keyboard
+            //nameTextField.resignFirstResponder()
+            
+            let imagePickerController = UIImagePickerController()
+            
+            // only allow pictures to be selected, not taken (use to .Camera to take photo)
+            imagePickerController.sourceType = .PhotoLibrary
+            
+            imagePickerController.delegate = self
+            
+            // show image picker
+            self.presentViewController(imagePickerController, animated: true, completion: nil)
+        
+        
+    
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "AddServiceSegue") {

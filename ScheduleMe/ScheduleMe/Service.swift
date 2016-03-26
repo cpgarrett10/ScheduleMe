@@ -28,6 +28,8 @@ class Service {
     let zip: String!
     let uid: String!
     
+    let image: UIImage?
+    
     // Initialize from arbitrary data
     init(title: String,
         key: String = "",
@@ -41,7 +43,8 @@ class Service {
         streetAddress: String,
         type: String,
         zip: String,
-        uid: String) {
+        uid: String,
+        image: UIImage) {
             
         self.key = key
         self.ref = nil
@@ -58,6 +61,8 @@ class Service {
         self.type = type
         self.zip = zip
         self.uid = uid
+            
+        self.image = image
         
     }
     
@@ -77,6 +82,17 @@ class Service {
         self.type = snapshot.value["Type"] as! String
         self.zip = snapshot.value["Zip"] as! String
         self.uid = snapshot.value["uid"] as! String
+        
+        // get image string
+        if let base64string = snapshot.value["Base64Image"] as? String {
+            // convert to UIImage
+            let decodedData = NSData(base64EncodedString: base64string, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+            self.image = UIImage(data: decodedData)!
+        } else {
+            self.image = UIImage(named: "defaultServiceImage")
+        }
+
+        
     }
     
     func toAnyObject() -> AnyObject {

@@ -700,34 +700,34 @@
                                                     </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Skateboarding Repair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixm-Cj-k4N">
-                                                    <rect key="frame" x="106" y="14" width="220" height="27"/>
+                                                    <rect key="frame" x="106" y="14" width="210" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE0-6E-xCq">
-                                                    <rect key="frame" x="106" y="43" width="220" height="40"/>
+                                                    <rect key="frame" x="106" y="43" width="210" height="40"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec euismod neque. Cras pulvinar ligula in justo imperdiet, vel aliquam diam accumsan. Donec nec congue enim, et sodales turpis. Morbi molestie eu felis nec ultricies. Proin consectetur ante eu commodo aliquam. Nullam feugiat ligula finibus neque ullamcorper, nec pellentesque nunc dictum. Maecenas imperdiet mollis sodales. Suspendisse in feugiat tellus, vitae elementum nibh.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.2 Mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ws-z5-c9d">
-                                                    <rect key="frame" x="329" y="17" width="41" height="21"/>
+                                                    <rect key="frame" x="315" y="17" width="60" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5z-5Y-VnC">
-                                                    <rect key="frame" x="329" y="52" width="32" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.15294117647058825" green="0.68235294117647061" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="San Jose, CA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wx-jB-bXF">
                                                     <rect key="frame" x="21" y="93" width="77" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.5607843137254902" green="0.55686274509803924" blue="0.58039215686274503" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$4500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5z-5Y-VnC">
+                                                    <rect key="frame" x="315" y="52" width="60" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.15294117647058825" green="0.68235294117647061" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -737,6 +737,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cityLabel" destination="0Wx-jB-bXF" id="1xa-Ph-soy"/>
+                                            <outlet property="descriptionLabel" destination="IE0-6E-xCq" id="cre-uW-z1s"/>
+                                            <outlet property="distanceLabel" destination="1Ws-z5-c9d" id="IVc-GU-qVr"/>
+                                            <outlet property="priceLabel" destination="c5z-5Y-VnC" id="XPk-l2-5pS"/>
                                             <outlet property="serviceImage" destination="Vss-nm-BWk" id="VRQ-5F-0di"/>
                                             <outlet property="titleLabel" destination="ixm-Cj-k4N" id="TIk-Fa-fHu"/>
                                         </connections>
@@ -1019,7 +1023,7 @@
         <image name="homeIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xp6-JT-TlL"/>
+        <segue reference="dVH-Nt-1YP"/>
         <segue reference="WkA-iP-doB"/>
     </inferredMetricsTieBreakers>
 </document>

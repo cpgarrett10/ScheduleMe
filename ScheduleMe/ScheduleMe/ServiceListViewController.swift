@@ -64,17 +64,25 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         let service = self.services[indexPath.row]
         
         cell.titleLabel.text = service.title
+        cell.cityLabel.text = service.city
+        cell.descriptionLabel.text = service.description
+        cell.distanceLabel.text = service.distanceMiles + " Mi"
+        
+        var price = service.price
+        let index = price.characters.indexOf(".")
+        
+        if price != "" && index != nil {
+            price = price.substringToIndex(index!)
+        }
+        
+        cell.priceLabel.text = "$" + price
+        
         cell.setImageTo("defaultServiceImage")
         
         
-//        if let image = service.photo {
-//            cell.serviceImage = image
-//        }
-
-        
-        
-        
-        
+        if let image = service.image {
+            cell.serviceImage.image = image
+        }
         
         return cell
     }

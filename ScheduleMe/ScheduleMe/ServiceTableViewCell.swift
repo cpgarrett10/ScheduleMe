@@ -14,6 +14,10 @@ class ServiceTableViewCell: UITableViewCell {
     
     @IBOutlet weak var serviceImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     
     func setImageTo(filename: String) {
         self.serviceImage.image = UIImage(named: filename)

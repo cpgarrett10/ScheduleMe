@@ -7,11 +7,46 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
 
 class MainPageViewController : UIViewController {
     
+    
+    // firebase
+    let ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
+    var dataSource: FirebaseTableViewDataSource!
+    
+    // props
+    @IBOutlet weak var serviceTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let serviceRef = self.ref.childByAppendingPath("services")
+        
+        
+        self.dataSource = FirebaseTableViewDataSource(ref: serviceRef,
+            modelClass: FDataSnapshot.self,
+            cellClass: UITableViewCell.self,
+            cellReuseIdentifier: "Cell",
+            view: self.serviceTableView)
+        
+        self.dataSource.populateCellWithBlock { (cell: UITableViewCell, obj: NSObject) -> Void in
+            let snap = obj as! FDataSnapshot // Force cast to an FDataSnapshot
+            /* Populate cell with contents of the snapshot */
+            
+            let title = snap.value.objectForKey("Title") as! String
+            
+            cell.textLabel?.text = title
+            
+        }
+        
+        self.serviceTableView.dataSource = self.dataSource
+        
+        
+        
     }
 
     

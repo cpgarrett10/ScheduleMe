@@ -12,18 +12,14 @@
 		AF77C85E1C7905A90031936C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C85D1C7905A90031936C /* AppDelegate.swift */; };
 		AF77C8601C7905A90031936C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C85F1C7905A90031936C /* ViewController.swift */; };
 		AF77C8631C7905A90031936C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF77C8611C7905A90031936C /* Main.storyboard */; };
-		AF77C8661C7905A90031936C /* ScheduleMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF77C8641C7905A90031936C /* ScheduleMe.xcdatamodeld */; };
 		AF77C8681C7905A90031936C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF77C8671C7905A90031936C /* Assets.xcassets */; };
 		AF77C86B1C7905A90031936C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF77C8691C7905A90031936C /* LaunchScreen.storyboard */; };
 		AF77C8761C7905AA0031936C /* ScheduleMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C8751C7905AA0031936C /* ScheduleMeTests.swift */; };
 		AF77C8811C7905AA0031936C /* ScheduleMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C8801C7905AA0031936C /* ScheduleMeUITests.swift */; };
 		AF9A028E1C947EAB0048887C /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9A028D1C947EAA0048887C /* GradientView.swift */; };
-		C85F49341C9EFB3F00A9DEE8 /* home25pix.png in Resources */ = {isa = PBXBuildFile; fileRef = C85F49331C9EFB3F00A9DEE8 /* home25pix.png */; };
-		C85F49361C9EFB4400A9DEE8 /* home30pix.png in Resources */ = {isa = PBXBuildFile; fileRef = C85F49351C9EFB4400A9DEE8 /* home30pix.png */; };
 		C880B3ED1C8B794E009B4441 /* ServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */; };
 		C880B3EF1C8B8C37009B4441 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */; };
 		C8B940A21C9DB261002F8DDB /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B940A11C9DB261002F8DDB /* MainPageViewController.swift */; };
-		C8D90B5E1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C8D90B5D1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +46,6 @@
 		AF77C85D1C7905A90031936C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF77C85F1C7905A90031936C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF77C8621C7905A90031936C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AF77C8651C7905A90031936C /* ScheduleMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScheduleMe.xcdatamodel; sourceTree = "<group>"; };
 		AF77C8671C7905A90031936C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF77C86A1C7905A90031936C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF77C86C1C7905A90031936C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,13 +56,9 @@
 		AF77C8801C7905AA0031936C /* ScheduleMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleMeUITests.swift; sourceTree = "<group>"; };
 		AF77C8821C7905AA0031936C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF9A028D1C947EAA0048887C /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		C85F49331C9EFB3F00A9DEE8 /* home25pix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home25pix.png; sourceTree = "<group>"; };
-		C85F49351C9EFB4400A9DEE8 /* home30pix.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home30pix.png; sourceTree = "<group>"; };
-		C8744D021C7F868900AEB172 /* ScheduleMe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScheduleMe-Bridging-Header.h"; sourceTree = "<group>"; };
 		C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceViewController.swift; sourceTree = "<group>"; };
 		C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		C8B940A11C9DB261002F8DDB /* MainPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
-		C8D90B5D1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg"; sourceTree = "<group>"; };
 		CA8C9667C9DFD2D4BADCDCF1 /* Pods-ScheduleMe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleMe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe.debug.xcconfig"; sourceTree = "<group>"; };
 		DF5DE32EC9595FBF1409BF0C /* Pods_ScheduleMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScheduleMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,6 +89,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37BBA2E31CA2E249009DA298 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AF77C8611C7905A90031936C /* Main.storyboard */,
+				AF77C8691C7905A90031936C /* LaunchScreen.storyboard */,
+				AF9A028D1C947EAA0048887C /* GradientView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		37BBA2E41CA2E26E009DA298 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF77C8671C7905A90031936C /* Assets.xcassets */,
+				AF77C86C1C7905A90031936C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		37BBA2E51CA2E286009DA298 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AF77C85D1C7905A90031936C /* AppDelegate.swift */,
+				C8B940A11C9DB261002F8DDB /* MainPageViewController.swift */,
+				C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */,
+				AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */,
+				C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */,
+				AF77C85F1C7905A90031936C /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		436E69C9D69BD07E9BA8D568 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,22 +163,9 @@
 		AF77C85C1C7905A90031936C /* ScheduleMe */ = {
 			isa = PBXGroup;
 			children = (
-				AF77C85D1C7905A90031936C /* AppDelegate.swift */,
-				AF77C85F1C7905A90031936C /* ViewController.swift */,
-				AF77C8611C7905A90031936C /* Main.storyboard */,
-				AF77C8671C7905A90031936C /* Assets.xcassets */,
-				AF77C8691C7905A90031936C /* LaunchScreen.storyboard */,
-				AF77C86C1C7905A90031936C /* Info.plist */,
-				AF77C8641C7905A90031936C /* ScheduleMe.xcdatamodeld */,
-				C8744D021C7F868900AEB172 /* ScheduleMe-Bridging-Header.h */,
-				C880B3EC1C8B794E009B4441 /* ServiceViewController.swift */,
-				C8B940A11C9DB261002F8DDB /* MainPageViewController.swift */,
-				C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */,
-				AF9A028D1C947EAA0048887C /* GradientView.swift */,
-				C8D90B5D1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg */,
-				AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */,
-				C85F49331C9EFB3F00A9DEE8 /* home25pix.png */,
-				C85F49351C9EFB4400A9DEE8 /* home30pix.png */,
+				37BBA2E51CA2E286009DA298 /* Controller */,
+				37BBA2E41CA2E26E009DA298 /* Supporting Files */,
+				37BBA2E31CA2E249009DA298 /* View */,
 			);
 			path = ScheduleMe;
 			sourceTree = "<group>";
@@ -288,12 +298,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C85F49341C9EFB3F00A9DEE8 /* home25pix.png in Resources */,
 				AF77C86B1C7905A90031936C /* LaunchScreen.storyboard in Resources */,
-				C8D90B5E1C948D5E00E5A579 /* default_profile_pic-9c5d869a996318867438aa3ccf9a9607daee021047c1088645fbdfbbed0e2aec.jpg in Resources */,
 				AF77C8681C7905A90031936C /* Assets.xcassets in Resources */,
 				AF77C8631C7905A90031936C /* Main.storyboard in Resources */,
-				C85F49361C9EFB4400A9DEE8 /* home30pix.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,7 +380,6 @@
 				AF9A028E1C947EAB0048887C /* GradientView.swift in Sources */,
 				AF77C85E1C7905A90031936C /* AppDelegate.swift in Sources */,
 				C880B3ED1C8B794E009B4441 /* ServiceViewController.swift in Sources */,
-				AF77C8661C7905A90031936C /* ScheduleMe.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,19 +638,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		AF77C8641C7905A90031936C /* ScheduleMe.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				AF77C8651C7905A90031936C /* ScheduleMe.xcdatamodel */,
-			);
-			currentVersion = AF77C8651C7905A90031936C /* ScheduleMe.xcdatamodel */;
-			path = ScheduleMe.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = AF77C8521C7905A90031936C /* Project object */;
 }

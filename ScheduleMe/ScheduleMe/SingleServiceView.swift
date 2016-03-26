@@ -12,6 +12,17 @@ import UIKit
 class SingleServiceView: UIViewController {
     
     
+    @IBOutlet weak var serviceImage: UIImageView!
+    @IBOutlet weak var serviceTitle: UINavigationBar!
+    @IBOutlet weak var servicePrice: UILabel!
+    @IBOutlet weak var serviceAddress: UILabel!
+    @IBOutlet weak var serviceDescription: UITextView!
+    @IBOutlet weak var serviceProviderName: UILabel!
+    @IBOutlet weak var servicePhone: UILabel!
+    @IBOutlet weak var serviceEmail: UILabel!
+    
+    
+    
     @IBOutlet weak var horizontalLine: UIView!
     
     override func viewDidLoad() {

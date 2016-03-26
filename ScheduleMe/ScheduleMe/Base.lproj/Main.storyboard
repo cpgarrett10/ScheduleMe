@@ -2,12 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-
- 
-
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -950,6 +946,14 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="horizontalLine" destination="zt5-gT-gLV" id="CIr-Wv-wFX"/>
+                        <outlet property="serviceAddress" destination="T85-k9-oUI" id="9P7-yV-KY6"/>
+                        <outlet property="serviceDescription" destination="sd3-1t-Geo" id="chf-qD-Iop"/>
+                        <outlet property="serviceEmail" destination="ner-ev-dc5" id="9Ch-Ar-uNB"/>
+                        <outlet property="serviceImage" destination="rWO-lF-BTv" id="SLk-QZ-8YH"/>
+                        <outlet property="servicePhone" destination="KQx-Bc-zfQ" id="sup-EE-L4J"/>
+                        <outlet property="servicePrice" destination="spR-sr-DJj" id="blu-3h-Geg"/>
+                        <outlet property="serviceProviderName" destination="XN8-xK-Nh4" id="S6b-Ip-8Jg"/>
+                        <outlet property="serviceTitle" destination="9Wb-ha-Q3Y" id="WQZ-eG-EPU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBP-H5-Lbf" userLabel="First Responder" sceneMemberID="firstResponder"/>

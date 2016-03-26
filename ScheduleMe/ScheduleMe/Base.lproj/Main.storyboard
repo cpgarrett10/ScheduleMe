@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -620,10 +620,10 @@
             </objects>
             <point key="canvasLocation" x="350.5" y="246.5"/>
         </scene>
-        <!--FeaturedPage-->
+        <!--ServiceList-->
         <scene sceneID="ANu-Is-1L1">
             <objects>
-                <viewController storyboardIdentifier="MainPageView" title="FeaturedPage" id="JIV-FC-yIF" customClass="MainPageViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ServiceListViewController" title="ServiceList" id="JIV-FC-yIF" customClass="ServiceListViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dno-wi-ybV"/>
                         <viewControllerLayoutGuide type="bottom" id="G9f-cL-eYB"/>
@@ -661,13 +661,28 @@
                                 <rect key="frame" x="-4" y="104" width="383" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="0Se-iG-YS2">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServiceTableViewCell" id="0Se-iG-YS2" customClass="ServiceTableViewCell" customModule="ScheduleMe" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="383" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Se-iG-YS2" id="5lJ-fS-Jvd">
-                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="383" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixm-Cj-k4N">
+                                                    <rect key="frame" x="68" y="11" width="307" height="25"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultServiceImage" translatesAutoresizingMaskIntoConstraints="NO" id="Vss-nm-BWk">
+                                                    <rect key="frame" x="21" y="3" width="39" height="38"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="serviceImage" destination="Vss-nm-BWk" id="VRQ-5F-0di"/>
+                                            <outlet property="titleLabel" destination="ixm-Cj-k4N" id="TIk-Fa-fHu"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -718,7 +733,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="serviceTableView" destination="Ed0-tt-8tw" id="4jO-N3-Ldl"/>
+                        <outlet property="serviceTableView" destination="Ed0-tt-8tw" id="Uw2-5c-Hi7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2lu-sX-anb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -727,11 +742,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="defaultProfilePic" width="1290" height="1290"/>
+        <image name="defaultProfilePic" width="645" height="645"/>
+        <image name="defaultServiceImage" width="42" height="42"/>
         <image name="homeIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xp6-JT-TlL"/>
-        <segue reference="WkA-iP-doB"/>
+        <segue reference="3i4-Ny-tQE"/>
+        <segue reference="41p-lX-HVB"/>
     </inferredMetricsTieBreakers>
 </document>

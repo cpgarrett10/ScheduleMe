@@ -11,10 +11,6 @@ import Firebase
 
 class ViewController: UIViewController {
     
-    
-    
-    
-    
     var login = 1 //Login = 1 SignUp = 2 ForgotPassword = 3
     
     @IBOutlet var scheduleMeLabel: UILabel!

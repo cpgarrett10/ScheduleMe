@@ -16,6 +16,7 @@ class ServiceViewController : UIViewController {
     var serviceCounter: String = ""
     var AddEdit: String = ""
     var serviceID: String = ""
+    var serviceBoolean = true
     
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var TitleTxt: UITextField!
@@ -30,9 +31,30 @@ class ServiceViewController : UIViewController {
     @IBOutlet var DistanceMilesTxt: UITextField!
     @IBOutlet var ServiceImg: UIImageView!
     @IBOutlet weak var addServiceButtonLabel: UIButton!
+    @IBOutlet weak var commuteButtonLabel: UIButton!
+    @IBAction func commuteButton(sender: AnyObject) {
+        
+        
+        if serviceBoolean == true{
+            
+            self.DistanceMilesTxt.hidden = false
+            serviceBoolean = false
+            
+        }else{
+            
+            self.DistanceMilesTxt.hidden = true
+            serviceBoolean = true
+        }
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.DistanceMilesTxt.hidden = true
+        
         
         // use round photo
         ServiceImg.layer.cornerRadius = ServiceImg.frame.size.width / 2.0
@@ -43,6 +65,7 @@ class ServiceViewController : UIViewController {
         addServiceButtonLabel.layer.borderWidth = 1
         addServiceButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
         
+        commuteButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
         
         descriptionTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
         descriptionTextView.layer.borderWidth = 1.0

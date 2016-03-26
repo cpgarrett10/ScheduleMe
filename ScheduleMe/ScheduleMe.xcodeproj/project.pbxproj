@@ -11,6 +11,7 @@
 		37EE54F01CA6E215009A7050 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EE54EF1CA6E215009A7050 /* Service.swift */; };
 		48D3C55CB53D23C5F417EB5E /* Pods_ScheduleMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5DE32EC9595FBF1409BF0C /* Pods_ScheduleMe.framework */; };
 		AF021A301C9E63FE0010BA35 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */; };
+		AF2B14631CA7056F00F69AF4 /* SingleServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2B14621CA7056F00F69AF4 /* SingleServiceView.swift */; };
 		AF77C85E1C7905A90031936C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C85D1C7905A90031936C /* AppDelegate.swift */; };
 		AF77C8601C7905A90031936C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF77C85F1C7905A90031936C /* ViewController.swift */; };
 		AF77C8631C7905A90031936C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF77C8611C7905A90031936C /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		37EE54EF1CA6E215009A7050 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		90C18DBECB229DD855C23D0D /* Pods-ScheduleMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe.release.xcconfig"; sourceTree = "<group>"; };
 		AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
+		AF2B14621CA7056F00F69AF4 /* SingleServiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleServiceView.swift; sourceTree = "<group>"; };
 		AF77C85A1C7905A90031936C /* ScheduleMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScheduleMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF77C85D1C7905A90031936C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF77C85F1C7905A90031936C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */,
 				C880B3EE1C8B8C37009B4441 /* UserProfileViewController.swift */,
 				AF77C85F1C7905A90031936C /* ViewController.swift */,
+				AF2B14621CA7056F00F69AF4 /* SingleServiceView.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 				C880B3EF1C8B8C37009B4441 /* UserProfileViewController.swift in Sources */,
 				AF021A301C9E63FE0010BA35 /* TransitionViewController.swift in Sources */,
 				37EE54F01CA6E215009A7050 /* Service.swift in Sources */,
+				AF2B14631CA7056F00F69AF4 /* SingleServiceView.swift in Sources */,
 				AF9A028E1C947EAB0048887C /* GradientView.swift in Sources */,
 				AF77C85E1C7905A90031936C /* AppDelegate.swift in Sources */,
 				C880B3ED1C8B794E009B4441 /* ServiceViewController.swift in Sources */,

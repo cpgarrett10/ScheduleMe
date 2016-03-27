@@ -9,32 +9,185 @@
 import UIKit
 import Firebase
 
-class UserProfileViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class UserProfileViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: Properties
+    
+    var services = [Service]()
+    
+    // firebase
     let ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
     let uid = Firebase(url: "https://schedulemecapstone.firebaseio.com/").authData.uid
     var serviceCounter = "-1"
 
+    // handle image decoding/encoding
     var base64String: String = ""
     var decodedData:NSData?
     var decodedImage:UIImage?
     
+    // UI components
     @IBOutlet weak var updateButtonLabel: UIButton!
     @IBOutlet var editButtonLabel: UIButton!
     @IBOutlet var FirstNameTxt: UITextField!
     @IBOutlet var LastNameTxt: UITextField!
     @IBOutlet var EmailTxt: UITextField!
-    @IBOutlet var UserServicesTable: UITableView!
     @IBOutlet var profileImage: UIImageView!
+    @IBOutlet weak var serviceTableView: UITableView!
+    @IBOutlet weak var editTableViewButton: UIBarButtonItem!
     
-    @IBOutlet weak var profilePic: UIImageView!
     //var kyleisawesome = ["FirstName": "Kyle" , "LastName":"Tucker", "Email":"cpgarrett10@gmail.com"]
     
-
-    
-    //From Dan for editing/dismissing image on edit image action
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initComponents()
+        initUserFields()
         
+        serviceTableView.delegate = self
+        serviceTableView.dataSource = self
+        fetchServicesFromFirebase()
+    }
+    
+    func initComponents() {
+        // use round profile pic
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2.0
+        
+        updateButtonLabel.backgroundColor = UIColor.clearColor()
+        updateButtonLabel.layer.cornerRadius = 5
+        updateButtonLabel.layer.borderWidth = 1
+        updateButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
+        
+        editButtonLabel.backgroundColor = UIColor.clearColor()
+        editButtonLabel.layer.cornerRadius = 5
+        editButtonLabel.layer.borderWidth = 1
+        editButtonLabel.layer.borderColor = UIColor.whiteColor().CGColor
+    }
+    
+    func initUserFields() {
+        let usersRef = ref.childByAppendingPath("users")
+        let userIDRef = usersRef.childByAppendingPath(uid)
+        //let servicesRef = ref.childByAppendingPath("services")
+        //let imageUrl = ref.authData.providerData["profileImageURL"]
+        
+        userIDRef.observeEventType(.Value, withBlock: { snapshot in
+            
+            //Pull in Name & Email from Firebase
+            self.FirstNameTxt.text = snapshot.value.objectForKey("FirstName") as? String
+            self.LastNameTxt.text = snapshot.value.objectForKey("LastName") as? String
+            self.EmailTxt.text = snapshot.value.objectForKey("email") as? String
+            self.base64String = (snapshot.value.objectForKey("profileImage") as? String)!
+            
+            self.decodedData = NSData(base64EncodedString: self.base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+            self.decodedImage = UIImage(data: self.decodedData!)!
+            self.profileImage.image = self.decodedImage
+            
+            let result = snapshot.value.objectForKey("ServiceCounter") as? String
+            //If counter != null then pull it, if == null then create it as 0
+            if result != nil {
+                self.serviceCounter = result!
+            } else {
+                self.serviceCounter = "0"
+                userIDRef.updateChildValues([
+                    "ServiceCounter": self.serviceCounter
+                    ])
+            }
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+    }
+    
+    func fetchServicesFromFirebase() {
+        let serviceRef = ref.childByAppendingPath("services")
+        
+        serviceRef.queryOrderedByChild("uid").queryEqualToValue(self.uid)
+            .observeEventType(.Value, withBlock: { snapshot in
+            
+                var newItems = [Service]()
+                
+                for item in snapshot.children {
+                    let service = Service(snapshot: item as! FDataSnapshot)
+                    newItems.append(service)
+                }
+                
+                self.services = newItems
+                self.serviceTableView.reloadData()
+            })
+    }
+    
+    
+    // MARK: UITableViewControllerDataSource
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.services.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "UserServiceTableViewCell"
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UserServiceTableViewCell
+        
+        let service = services[indexPath.row]
+        
+        cell.titleLabel.text = service.title
+        cell.cityLabel.text = service.city
+        cell.descriptionLabel.text = service.description
+        cell.distanceLabel.text = service.distanceMiles + " Mi"
+        
+        var price = service.price
+        let index = price.characters.indexOf(".")
+        
+        if price != "" && index != nil {
+            price = price.substringToIndex(index!)
+        }
+        
+        cell.priceLabel.text = "$" + price
+        
+        cell.setImageTo("defaultServiceImage")
+        
+        
+        if let image = service.image {
+            cell.serviceImage.image = image
+        }
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            
+            
+            
+            
+            // delete from firebase
+            let service = services[indexPath.row]
+            service.ref?.removeValue()
+            
+            // delete from array
+            services.removeAtIndex(indexPath.row)
+            
+            // delete from tableView
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        if (self.serviceTableView.editing) {
+            return UITableViewCellEditingStyle.Delete
+        }
+        return UITableViewCellEditingStyle.None
+    }
+    
+    // MARK: UIImagePickerControllerDelegate
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         // if cancel, dismiss
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -55,74 +208,20 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    // MARK: Actions
+    
+    @IBAction func editButtonTapped(sender: AnyObject) {
         
-        // use round profile pic
-        profilePic.layer.cornerRadius = profilePic.frame.size.width / 2.0
-        
-        
-        updateButtonLabel.backgroundColor = UIColor.clearColor()
-        updateButtonLabel.layer.cornerRadius = 5
-        updateButtonLabel.layer.borderWidth = 1
-        updateButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
-        
-        editButtonLabel.backgroundColor = UIColor.clearColor()
-        editButtonLabel.layer.cornerRadius = 5
-        editButtonLabel.layer.borderWidth = 1
-        editButtonLabel.layer.borderColor = UIColor.whiteColor().CGColor
-        
-        let usersRef = ref.childByAppendingPath("users")
-        let userIDRef = usersRef.childByAppendingPath(uid)
-        //let servicesRef = ref.childByAppendingPath("services")
-        //let imageUrl = ref.authData.providerData["profileImageURL"]
-
-        userIDRef.observeEventType(.Value, withBlock: { snapshot in
-            
-            //Pull in Name & Email from Firebase
-            self.FirstNameTxt.text = snapshot.value.objectForKey("FirstName") as? String
-            self.LastNameTxt.text = snapshot.value.objectForKey("LastName") as? String
-            self.EmailTxt.text = snapshot.value.objectForKey("email") as? String
-            self.base64String = (snapshot.value.objectForKey("profileImage") as? String)!
-            
-            self.decodedData = NSData(base64EncodedString: self.base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
-            self.decodedImage = UIImage(data: self.decodedData!)!
-            self.profileImage.image = self.decodedImage
-   
-            let result = snapshot.value.objectForKey("ServiceCounter") as? String
-            //If counter != null then pull it, if == null then create it as 0
-                if result != nil {
-                    self.serviceCounter = result!
-                } else {
-                    self.serviceCounter = "0"
-                    userIDRef.updateChildValues([
-                        "ServiceCounter": self.serviceCounter
-                    ])
-                }
-            
-
-            }, withCancelBlock: { error in
-                print(error.description)
-        })
-
-        
-        
-        
-        
-        /*
-        self.dataSource = FirebaseTableViewDataSource(ref: servicesRef, cellReuseIdentifier: "Cell", view: self.UserServicesTable)
-        
-        self.dataSource.populateCellWithBlock { (cell: UITableViewCell, obj: NSObject) -> Void in
-        let snap = obj as! FDataSnapshot
-        
-        // Populate cell as you see fit, like as below
-        cell.textLabel?.text = snap.key as String
+        if (self.serviceTableView.editing) {
+            editTableViewButton.title = "Edit"
+            self.serviceTableView.setEditing(false, animated: true)
+        } else {
+            editTableViewButton.title = "Done"
+            self.serviceTableView.setEditing(true, animated: true)
         }
         
-        self.UserServicesTable.dataSource = self.dataSource
-        */
-        
     }
+    
     
     @IBAction func UpdateUserProfile(sender: AnyObject) {
         
@@ -181,7 +280,17 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
         if (segue.identifier == "EditServiceSegue") {
             let destinationViewController = segue.destinationViewController as! ServiceViewController
             destinationViewController.AddEdit = "Edit"
-            destinationViewController.serviceID = ""
+            
+            
+            
+            if let selectedCell = sender as? UserServiceTableViewCell {
+                let indexPath = serviceTableView.indexPathForCell(selectedCell)
+                let selectedService = self.services[indexPath!.row]
+                
+                destinationViewController.service = selectedService
+                destinationViewController.serviceID = selectedService.key
+            }
+            
         }
     }
 }

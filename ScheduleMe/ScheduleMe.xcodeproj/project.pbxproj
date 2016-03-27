@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		370484291CA73D0400DBB738 /* UserServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370484281CA73D0400DBB738 /* UserServiceTableViewCell.swift */; };
 		37137EDC1CA3089B0047F48B /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37137EDB1CA3089B0047F48B /* ServiceTableViewCell.swift */; };
 		37EE54F01CA6E215009A7050 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EE54EF1CA6E215009A7050 /* Service.swift */; };
 		48D3C55CB53D23C5F417EB5E /* Pods_ScheduleMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5DE32EC9595FBF1409BF0C /* Pods_ScheduleMe.framework */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		370484281CA73D0400DBB738 /* UserServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceTableViewCell.swift; sourceTree = "<group>"; };
 		37137EDB1CA3089B0047F48B /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		37EE54EF1CA6E215009A7050 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		90C18DBECB229DD855C23D0D /* Pods-ScheduleMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				AF77C8691C7905A90031936C /* LaunchScreen.storyboard */,
 				AF9A028D1C947EAA0048887C /* GradientView.swift */,
 				37137EDB1CA3089B0047F48B /* ServiceTableViewCell.swift */,
+				370484281CA73D0400DBB738 /* UserServiceTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			files = (
 				AF77C8601C7905A90031936C /* ViewController.swift in Sources */,
 				37137EDC1CA3089B0047F48B /* ServiceTableViewCell.swift in Sources */,
+				370484291CA73D0400DBB738 /* UserServiceTableViewCell.swift in Sources */,
 				C8B940A21C9DB261002F8DDB /* ServiceListViewController.swift in Sources */,
 				C880B3EF1C8B8C37009B4441 /* UserProfileViewController.swift in Sources */,
 				AF021A301C9E63FE0010BA35 /* TransitionViewController.swift in Sources */,

@@ -12,6 +12,8 @@ import FirebaseUI
 
 class ServiceListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet var ProfileIconImage: UIImageView!
+
     // MARK: Properties
     
     var services = [Service]()
@@ -20,13 +22,49 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     
     // firebase
     let ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
+    let uid = Firebase(url: "https://schedulemecapstone.firebaseio.com/").authData.uid
+    var base64String: String = ""
+    var decodedData:NSData?
+    var decodedImage:UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //Prep to set FirebaseImage
+        let usersRef = ref.childByAppendingPath("users")
+        let userIDRef = usersRef.childByAppendingPath(uid)
+        
         serviceTableView.delegate = self
         serviceTableView.dataSource = self
         fetchServicesFromFirebase()
+        
+        userIDRef.observeEventType(.Value, withBlock: { snapshot in
+            //Pull in Image from Firebase
+            self.base64String = (snapshot.value.objectForKey("profileImage") as? String)!
+            self.decodedData = NSData(base64EncodedString: self.base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+            self.decodedImage = UIImage(data: self.decodedData!)!
+            
+            self.ProfileIconImage.image = self.decodedImage
+            self.ProfileIconImage.contentMode = .ScaleAspectFill
+            self.ProfileIconImage.layer.cornerRadius = self.ProfileIconImage.frame.size.width / 2;
+            self.ProfileIconImage.clipsToBounds = true;
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        ProfileIconImage.userInteractionEnabled = true
+        ProfileIconImage.addGestureRecognizer(tapGestureRecognizer)
     }
+    
+    func imageTapped(img: AnyObject)
+    {
+        //send them to home screen
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("userProfile") as UIViewController
+        self.presentViewController(MainPageViewController, animated: true, completion: nil)
+    }
+    
     
     func fetchServicesFromFirebase() {
         let serviceRef = self.ref.childByAppendingPath("services")

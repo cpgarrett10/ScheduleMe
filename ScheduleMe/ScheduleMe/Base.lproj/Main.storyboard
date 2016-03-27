@@ -126,7 +126,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="User Profile" id="Qnm-fv-3W3">
-                                        <barButtonItem key="rightBarButtonItem" image="homeIcon" id="GFd-YY-dGW">
+                                        <barButtonItem key="leftBarButtonItem" image="homeIcon" id="GFd-YY-dGW">
                                             <connections>
                                                 <segue destination="JIV-FC-yIF" kind="show" id="WkA-iP-doB"/>
                                             </connections>
@@ -361,7 +361,7 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Service Details" id="isM-Xw-S9R">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="e7B-Jb-Zqq">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="e7B-Jb-Zqq">
                                             <connections>
                                                 <segue destination="gSX-Rh-dxq" kind="show" id="LVZ-HH-e3k"/>
                                             </connections>
@@ -406,6 +406,13 @@
                                     <action selector="editServiceImage:" destination="rDB-Tz-G8x" eventType="touchUpInside" id="Bl4-ju-3Mk"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FNS-E1-pH6">
+                                <rect key="frame" x="318" y="20" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="cWc-aX-waJ"/>
+                                    <constraint firstAttribute="width" constant="37" id="ixo-aO-X2E"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -432,6 +439,7 @@
                             <constraint firstItem="DZC-tH-R1P" firstAttribute="leading" secondItem="km1-lO-xuK" secondAttribute="trailing" constant="10" id="FSa-bw-aIH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jTO-xe-sJM" secondAttribute="trailing" constant="10" id="GPm-8t-zc8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="w7t-gO-rfK" secondAttribute="trailing" constant="10" id="Gpo-b8-2Fc"/>
+                            <constraint firstItem="FNS-E1-pH6" firstAttribute="trailing" secondItem="4XO-8H-eAD" secondAttribute="trailingMargin" id="Gxr-H1-ik7"/>
                             <constraint firstItem="D04-WW-r9p" firstAttribute="top" secondItem="IZB-bW-K0g" secondAttribute="bottom" constant="5" id="IPT-VR-2t8"/>
                             <constraint firstItem="D04-WW-r9p" firstAttribute="leading" secondItem="km1-lO-xuK" secondAttribute="trailing" constant="10" id="JBJ-fw-cSU"/>
                             <constraint firstItem="Pyo-9h-lLQ" firstAttribute="leading" secondItem="RGa-uQ-HEJ" secondAttribute="trailing" constant="5" id="JZt-nh-rP4"/>
@@ -468,6 +476,7 @@
                             <constraint firstItem="Pyo-9h-lLQ" firstAttribute="top" secondItem="km1-lO-xuK" secondAttribute="bottom" constant="7" id="bCb-6n-UaX"/>
                             <constraint firstItem="w7t-gO-rfK" firstAttribute="top" secondItem="FH4-tX-GJP" secondAttribute="bottom" constant="5" id="cIN-Fh-1gj"/>
                             <constraint firstItem="aLA-4u-8Ej" firstAttribute="top" secondItem="VAf-0A-Tfh" secondAttribute="bottom" constant="24" id="cSp-bD-cQV"/>
+                            <constraint firstItem="FNS-E1-pH6" firstAttribute="top" secondItem="qwv-Zh-eMI" secondAttribute="bottom" id="dne-6S-lo7"/>
                             <constraint firstItem="Pyo-9h-lLQ" firstAttribute="leading" secondItem="RGa-uQ-HEJ" secondAttribute="trailing" id="e4a-A3-U5F"/>
                             <constraint firstItem="RGa-uQ-HEJ" firstAttribute="top" secondItem="km1-lO-xuK" secondAttribute="bottom" constant="-1" id="ePJ-AB-jeX"/>
                             <constraint firstItem="SGf-Pn-3Eg" firstAttribute="leading" secondItem="zLE-3C-oyb" secondAttribute="trailing" constant="10" id="ibl-Ga-QDz"/>
@@ -549,6 +558,7 @@
                         <outlet property="commuteButtonLabel" destination="Pyo-9h-lLQ" id="BV1-Yk-bQB"/>
                         <outlet property="descriptionTextView" destination="7D0-5h-48S" id="UF9-LN-vsH"/>
                         <outlet property="editServiceImage" destination="0k3-yd-gKe" id="lnE-1h-yci"/>
+                        <outlet property="profileIconImage" destination="FNS-E1-pH6" id="Cxe-VW-yDd"/>
                         <outlet property="serviceImage" destination="zLE-3C-oyb" id="5lX-UV-ram"/>
                     </connections>
                 </viewController>
@@ -665,14 +675,7 @@
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem id="1am-h4-Ao4">
-                                        <barButtonItem key="leftBarButtonItem" title="Profile Icon" id="O3G-7g-byD">
-                                            <connections>
-                                                <segue destination="gSX-Rh-dxq" kind="show" id="dVH-Nt-1YP"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" id="kI3-Fg-6Ez"/>
-                                    </navigationItem>
+                                    <navigationItem title="Title" id="sBs-bZ-EzB"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ed0-tt-8tw">
@@ -750,6 +753,13 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYS-ZZ-wvg">
+                                <rect key="frame" x="320" y="20" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="37" id="XuV-WV-WUM"/>
+                                    <constraint firstAttribute="height" constant="37" id="x30-ZX-IB8"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -761,10 +771,12 @@
                             <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="Dno-wi-ybV" secondAttribute="bottom" constant="20" id="Ftr-oS-0kE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ed0-tt-8tw" secondAttribute="trailing" constant="-20" id="H4y-u6-Dw9"/>
                             <constraint firstItem="C0f-Wm-FTN" firstAttribute="leading" secondItem="3Bq-fZ-Yi7" secondAttribute="leading" constant="15" id="IiS-ak-wjG"/>
+                            <constraint firstItem="HYS-ZZ-wvg" firstAttribute="top" secondItem="Dno-wi-ybV" secondAttribute="bottom" id="Jui-j9-P8E"/>
                             <constraint firstAttribute="bottomMargin" secondItem="C0f-Wm-FTN" secondAttribute="bottom" id="Lwh-kB-Mly"/>
                             <constraint firstItem="FIx-ZH-MJ7" firstAttribute="leading" secondItem="3Bq-fZ-Yi7" secondAttribute="leading" id="TaW-nX-IMJ"/>
                             <constraint firstItem="Ed0-tt-8tw" firstAttribute="centerX" secondItem="3Bq-fZ-Yi7" secondAttribute="centerX" id="YWl-93-5N1"/>
                             <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="FIx-ZH-MJ7" secondAttribute="bottom" id="bIr-RW-c9b"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HYS-ZZ-wvg" secondAttribute="trailing" id="bsa-nt-IS2"/>
                             <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="3Bq-fZ-Yi7" secondAttribute="topMargin" id="c7d-Ow-oW1"/>
                             <constraint firstItem="FIx-ZH-MJ7" firstAttribute="top" secondItem="3Bq-fZ-Yi7" secondAttribute="topMargin" id="c7n-ka-Uah"/>
                             <constraint firstItem="C0f-Wm-FTN" firstAttribute="centerX" secondItem="3Bq-fZ-Yi7" secondAttribute="centerX" id="cLt-LW-46H"/>
@@ -797,6 +809,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="ProfileIconImage" destination="HYS-ZZ-wvg" id="CSR-f0-ybo"/>
                         <outlet property="serviceTableView" destination="Ed0-tt-8tw" id="Uw2-5c-Hi7"/>
                     </connections>
                 </viewController>
@@ -828,12 +841,11 @@
                                 </textAttributes>
                                 <items>
                                     <navigationItem id="q4C-ek-F5a">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="BQm-7d-VEU">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="BQm-7d-VEU">
                                             <connections>
                                                 <action selector="cancelButtonTapped:" destination="I5C-dY-L0q" id="r3w-HV-eFy"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Profile Icon" id="xoc-Cw-dxu"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -918,6 +930,13 @@
                                 <color key="textColor" red="0.26666666666666666" green="0.23921568627450979" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oug-Vc-MNj">
+                                <rect key="frame" x="327" y="20" width="37" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="IY4-rc-oOu"/>
+                                    <constraint firstAttribute="width" constant="37" id="ymZ-LM-phh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -933,6 +952,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="rWO-lF-BTv" secondAttribute="trailing" constant="-20" id="Bjy-eE-Gkz"/>
                             <constraint firstItem="ner-ev-dc5" firstAttribute="top" secondItem="XN8-xK-Nh4" secondAttribute="bottom" constant="22" id="C9C-Md-7Tx"/>
                             <constraint firstItem="sd3-1t-Geo" firstAttribute="leading" secondItem="C2E-xk-FZ7" secondAttribute="leadingMargin" constant="-14" id="Ddb-OS-JEC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Oug-Vc-MNj" secondAttribute="trailing" id="ER6-He-1mU"/>
                             <constraint firstItem="sd3-1t-Geo" firstAttribute="top" secondItem="spR-sr-DJj" secondAttribute="bottom" constant="14" id="HqY-Hk-Ti9"/>
                             <constraint firstItem="9Wb-ha-Q3Y" firstAttribute="leading" secondItem="C2E-xk-FZ7" secondAttribute="leadingMargin" constant="-22" id="HyB-R7-4IR"/>
                             <constraint firstItem="spR-sr-DJj" firstAttribute="leading" secondItem="C2E-xk-FZ7" secondAttribute="leadingMargin" constant="-14" id="IBo-R4-PlX"/>
@@ -950,6 +970,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9Wb-ha-Q3Y" secondAttribute="trailing" constant="-18" id="ZP5-PM-ACm"/>
                             <constraint firstItem="XN8-xK-Nh4" firstAttribute="top" secondItem="pg7-jd-d0C" secondAttribute="bottom" constant="11" id="a4e-hM-6oi"/>
                             <constraint firstItem="rWO-lF-BTv" firstAttribute="top" secondItem="mvB-eW-MDT" secondAttribute="bottom" id="cB7-Yu-edU"/>
+                            <constraint firstItem="Oug-Vc-MNj" firstAttribute="top" secondItem="2gk-hW-Y7K" secondAttribute="bottom" id="cTh-KR-o3u"/>
                             <constraint firstAttribute="trailingMargin" secondItem="rWO-lF-BTv" secondAttribute="trailing" constant="-20" id="d9j-4V-Ulk"/>
                             <constraint firstItem="sd3-1t-Geo" firstAttribute="top" secondItem="T85-k9-oUI" secondAttribute="bottom" constant="-6" id="ewt-C0-wQc"/>
                             <constraint firstItem="mvB-eW-MDT" firstAttribute="leading" secondItem="C2E-xk-FZ7" secondAttribute="leadingMargin" constant="-20" id="gvQ-mh-Oh4"/>
@@ -1009,6 +1030,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="horizontalLine" destination="zt5-gT-gLV" id="CIr-Wv-wFX"/>
+                        <outlet property="profileIconImage" destination="Oug-Vc-MNj" id="QOg-oq-M6j"/>
                         <outlet property="serviceAddress" destination="T85-k9-oUI" id="9P7-yV-KY6"/>
                         <outlet property="serviceDescription" destination="sd3-1t-Geo" id="chf-qD-Iop"/>
                         <outlet property="serviceEmail" destination="ner-ev-dc5" id="9Ch-Ar-uNB"/>
@@ -1032,7 +1054,7 @@
         <image name="homeIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dVH-Nt-1YP"/>
+        <segue reference="Xp6-JT-TlL"/>
         <segue reference="WkA-iP-doB"/>
     </inferredMetricsTieBreakers>
 </document>

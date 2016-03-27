@@ -21,7 +21,11 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
     var decodedData:NSData?
     var decodedImage:UIImage?
     var serviceImageTEMP:UIImage?
+    var Profilebase64String: String = ""
+    var ProfiledecodedData:NSData?
+    var ProfiledecodedImage:UIImage?
     
+    @IBOutlet var profileIconImage: UIImageView!
     @IBOutlet var descriptionTextView: UITextView!
     @IBOutlet var TitleTxt: UITextField!
     @IBOutlet var TypeTxt: UITextField!
@@ -57,10 +61,9 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         self.DistanceMilesTxt.hidden = true
-        
+        let usersRef = ref.childByAppendingPath("users")
+        let userIDRef = usersRef.childByAppendingPath(uid)
         
         // use round photo
         ServiceImg.layer.cornerRadius = ServiceImg.frame.size.width / 2.0
@@ -121,6 +124,34 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
             serviceImage.image = UIImage(named: "defaultServiceImage")
         }
         
+        
+        userIDRef.observeEventType(.Value, withBlock: { snapshot in
+            //Pull in Image from Firebase
+            self.Profilebase64String = (snapshot.value.objectForKey("profileImage") as? String)!
+            self.ProfiledecodedData = NSData(base64EncodedString: self.Profilebase64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+            self.ProfiledecodedImage = UIImage(data: self.ProfiledecodedData!)!
+            
+            self.profileIconImage.image = self.ProfiledecodedImage
+            self.profileIconImage.contentMode = .ScaleAspectFill
+            self.profileIconImage.layer.cornerRadius = self.profileIconImage.frame.size.width / 2;
+            self.profileIconImage.clipsToBounds = true;
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        profileIconImage.userInteractionEnabled = true
+        profileIconImage.addGestureRecognizer(tapGestureRecognizer)
+        
+    }
+    
+    func imageTapped(img: AnyObject)
+    {
+        //send them to home screen
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("userProfile") as UIViewController
+        self.presentViewController(MainPageViewController, animated: true, completion: nil)
     }
     
     @IBAction func AddUpdateServiceBtn(sender: AnyObject) {

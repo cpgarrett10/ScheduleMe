@@ -1,5 +1,5 @@
 //
-//  ServiceViewController.swift
+//  ServiceListViewController.swift
 //  ScheduleMe
 //
 //  Created by Kyle Tucker on 3/5/16.
@@ -64,7 +64,7 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         let service = self.services[indexPath.row]
         
         cell.titleLabel.text = service.title
-        cell.cityLabel.text = service.city
+        cell.cityLabel.text = service.city + ", " + service.state
         cell.descriptionLabel.text = service.description
         cell.distanceLabel.text = service.distanceMiles + " Mi"
         

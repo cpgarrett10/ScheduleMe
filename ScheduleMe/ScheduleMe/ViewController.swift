@@ -111,9 +111,6 @@ class ViewController: UIViewController {
                         let uid = self.ref.authData.uid
                         
                         // We are now logged in
-                        print("You have successfully logged in")
-                        
-                        print(uid)
                         
                         //send them to home screen
                         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
@@ -166,13 +163,10 @@ class ViewController: UIViewController {
                                     let imageData: NSData = UIImageJPEGRepresentation(self.defaultProfileImage, 0.1)!
                                     let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
                                     
-                                    print(base64String)
  
  
                                     // We are now logged in
-                                    print("You have successfully logged in")
-                                    
-                                    print(uid)
+
                                     
                                     //create new user dictionary
                                     let newUser = [

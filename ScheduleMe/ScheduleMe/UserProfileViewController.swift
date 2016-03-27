@@ -49,7 +49,9 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
     
     func initComponents() {
         // use round profile pic
-        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2.0
+        self.profileImage.contentMode = .ScaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
+        self.profileImage.clipsToBounds = true;
         
         updateButtonLabel.backgroundColor = UIColor.clearColor()
         updateButtonLabel.layer.cornerRadius = 5
@@ -133,7 +135,7 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
         let service = services[indexPath.row]
         
         cell.titleLabel.text = service.title
-        cell.cityLabel.text = service.city
+        cell.cityLabel.text = service.city + ", " + service.state
         cell.descriptionLabel.text = service.description
         cell.distanceLabel.text = service.distanceMiles + " Mi"
         
@@ -193,7 +195,20 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        profileImage.image = selectedImage
+        
+        // set corner radius
+        self.profileImage.contentMode = .ScaleAspectFill
+        self.profileImage.layer.cornerRadius = self.profileImage.frame.size.width / 2;
+        self.profileImage.clipsToBounds = true;
+        
+        
+        
+        
+        
         let imageData: NSData = UIImageJPEGRepresentation(selectedImage, 0.1)!
         let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
         

@@ -11,6 +11,10 @@ import Firebase
 
 class ServiceViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // MARK: Properties
+    
+    var service: Service?
+    
     var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
     let uid = Firebase(url: "https://schedulemecapstone.firebaseio.com/").authData.uid
     var serviceCounter: String = ""
@@ -24,6 +28,7 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
     var Profilebase64String: String = ""
     var ProfiledecodedData:NSData?
     var ProfiledecodedImage:UIImage?
+    var userIDRef:String?
     
     @IBOutlet var profileIconImage: UIImageView!
     @IBOutlet var descriptionTextView: UITextView!
@@ -44,86 +49,15 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet var serviceImage: UIImageView!
     
     
-    //From Dan for editing/dismissing image on edit image action
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        
-        // if cancel, dismiss
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        self.serviceImageTEMP = info[UIImagePickerControllerOriginalImage] as? UIImage
-        self.serviceImage.image = self.serviceImageTEMP
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
+    // MARK: Initialization
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.DistanceMilesTxt.hidden = true
         let usersRef = ref.childByAppendingPath("users")
         let userIDRef = usersRef.childByAppendingPath(uid)
-        
-        // use round photo
-        ServiceImg.layer.cornerRadius = ServiceImg.frame.size.width / 2.0
-        
-        
-        addServiceButtonLabel.backgroundColor = UIColor.clearColor()
-        addServiceButtonLabel.layer.cornerRadius = 5
-        addServiceButtonLabel.layer.borderWidth = 1
-        addServiceButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
-        
-        commuteButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
-        
-        descriptionTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
-        descriptionTextView.layer.borderWidth = 1.0
-        descriptionTextView.layer.cornerRadius = 5
-
-        let servicesRef = ref.childByAppendingPath("services")
-        let servicesIDRef = servicesRef.childByAppendingPath(serviceID)
-        
- 
-        
-        if AddEdit == "Edit" {
-        // USE ONLY ON UPDATING A SERVICE
-            servicesIDRef.observeEventType(.Value, withBlock: { snapshot in
-                self.TitleTxt.text = snapshot.value.objectForKey("Title") as? String
-                self.TypeTxt.text = snapshot.value.objectForKey("Type") as? String
-                self.SrvcEmailTxt.text = snapshot.value.objectForKey("ServiceEmail") as? String
-                self.PhoneTxt.text = snapshot.value.objectForKey("Phone") as? String
-                self.PriceTxt.text = snapshot.value.objectForKey("Price") as? String
-                self.StreetAddressTxt.text = snapshot.value.objectForKey("StreetAddress") as? String
-                self.CityTxt.text = snapshot.value.objectForKey("City") as? String
-                self.StateTxt.text = snapshot.value.objectForKey("State") as? String
-                self.ZipTxt.text = snapshot.value.objectForKey("Zip") as? String
-                self.DistanceMilesTxt.text = snapshot.value.objectForKey("DistanceMiles") as? String
-                self.descriptionTextView.text = snapshot.value.objectForKey("Description") as? String
-                
-                //load current image
-                self.base64Image = (snapshot.value.objectForKey("Base64Image") as? String)!
-                self.decodedData = NSData(base64EncodedString: self.base64Image, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
-                self.decodedImage = UIImage(data: self.decodedData!)!
-                self.serviceImage.image = self.decodedImage
-                
-                }, withCancelBlock: { error in
-                print(error.description)
-            })
-        } else {
-            self.TitleTxt.text = ""
-            self.TypeTxt.text = ""
-            self.SrvcEmailTxt.text = ""
-            self.PhoneTxt.text = ""
-            self.PriceTxt.text = ""
-            self.StreetAddressTxt.text = ""
-            self.CityTxt.text = ""
-            self.StateTxt.text = ""
-            self.ZipTxt.text = ""
-            self.DistanceMilesTxt.text = ""
-            self.descriptionTextView.text = ""
-            serviceImage.image = UIImage(named: "defaultServiceImage")
-        }
-        
+        initComponents()
+        setLabelValues()
         
         userIDRef.observeEventType(.Value, withBlock: { snapshot in
             //Pull in Image from Firebase
@@ -143,7 +77,76 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
         profileIconImage.userInteractionEnabled = true
         profileIconImage.addGestureRecognizer(tapGestureRecognizer)
+    
+    }
+    
+    func initComponents() {
+        // use round photo
+        ServiceImg.layer.cornerRadius = ServiceImg.frame.size.width / 2.0
         
+        addServiceButtonLabel.backgroundColor = UIColor.clearColor()
+        addServiceButtonLabel.layer.cornerRadius = 5
+        addServiceButtonLabel.layer.borderWidth = 1
+        addServiceButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
+        
+        
+        if AddEdit == "Edit" {
+            addServiceButtonLabel.setTitle("Update Service", forState: UIControlState.Normal)
+        }
+        
+        commuteButtonLabel.layer.borderColor = UIColor(red: 153/255, green: 204/255, blue: 238/255, alpha: 1).CGColor
+        
+        descriptionTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
+        descriptionTextView.layer.borderWidth = 1.0
+        descriptionTextView.layer.cornerRadius = 5
+        
+        self.DistanceMilesTxt.hidden = true
+        
+        
+        navigationItem.leftBarButtonItem = editButtonItem()
+    }
+    
+    func setLabelValues() {
+        if AddEdit == "Edit" {
+            self.TitleTxt.text = self.service?.title
+            self.TypeTxt.text = self.service?.type
+            self.SrvcEmailTxt.text = service?.serviceEmail
+            self.PhoneTxt.text = self.service?.phone
+            self.PriceTxt.text = service?.price
+            self.StreetAddressTxt.text = service?.streetAddress
+            self.CityTxt.text = service?.city
+            self.StateTxt.text = service?.state
+            self.ZipTxt.text = service?.zip
+            self.DistanceMilesTxt.text = service?.distanceMiles
+            self.descriptionTextView.text = service?.description
+            self.serviceImage.image = service?.image
+            
+            self.serviceImageTEMP = service?.image
+            
+        } else {
+            self.TitleTxt.text = ""
+            self.TypeTxt.text = ""
+            self.SrvcEmailTxt.text = ""
+            self.PhoneTxt.text = ""
+            self.PriceTxt.text = ""
+            self.StreetAddressTxt.text = ""
+            self.CityTxt.text = ""
+            self.StateTxt.text = ""
+            self.ZipTxt.text = ""
+            self.DistanceMilesTxt.text = ""
+            self.descriptionTextView.text = ""
+            serviceImage.image = UIImage(named: "defaultServiceImage")
+        }
+    }
+    
+    
+    // MARK: UIImagePickerControllerDelegate
+    
+    
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func imageTapped(img: AnyObject)
@@ -152,7 +155,20 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
         let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
         let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("userProfile") as UIViewController
         self.presentViewController(MainPageViewController, animated: true, completion: nil)
+        // if cancel, dismiss
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        self.serviceImageTEMP = info[UIImagePickerControllerOriginalImage] as? UIImage
+        self.serviceImage.image = self.serviceImageTEMP
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    // MARK: Actions
+    
     
     @IBAction func AddUpdateServiceBtn(sender: AnyObject) {
         let servicesRef = ref.childByAppendingPath("services")
@@ -160,6 +176,8 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
         
         let imageData: NSData = UIImageJPEGRepresentation(serviceImageTEMP!, 0.1)!
         let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
+        print(TitleTxt.text)
         
         //Create/Update Service with the all details
         servicesIDRef.updateChildValues([
@@ -213,6 +231,9 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
         // show image picker
         self.presentViewController(imagePickerController, animated: true, completion: nil)
     }
+    
+    
+    // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if (segue.identifier == "CancelSegue") {

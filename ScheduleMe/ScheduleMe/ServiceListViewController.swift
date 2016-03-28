@@ -39,7 +39,7 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         
         userIDRef.observeEventType(.Value, withBlock: { snapshot in
             //Pull in Image from Firebase
-            self.base64String = (snapshot.value.objectForKey("profileImage") as? String)!
+            self.base64String = (snapshot.value.objectForKey("Base64Image") as? String)!
             self.decodedData = NSData(base64EncodedString: self.base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
             self.decodedImage = UIImage(data: self.decodedData!)!
             
@@ -52,7 +52,7 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
                 print(error.description)
         })
 
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ServiceListViewController.imageTapped(_:))  )
         ProfileIconImage.userInteractionEnabled = true
         ProfileIconImage.addGestureRecognizer(tapGestureRecognizer)
     }

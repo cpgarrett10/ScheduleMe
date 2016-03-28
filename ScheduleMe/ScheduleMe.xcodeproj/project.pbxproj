@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		370484291CA73D0400DBB738 /* UserServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370484281CA73D0400DBB738 /* UserServiceTableViewCell.swift */; };
 		37137EDC1CA3089B0047F48B /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37137EDB1CA3089B0047F48B /* ServiceTableViewCell.swift */; };
+		37E718191CA99FEC00C14730 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E718181CA99FEC00C14730 /* User.swift */; };
 		37EE54F01CA6E215009A7050 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EE54EF1CA6E215009A7050 /* Service.swift */; };
 		48D3C55CB53D23C5F417EB5E /* Pods_ScheduleMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5DE32EC9595FBF1409BF0C /* Pods_ScheduleMe.framework */; };
 		AF021A301C9E63FE0010BA35 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		370484281CA73D0400DBB738 /* UserServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceTableViewCell.swift; sourceTree = "<group>"; };
 		37137EDB1CA3089B0047F48B /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
+		37E718181CA99FEC00C14730 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		37EE54EF1CA6E215009A7050 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		90C18DBECB229DD855C23D0D /* Pods-ScheduleMe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScheduleMe.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScheduleMe/Pods-ScheduleMe.release.xcconfig"; sourceTree = "<group>"; };
 		AF021A2F1C9E63FE0010BA35 /* TransitionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				37EE54EF1CA6E215009A7050 /* Service.swift */,
+				37E718181CA99FEC00C14730 /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -279,7 +282,7 @@
 				TargetAttributes = {
 					AF77C8591C7905A90031936C = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 8R8HMXP9QK;
+						DevelopmentTeam = WTBVMZ9B5P;
 					};
 					AF77C8701C7905AA0031936C = {
 						CreatedOnToolsVersion = 7.2;
@@ -401,6 +404,7 @@
 				AF021A301C9E63FE0010BA35 /* TransitionViewController.swift in Sources */,
 				37EE54F01CA6E215009A7050 /* Service.swift in Sources */,
 				AF2B14631CA7056F00F69AF4 /* SingleServiceViewController.swift in Sources */,
+				37E718191CA99FEC00C14730 /* User.swift in Sources */,
 				AF9A028E1C947EAB0048887C /* GradientView.swift in Sources */,
 				AF77C85E1C7905A90031936C /* AppDelegate.swift in Sources */,
 				C880B3ED1C8B794E009B4441 /* ServiceViewController.swift in Sources */,
@@ -550,10 +554,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ScheduleMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.carson.ScheduleMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ScheduleMe/ScheduleMe-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -566,10 +573,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ScheduleMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.carson.ScheduleMe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "ScheduleMe/ScheduleMe-Bridging-Header.h";
 			};
 			name = Release;

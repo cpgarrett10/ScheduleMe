@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     @IBOutlet var UsernameTxt: UITextField!
     @IBOutlet var PasswordTxt: UITextField!
     @IBOutlet var ForgotPassButton: UIButton!
-    var defaultProfileImage = UIImage(named: "defaultProfilePic")!
+    var defaultProfileImage = UIImage(named: "defaultProfileImage")!
     
     
     @IBAction func forgotPassClick(sender: AnyObject) {
@@ -172,7 +172,7 @@ class ViewController: UIViewController {
                                     let newUser = [
                                         "provider": authData.provider,
                                         "email": authData.providerData["email"] as? NSString as? String,
-                                        "profileImage": base64String
+                                        "Base64Image": base64String
                                         
                                     ]
                                     

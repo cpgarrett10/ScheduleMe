@@ -76,7 +76,7 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
             self.FirstNameTxt.text = snapshot.value.objectForKey("FirstName") as? String
             self.LastNameTxt.text = snapshot.value.objectForKey("LastName") as? String
             self.EmailTxt.text = snapshot.value.objectForKey("email") as? String
-            self.base64String = (snapshot.value.objectForKey("profileImage") as? String)!
+            self.base64String = (snapshot.value.objectForKey("Base64Image") as? String)!
             
             self.decodedData = NSData(base64EncodedString: self.base64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
             self.decodedImage = UIImage(data: self.decodedData!)!
@@ -217,7 +217,7 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
         let userIDRef = usersRef.childByAppendingPath(uid)
         
         userIDRef.updateChildValues([
-            "profileImage": base64String
+            "Base64Image": base64String
             ])
         
         self.dismissViewControllerAnimated(true, completion: nil)

@@ -46,7 +46,7 @@ class SingleServiceViewController: UIViewController {
         
         userIDRef.observeEventType(.Value, withBlock: { snapshot in
             //Pull in Image from Firebase
-            self.Profilebase64String = (snapshot.value.objectForKey("profileImage") as? String)!
+            self.Profilebase64String = (snapshot.value.objectForKey("Base64Image") as? String)!
             self.ProfiledecodedData = NSData(base64EncodedString: self.Profilebase64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
             self.ProfiledecodedImage = UIImage(data: self.ProfiledecodedData!)!
             

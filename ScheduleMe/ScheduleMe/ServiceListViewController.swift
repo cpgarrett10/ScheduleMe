@@ -103,8 +103,9 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
             let titleMatch = service.title.lowercaseString.containsString(searchText.lowercaseString)
             let cityMatch = service.city.lowercaseString.containsString(searchText.lowercaseString)
             let stateMatch = service.state.lowercaseString.containsString(searchText.lowercaseString)
+            let zipMatch = service.zip.lowercaseString.containsString(searchText.lowercaseString)
             
-            return titleMatch || cityMatch || stateMatch
+            return titleMatch || cityMatch || stateMatch || zipMatch
         }
         
         serviceTableView.reloadData()

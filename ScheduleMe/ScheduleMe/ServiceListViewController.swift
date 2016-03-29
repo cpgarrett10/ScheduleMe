@@ -52,7 +52,7 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
                 print(error.description)
         })
 
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(ServiceListViewController.imageTapped(_:))  )
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:")  )
         ProfileIconImage.userInteractionEnabled = true
         ProfileIconImage.addGestureRecognizer(tapGestureRecognizer)
     }

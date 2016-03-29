@@ -99,7 +99,12 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredServices = services.filter { service in
-            return service.title.lowercaseString.containsString(searchText.lowercaseString)
+            
+            let titleMatch = service.title.lowercaseString.containsString(searchText.lowercaseString)
+            let cityMatch = service.city.lowercaseString.containsString(searchText.lowercaseString)
+            let stateMatch = service.state.lowercaseString.containsString(searchText.lowercaseString)
+            
+            return titleMatch || cityMatch || stateMatch
         }
         
         serviceTableView.reloadData()
@@ -185,5 +190,11 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
 extension ServiceListViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
+
+extension ServiceListViewController: UISearchBarDelegate {
+    func searchBar(searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
     }
 }

@@ -15,9 +15,12 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     // MARK: Properties
     
     var services = [Service]()
+    var filteredServices = [Service]()
+    let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet var ProfileIconImage: UIImageView!
     @IBOutlet weak var serviceTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     // firebase
     let ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
@@ -31,6 +34,15 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         //Prep to set FirebaseImage
         let usersRef = ref.childByAppendingPath("users")
         let userIDRef = usersRef.childByAppendingPath(uid)
+        
+        // setup search bar
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        serviceTableView.tableHeaderView = searchController.searchBar
+        
+        searchController.searchBar.placeholder = "Search service, city, zip"
+        
         
         serviceTableView.delegate = self
         serviceTableView.dataSource = self
@@ -83,6 +95,16 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         })
     }
     
+    // MARK: UISearchController
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredServices = services.filter { service in
+            return service.title.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        serviceTableView.reloadData()
+    }
+    
     // MARK: UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -90,6 +112,11 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            return self.filteredServices.count
+        }
+        
         return self.services.count
     }
     
@@ -98,7 +125,13 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         
         let cell = serviceTableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ServiceTableViewCell
         
-        let service = self.services[indexPath.row]
+        let service: Service
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            service = self.filteredServices[indexPath.row]
+        } else {
+            service = self.services[indexPath.row]
+        }
         
         cell.titleLabel.text = service.title
         cell.cityLabel.text = service.city + ", " + service.state
@@ -133,11 +166,24 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
             
             if let selectedCell = sender as? ServiceTableViewCell {
                 let indexPath = serviceTableView.indexPathForCell(selectedCell)
-                let selectedService = self.services[indexPath!.row]
+                
+                let selectedService: Service
+                
+                if searchController.active && searchController.searchBar.text != "" {
+                    selectedService = self.filteredServices[indexPath!.row]
+                } else {
+                    selectedService = self.services[indexPath!.row]
+                }
                 
                 singleServiceViewController.service = selectedService
             }
         }
     }
 
+}
+
+extension ServiceListViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
 }

@@ -173,7 +173,7 @@
                                                     <rect key="frame" x="106" y="43" width="210" height="40"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec euismod neque. Cras pulvinar ligula in justo imperdiet, vel aliquam diam accumsan. Donec nec congue enim, et sodales turpis. Morbi molestie eu felis nec ultricies. Proin consectetur ante eu commodo aliquam. Nullam feugiat ligula finibus neque ullamcorper, nec pellentesque nunc dictum. Maecenas imperdiet mollis sodales. Suspendisse in feugiat tellus, vitae elementum nibh.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.2 Mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5Z-lU-KRl">
@@ -740,10 +740,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" text="" placeholder="Search service, city, zip" translatesAutoresizingMaskIntoConstraints="NO" id="C0f-Wm-FTN">
-                                <rect key="frame" x="16" y="60" width="343" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FIx-ZH-MJ7">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                 <constraints>
@@ -759,7 +755,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ed0-tt-8tw">
-                                <rect key="frame" x="-4" y="104" width="383" height="558"/>
+                                <rect key="frame" x="-4" y="60" width="383" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ServiceTableViewCell" rowHeight="115" id="0Se-iG-YS2" customClass="ServiceTableViewCell" customModule="ScheduleMe" customModuleProvider="target">
@@ -792,7 +788,7 @@
                                                     <rect key="frame" x="106" y="43" width="210" height="40"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec euismod neque. Cras pulvinar ligula in justo imperdiet, vel aliquam diam accumsan. Donec nec congue enim, et sodales turpis. Morbi molestie eu felis nec ultricies. Proin consectetur ante eu commodo aliquam. Nullam feugiat ligula finibus neque ullamcorper, nec pellentesque nunc dictum. Maecenas imperdiet mollis sodales. Suspendisse in feugiat tellus, vitae elementum nibh.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.2 Mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ws-z5-c9d">
@@ -843,28 +839,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="centerX" secondItem="3Bq-fZ-Yi7" secondAttribute="centerX" id="APO-D1-Y5q"/>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="Dno-wi-ybV" secondAttribute="bottom" constant="5" id="B33-9n-u9x"/>
-                            <constraint firstAttribute="trailing" secondItem="C0f-Wm-FTN" secondAttribute="trailing" id="Ed6-qe-2qB"/>
                             <constraint firstItem="Ed0-tt-8tw" firstAttribute="centerX" secondItem="3Bq-fZ-Yi7" secondAttribute="centerX" id="Ex2-5q-hLB"/>
                             <constraint firstItem="FIx-ZH-MJ7" firstAttribute="top" secondItem="3Bq-fZ-Yi7" secondAttribute="topMargin" id="FYf-aH-9dm"/>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="Dno-wi-ybV" secondAttribute="bottom" constant="20" id="Ftr-oS-0kE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ed0-tt-8tw" secondAttribute="trailing" constant="-20" id="H4y-u6-Dw9"/>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="leading" secondItem="3Bq-fZ-Yi7" secondAttribute="leading" constant="15" id="IiS-ak-wjG"/>
+                            <constraint firstItem="Ed0-tt-8tw" firstAttribute="top" secondItem="Dno-wi-ybV" secondAttribute="bottom" constant="40" id="ImV-to-pXE"/>
                             <constraint firstItem="HYS-ZZ-wvg" firstAttribute="top" secondItem="Dno-wi-ybV" secondAttribute="bottom" id="Jui-j9-P8E"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="C0f-Wm-FTN" secondAttribute="bottom" id="Lwh-kB-Mly"/>
                             <constraint firstItem="FIx-ZH-MJ7" firstAttribute="leading" secondItem="3Bq-fZ-Yi7" secondAttribute="leading" id="TaW-nX-IMJ"/>
                             <constraint firstItem="Ed0-tt-8tw" firstAttribute="centerX" secondItem="3Bq-fZ-Yi7" secondAttribute="centerX" id="YWl-93-5N1"/>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="FIx-ZH-MJ7" secondAttribute="bottom" id="bIr-RW-c9b"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HYS-ZZ-wvg" secondAttribute="trailing" id="bsa-nt-IS2"/>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="3Bq-fZ-Yi7" secondAttribute="topMargin" id="c7d-Ow-oW1"/>
                             <constraint firstItem="FIx-ZH-MJ7" firstAttribute="top" secondItem="3Bq-fZ-Yi7" secondAttribute="topMargin" id="c7n-ka-Uah"/>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="centerX" secondItem="3Bq-fZ-Yi7" secondAttribute="centerX" id="cLt-LW-46H"/>
                             <constraint firstItem="G9f-cL-eYB" firstAttribute="top" secondItem="Ed0-tt-8tw" secondAttribute="bottom" constant="5" id="ccr-4x-i68"/>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="leading" secondItem="3Bq-fZ-Yi7" secondAttribute="leadingMargin" id="dHx-hE-f7h"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="C0f-Wm-FTN" secondAttribute="trailing" id="g33-4z-SKT"/>
-                            <constraint firstItem="C0f-Wm-FTN" firstAttribute="top" secondItem="Dno-wi-ybV" secondAttribute="bottom" constant="10" id="lJ0-aY-q7l"/>
-                            <constraint firstItem="Ed0-tt-8tw" firstAttribute="top" secondItem="C0f-Wm-FTN" secondAttribute="bottom" id="prs-TI-slM"/>
                             <constraint firstAttribute="trailing" secondItem="FIx-ZH-MJ7" secondAttribute="trailing" id="vuy-Xg-bTU"/>
                             <constraint firstItem="G9f-cL-eYB" firstAttribute="top" secondItem="Ed0-tt-8tw" secondAttribute="bottom" id="w0J-Hk-zm2"/>
                             <constraint firstItem="Ed0-tt-8tw" firstAttribute="leading" secondItem="3Bq-fZ-Yi7" secondAttribute="leadingMargin" constant="-20" id="x4f-yW-s4W"/>
@@ -872,15 +856,6 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="FYf-aH-9dm"/>
-                                <exclude reference="APO-D1-Y5q"/>
-                                <exclude reference="B33-9n-u9x"/>
-                                <exclude reference="Ed6-qe-2qB"/>
-                                <exclude reference="Ftr-oS-0kE"/>
-                                <exclude reference="IiS-ak-wjG"/>
-                                <exclude reference="Lwh-kB-Mly"/>
-                                <exclude reference="c7d-Ow-oW1"/>
-                                <exclude reference="cLt-LW-46H"/>
-                                <exclude reference="lJ0-aY-q7l"/>
                                 <exclude reference="Ex2-5q-hLB"/>
                                 <exclude reference="YWl-93-5N1"/>
                                 <exclude reference="w0J-Hk-zm2"/>

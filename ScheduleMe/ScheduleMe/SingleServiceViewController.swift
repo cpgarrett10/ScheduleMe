@@ -32,11 +32,11 @@ class SingleServiceViewController: UIViewController {
     var Profilebase64String: String = ""
     var ProfiledecodedData:NSData?
     var ProfiledecodedImage:UIImage?
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initHorizontalLine()
+        
         let usersRef = ref.childByAppendingPath("users")
         let userIDRef = usersRef.childByAppendingPath(uid)
         
@@ -53,7 +53,7 @@ class SingleServiceViewController: UIViewController {
             self.profileIconImage.image = self.ProfiledecodedImage
             self.profileIconImage.contentMode = .ScaleAspectFill
             self.profileIconImage.layer.cornerRadius = self.profileIconImage.frame.size.width / 2;
-            self.profileIconImage.clipsToBounds = true;
+            self.profileIconImage.clipsToBounds = true;        
             
             }, withCancelBlock: { error in
                 print(error.description)
@@ -85,9 +85,28 @@ class SingleServiceViewController: UIViewController {
         servicePrice.text = "$" + service.price
         serviceAddress.text = service.streetAddress
         serviceDescription.text = service.description
-        serviceProviderName.text = service.uid
         servicePhone.text = service.phone
         serviceEmail.text = service.serviceEmail
+        
+        // set service provider name
+        fetchServiceProvider(service.uid)
+    }
+    
+    func fetchServiceProvider(uid: String!) {
+        let usersRef = ref.childByAppendingPath("users")
+        let serviceProviderRef = usersRef.childByAppendingPath(uid)
+        
+        // get serviece provider
+        serviceProviderRef.observeEventType(.Value, withBlock: { snapshot in
+            
+            // get user's name, offering service
+            let fname = (snapshot.value.objectForKey("FirstName") as? String)!
+            let lname = (snapshot.value.objectForKey("LastName") as? String)!
+            self.serviceProviderName.text = fname + " " + lname
+            
+            }, withCancelBlock: { error in
+                print(error.description)
+        })
         
     }
     
@@ -97,9 +116,5 @@ class SingleServiceViewController: UIViewController {
     @IBAction func cancelButtonTapped(sender: UIBarButtonItem) {
         dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-    
-    
     
 }

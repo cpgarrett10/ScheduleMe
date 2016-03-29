@@ -12,12 +12,11 @@ import FirebaseUI
 
 class ServiceListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var ProfileIconImage: UIImageView!
-
     // MARK: Properties
     
     var services = [Service]()
     
+    @IBOutlet var ProfileIconImage: UIImageView!
     @IBOutlet weak var serviceTableView: UITableView!
     
     // firebase
@@ -138,10 +137,7 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
                 
                 singleServiceViewController.service = selectedService
             }
-            
         }
     }
-
-    
 
 }

@@ -11,6 +11,8 @@ import Firebase
 
 class ViewController: UIViewController {
     
+    // MARK: Properties
+    
     var login = 1 //Login = 1 SignUp = 2 ForgotPassword = 3
     
     @IBOutlet var scheduleMeLabel: UILabel!
@@ -23,6 +25,10 @@ class ViewController: UIViewController {
     @IBOutlet var ForgotPassButton: UIButton!
     var defaultProfileImage = UIImage(named: "defaultProfileImage")!
     
+    // firebase
+    var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
+    
+    // MARK: Actions
     
     @IBAction func forgotPassClick(sender: AnyObject) {
         
@@ -38,7 +44,7 @@ class ViewController: UIViewController {
         
     }
     
-    var ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
+    
 
     @IBAction func SignUp(sender: AnyObject) {
         
@@ -117,8 +123,6 @@ class ViewController: UIViewController {
                         let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("transView") as UIViewController
                         self.presentViewController(MainPageViewController, animated: true, completion: nil)
                         
-                        
-                        print("Here is the uID that you can use everywhere: \(uid)")
                     }
             })
             
@@ -183,14 +187,8 @@ class ViewController: UIViewController {
                                     let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
                                     let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("transView") as UIViewController
                                     self.presentViewController(MainPageViewController, animated: true, completion: nil)
-                                    
-                                    
-                                    print("Here is the uID that you can use everywhere: \(uid)")
                                 }
-                        })
-
-                        //send them to first time experience
-                        
+                        })                        
                     }
             })
             
@@ -228,37 +226,28 @@ class ViewController: UIViewController {
     
     }
     
+    // MARK: Initializers
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do anyadditional setup after loading the view, typically from a nib.
 
-        
-     self.gradientView.initGradient()
+        self.gradientView.initGradient()
+        initComponents()
+
+    }
     
+    func initComponents() {
+        // login button
         loginSignUp.backgroundColor = UIColor.clearColor()
         loginSignUp.layer.cornerRadius = 5
         loginSignUp.layer.borderWidth = 1
         loginSignUp.layer.borderColor = UIColor.whiteColor().CGColor
         
-        
+        // logo
         scheduleMeLabel.backgroundColor = UIColor.clearColor()
         scheduleMeLabel.layer.cornerRadius = 5
         scheduleMeLabel.layer.borderWidth = 3
         scheduleMeLabel.layer.borderColor = UIColor.whiteColor().CGColor
-    
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
-
-    @IBAction func updateWeatherButton(sender: UIButton) {
-        ref.setValue(sender.titleLabel?.text)
-        
     }
 
 }

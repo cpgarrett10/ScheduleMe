@@ -12,11 +12,9 @@ import FirebaseUI
 
 class ServiceListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    // MARK: Properties
     
-    var services = [Service]()
-    var filteredServices = [Service]()
-    let searchController = UISearchController(searchResultsController: nil)
+    
+    // MARK: Properties
     
     @IBOutlet var ProfileIconImage: UIImageView!
     @IBOutlet weak var serviceTableView: UITableView!
@@ -28,6 +26,15 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     var base64String: String = ""
     var decodedData:NSData?
     var decodedImage:UIImage?
+    var services = [Service]()
+    
+    // search
+    var filteredServices = [Service]()
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    
+    
+    // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +47,16 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         serviceTableView.tableHeaderView = searchController.searchBar
-        
         searchController.searchBar.placeholder = "Search service, city, zip"
         
-        
+        // setup table view
         serviceTableView.delegate = self
         serviceTableView.dataSource = self
+        
+        // fetch data
         fetchServicesFromFirebase()
         
+        // get profile picture
         userIDRef.observeEventType(.Value, withBlock: { snapshot in
             //Pull in Image from Firebase
             self.base64String = (snapshot.value.objectForKey("Base64Image") as? String)!
@@ -66,14 +75,6 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:")  )
         ProfileIconImage.userInteractionEnabled = true
         ProfileIconImage.addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    func imageTapped(img: AnyObject)
-    {
-        //send them to home screen
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("userProfile") as UIViewController
-        self.presentViewController(MainPageViewController, animated: true, completion: nil)
     }
     
     
@@ -95,6 +96,8 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         })
     }
     
+    
+    
     // MARK: UISearchController
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
@@ -110,6 +113,8 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         
         serviceTableView.reloadData()
     }
+    
+    
     
     // MARK: UITableViewDataSource
     
@@ -163,6 +168,8 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    
+    
     // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -187,6 +194,18 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
                 singleServiceViewController.service = selectedService
             }
         }
+    }
+    
+    
+    
+    // MARK: Actions
+    
+    func imageTapped(img: AnyObject)
+    {
+        //send them to home screen
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("userProfile") as UIViewController
+        self.presentViewController(MainPageViewController, animated: true, completion: nil)
     }
 
 }

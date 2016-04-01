@@ -111,4 +111,8 @@ class Service {
             "uid": self.uid
         ]
     }
+    
+    func fullAddress() -> String {
+        return streetAddress + ", " + city + ", " + state + " " + zip
+    }
 }

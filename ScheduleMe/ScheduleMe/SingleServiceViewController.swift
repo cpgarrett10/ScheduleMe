@@ -9,22 +9,25 @@
 import UIKit
 import Firebase
 import FirebaseUI
+import MapKit
 
-class SingleServiceViewController: UIViewController {
+class SingleServiceViewController: UITableViewController {
     
     // MARK: Properties
     
     @IBOutlet weak var serviceImage: UIImageView!
-    @IBOutlet weak var serviceTitle: UINavigationBar!
+    // service title
     @IBOutlet weak var servicePrice: UILabel!
-    @IBOutlet weak var serviceAddress: UILabel!
-    @IBOutlet weak var serviceDescription: UITextView!
     @IBOutlet weak var serviceProviderName: UILabel!
+    @IBOutlet weak var serviceAddress: UILabel!
     @IBOutlet weak var servicePhone: UILabel!
     @IBOutlet weak var serviceEmail: UILabel!
-    @IBOutlet var profileIconImage: UIImageView!
     
-    @IBOutlet weak var horizontalLine: UIView!
+    @IBOutlet weak var serviceDescription: UITableViewCell!
+//    @IBOutlet weak var serviceDescription: UILabel!
+    @IBOutlet var profileIconImage: UIImageView!
+    @IBOutlet weak var mapView: MKMapView!
+    
     
     let ref = Firebase(url: "https://schedulemecapstone.firebaseio.com/")
     let uid = Firebase(url: "https://schedulemecapstone.firebaseio.com/").authData.uid
@@ -32,10 +35,13 @@ class SingleServiceViewController: UIViewController {
     var Profilebase64String: String = ""
     var ProfiledecodedData:NSData?
     var ProfiledecodedImage:UIImage?
+    
+    let cellHeights = []
+    
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initHorizontalLine()
         
         let usersRef = ref.childByAppendingPath("users")
         let userIDRef = usersRef.childByAppendingPath(uid)
@@ -44,53 +50,64 @@ class SingleServiceViewController: UIViewController {
             initComponents(service)
         }
         
-        userIDRef.observeEventType(.Value, withBlock: { snapshot in
-            //Pull in Image from Firebase
-            self.Profilebase64String = (snapshot.value.objectForKey("Base64Image") as? String)!
-            self.ProfiledecodedData = NSData(base64EncodedString: self.Profilebase64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
-            self.ProfiledecodedImage = UIImage(data: self.ProfiledecodedData!)!
-            
-            self.profileIconImage.image = self.ProfiledecodedImage
-            self.profileIconImage.contentMode = .ScaleAspectFill
-            self.profileIconImage.layer.cornerRadius = self.profileIconImage.frame.size.width / 2;
-            self.profileIconImage.clipsToBounds = true;        
-            
-            }, withCancelBlock: { error in
-                print(error.description)
+        // setup map
+        
+        let addresss = service!.fullAddress()
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addresss, completionHandler: { (placemarks, error) -> Void in
+            if let placemark = placemarks?.first {
+                self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+                
+                let initialLocation = placemark.location
+                self.centerMapOnLocation((initialLocation?.coordinate)!)
+            }
         })
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
-        profileIconImage.userInteractionEnabled = true
-        profileIconImage.addGestureRecognizer(tapGestureRecognizer)
+//        userIDRef.observeEventType(.Value, withBlock: { snapshot in
+//            //Pull in Image from Firebase
+//            self.Profilebase64String = (snapshot.value.objectForKey("Base64Image") as? String)!
+//            self.ProfiledecodedData = NSData(base64EncodedString: self.Profilebase64String, options: NSDataBase64DecodingOptions.IgnoreUnknownCharacters)!
+//            self.ProfiledecodedImage = UIImage(data: self.ProfiledecodedData!)!
+//            
+//            self.profileIconImage.image = self.ProfiledecodedImage
+//            self.profileIconImage.contentMode = .ScaleAspectFill
+//            self.profileIconImage.layer.cornerRadius = self.profileIconImage.frame.size.width / 2;
+//            self.profileIconImage.clipsToBounds = true;        
+//            
+//            }, withCancelBlock: { error in
+//                print(error.description)
+//        })
+        
+//        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+//        profileIconImage.userInteractionEnabled = true
+//        profileIconImage.addGestureRecognizer(tapGestureRecognizer)
         
     }
     
-    func imageTapped(img: AnyObject)
-    {
-        //send them to home screen
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("userProfile") as UIViewController
-        self.presentViewController(MainPageViewController, animated: true, completion: nil)
-    }
-    
-    func initHorizontalLine() {
-        horizontalLine.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).CGColor
-        horizontalLine.layer.borderWidth = 1.0
-        horizontalLine.layer.cornerRadius = 5
-    }
     
     func initComponents(service: Service) {
+        
+        // navigation bar
+        let navbar = self.navigationController?.navigationBar
+        navbar!.barTintColor = UIColor.domoBlue()
+        navbar?.tintColor = UIColor.whiteColor()
+
         serviceImage.image = service.image
-        serviceTitle.topItem?.title = service.title
         servicePrice.text = "$" + service.price
         serviceAddress.text = service.streetAddress
-        serviceDescription.text = service.description
         servicePhone.text = service.phone
         serviceEmail.text = service.serviceEmail
+        
+        let descriptionLabel = serviceDescription.textLabel
+        
+        descriptionLabel!.text = service.description
+        descriptionLabel!.numberOfLines = 10
+        descriptionLabel!.font = descriptionLabel?.font.fontWithSize(14)
         
         // set service provider name
         fetchServiceProvider(service.uid)
     }
+    
     
     func fetchServiceProvider(uid: String!) {
         let usersRef = ref.childByAppendingPath("users")
@@ -108,6 +125,48 @@ class SingleServiceViewController: UIViewController {
                 print(error.description)
         })
         
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.text = service?.title
+        header.textLabel?.textColor = UIColor.whiteColor()
+        header.textLabel?.textAlignment = NSTextAlignment.Center
+        header.textLabel!.font = UIFont(name: "Helvetica Neue", size: 18)
+        header.tintColor = UIColor.domoBlue()
+        header.frame.size.height    = CGFloat(44.0)
+        
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
+    {
+        let cell = self.tableView(self.tableView, cellForRowAtIndexPath: indexPath)
+        let height: CGFloat
+        
+        if indexPath.row == 0 {
+            height = 175.0
+        } else {
+            height = ceil(cell.systemLayoutSizeFittingSize(CGSizeMake(self.tableView.bounds.size.width, 1), withHorizontalFittingPriority: 1000, verticalFittingPriority: 1).height)
+        }
+        
+        return height
+    }
+    
+    // MARK: Location Services
+    
+    let regionRadius: CLLocationDistance = 1000
+    
+    func centerMapOnLocation(location: CLLocationCoordinate2D) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location, regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: false)
+    }
+    
+    func imageTapped(img: AnyObject)
+    {
+        //send them to home screen
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("userProfile") as UIViewController
+        self.presentViewController(MainPageViewController, animated: true, completion: nil)
     }
     
     // MARK: Action

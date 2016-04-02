@@ -67,6 +67,10 @@ class SingleServiceViewController: UITableViewController {
             }
         })
         
+        self.mapView.zoomEnabled = false;
+        self.mapView.scrollEnabled = false;
+        
+        
 //        userIDRef.observeEventType(.Value, withBlock: { snapshot in
 //            //Pull in Image from Firebase
 //            self.Profilebase64String = (snapshot.value.objectForKey("Base64Image") as? String)!

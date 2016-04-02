@@ -976,10 +976,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QJa-uj-jS2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                                                <mapView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="QJa-uj-jS2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="199.5" id="yST-i1-MRE"/>
+                                                        <constraint firstAttribute="height" constant="250" id="yST-i1-MRE"/>
                                                     </constraints>
                                                 </mapView>
                                             </subviews>

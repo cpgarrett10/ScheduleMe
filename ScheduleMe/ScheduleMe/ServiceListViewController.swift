@@ -9,8 +9,9 @@
 import UIKit
 import Firebase
 import FirebaseUI
+import CoreLocation
 
-class ServiceListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ServiceListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     
     
@@ -32,29 +33,35 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     var filteredServices = [Service]()
     let searchController = UISearchController(searchResultsController: nil)
     
+    // locationManager
+    let locationManager = CLLocationManager()
+    var userLocation: CLLocation?
     
+
     
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Prep to set FirebaseImage
-        let usersRef = ref.childByAppendingPath("users")
-        let userIDRef = usersRef.childByAppendingPath(uid)
-        
-        // setup search bar
-        searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        serviceTableView.tableHeaderView = searchController.searchBar
-        searchController.searchBar.placeholder = "Search service, city, zip"
         
         // setup table view
         serviceTableView.delegate = self
         serviceTableView.dataSource = self
         
+        initSearchBar()
+        initLocationManager()
+        
         // fetch data
         fetchServicesFromFirebase()
+        fetchUserFromFirebase()
+        
+    }
+    
+    func fetchUserFromFirebase() {
+        
+        //Prep to set FirebaseImage
+        let usersRef = ref.childByAppendingPath("users")
+        let userIDRef = usersRef.childByAppendingPath(uid)
         
         // get profile picture
         userIDRef.observeEventType(.Value, withBlock: { snapshot in
@@ -71,10 +78,11 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
             }, withCancelBlock: { error in
                 print(error.description)
         })
-
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:")  )
         ProfileIconImage.userInteractionEnabled = true
         ProfileIconImage.addGestureRecognizer(tapGestureRecognizer)
+        
     }
     
     
@@ -94,6 +102,15 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
             
             self.serviceTableView.reloadData()
         })
+    }
+    
+    func initSearchBar() {
+        // setup search bar
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        serviceTableView.tableHeaderView = searchController.searchBar
+        searchController.searchBar.placeholder = "Search service, city, zip"
     }
     
     
@@ -116,6 +133,30 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     
     
     
+    // MARK: Locations
+    
+    func initLocationManager() {
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let locValue:CLLocationCoordinate2D = manager.location!.coordinate
+        self.userLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+    }
+    
+    
+    
     // MARK: UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -132,10 +173,14 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        // get cell
         let cellIdentifier = "ServiceTableViewCell"
         
         let cell = serviceTableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ServiceTableViewCell
         
+        // get service
         let service: Service
         
         if searchController.active && searchController.searchBar.text != "" {
@@ -144,11 +189,41 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
             service = self.services[indexPath.row]
         }
         
+        
+        // populate cell
+        
         cell.titleLabel.text = service.title
         cell.cityLabel.text = service.city + ", " + service.state
         cell.descriptionLabel.text = service.description
-        cell.distanceLabel.text = service.distanceMiles + " Mi"
         
+        
+        // distance
+        let address = service.fullAddress()
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address, completionHandler: { (placemarks, error) -> Void in
+            if error != nil {
+                print("address not found: \(address)")
+            }
+            
+            if let placemark = placemarks?.first {
+
+                // get location
+                let serviceLocation = (placemark.location?.coordinate)!
+                
+                // create coordinate
+                let lat = serviceLocation.latitude
+                let long = serviceLocation.longitude
+                let coordinte = CLLocation(latitude: lat, longitude: long)
+                
+                let meters:CLLocationDistance = self.userLocation!.distanceFromLocation(coordinte)
+                let miles = Double((meters/1000.0)*0.62137).roundToPlaces(1)
+                
+                // round to 2 decimal places
+                cell.distanceLabel.text = String(miles) + " Mi"
+            }
+        })
+        
+        // price
         var price = service.price
         let index = price.characters.indexOf(".")
         
@@ -158,9 +233,8 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
         
         cell.priceLabel.text = "$" + price
         
+        // image
         cell.setImageTo("defaultServiceImage")
-        
-        
         if let image = service.image {
             cell.serviceImage.image = image
         }

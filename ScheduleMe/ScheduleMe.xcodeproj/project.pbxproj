@@ -10,6 +10,8 @@
 		370484291CA73D0400DBB738 /* UserServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370484281CA73D0400DBB738 /* UserServiceTableViewCell.swift */; };
 		37137EDC1CA3089B0047F48B /* ServiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37137EDB1CA3089B0047F48B /* ServiceTableViewCell.swift */; };
 		372A19611CAF527700C9FCDA /* LocationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A19601CAF527700C9FCDA /* LocationUtils.swift */; };
+		372A19631CAF54CF00C9FCDA /* MapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A19621CAF54CF00C9FCDA /* MapPoint.swift */; };
+		372A19651CAF563900C9FCDA /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372A19641CAF563900C9FCDA /* MapView.swift */; };
 		37A50CF21CAC45CE00EFDF6C /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A50CF11CAC45CE00EFDF6C /* AppColors.swift */; };
 		37E718191CA99FEC00C14730 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E718181CA99FEC00C14730 /* User.swift */; };
 		37EE54F01CA6E215009A7050 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EE54EF1CA6E215009A7050 /* Service.swift */; };
@@ -50,6 +52,8 @@
 		370484281CA73D0400DBB738 /* UserServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServiceTableViewCell.swift; sourceTree = "<group>"; };
 		37137EDB1CA3089B0047F48B /* ServiceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewCell.swift; sourceTree = "<group>"; };
 		372A19601CAF527700C9FCDA /* LocationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUtils.swift; sourceTree = "<group>"; };
+		372A19621CAF54CF00C9FCDA /* MapPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPoint.swift; sourceTree = "<group>"; };
+		372A19641CAF563900C9FCDA /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		37A50CF11CAC45CE00EFDF6C /* AppColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		37E718181CA99FEC00C14730 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		37EE54EF1CA6E215009A7050 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			children = (
 				37EE54EF1CA6E215009A7050 /* Service.swift */,
 				37E718181CA99FEC00C14730 /* User.swift */,
+				372A19621CAF54CF00C9FCDA /* MapPoint.swift */,
+				372A19641CAF563900C9FCDA /* MapView.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -403,7 +409,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF77C8601C7905A90031936C /* ViewController.swift in Sources */,
+				372A19651CAF563900C9FCDA /* MapView.swift in Sources */,
 				37137EDC1CA3089B0047F48B /* ServiceTableViewCell.swift in Sources */,
+				372A19631CAF54CF00C9FCDA /* MapPoint.swift in Sources */,
 				372A19611CAF527700C9FCDA /* LocationUtils.swift in Sources */,
 				370484291CA73D0400DBB738 /* UserServiceTableViewCell.swift in Sources */,
 				37A50CF21CAC45CE00EFDF6C /* AppColors.swift in Sources */,

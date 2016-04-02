@@ -51,12 +51,16 @@ class SingleServiceViewController: UITableViewController {
         }
         
         // setup map
+        mapView.delegate = self
         
         let addresss = service!.fullAddress()
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(addresss, completionHandler: { (placemarks, error) -> Void in
             if let placemark = placemarks?.first {
-                self.mapView.addAnnotation(MKPlacemark(placemark: placemark))
+                
+                let mapPoint = MapPoint(title: (self.service?.title)!, locationName: (self.service?.fullAddress())!, coordinate: (placemark.location?.coordinate)!)
+                
+                self.mapView.addAnnotation(mapPoint)
                 
                 let initialLocation = placemark.location
                 self.centerMapOnLocation((initialLocation?.coordinate)!)

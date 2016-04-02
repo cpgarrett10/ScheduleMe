@@ -114,7 +114,7 @@ class ViewController: UIViewController {
                     
                     } else {
                         
-                        let uid = self.ref.authData.uid
+//                        let uid = self.ref.authData.uid
                         
                         // We are now logged in
                         
@@ -163,7 +163,7 @@ class ViewController: UIViewController {
                                     
                                 } else {
                                     
-                                    let uid = self.ref.authData.uid
+//                                    let uid = self.ref.authData.uid
                                     let imageData: NSData = UIImageJPEGRepresentation(self.defaultProfileImage, 0.1)!
                                     let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
                                     

@@ -43,8 +43,8 @@ class SingleServiceViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let usersRef = ref.childByAppendingPath("users")
-        let userIDRef = usersRef.childByAppendingPath(uid)
+//        let usersRef = ref.childByAppendingPath("users")
+//        let userIDRef = usersRef.childByAppendingPath(uid)
         
         if let service = service {
             initComponents(service)
@@ -159,6 +159,8 @@ class SingleServiceViewController: UITableViewController {
         
         return height
     }
+    
+    
     
     // MARK: Location Services
     

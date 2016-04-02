@@ -232,18 +232,4 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
         self.presentViewController(imagePickerController, animated: true, completion: nil)
     }
     
-    
-    // MARK: Navigation
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "CancelSegue") {
-            
-            if AddEdit == "Add" {
-                let servicesRef = ref.childByAppendingPath("services")
-                let servicesIDRef = servicesRef.childByAppendingPath(serviceID)
-                
-                //servicesIDRef.removeValue() NEED TO FIX
-            }
-        }
-    }
 }

@@ -83,6 +83,7 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
     func initComponents() {
         // use round photo
         ServiceImg.layer.cornerRadius = ServiceImg.frame.size.width / 2.0
+        ServiceImg.clipsToBounds = true
         
         addServiceButtonLabel.backgroundColor = UIColor.clearColor()
         addServiceButtonLabel.layer.cornerRadius = 5

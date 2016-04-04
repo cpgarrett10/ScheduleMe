@@ -206,20 +206,24 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
             }
             
             if let placemark = placemarks?.first {
-
-                // get location
-                let serviceLocation = (placemark.location?.coordinate)!
                 
-                // create coordinate
-                let lat = serviceLocation.latitude
-                let long = serviceLocation.longitude
-                let coordinte = CLLocation(latitude: lat, longitude: long)
-                
-                let meters:CLLocationDistance = self.userLocation!.distanceFromLocation(coordinte)
-                let miles = Double((meters/1000.0)*0.62137).roundToPlaces(1)
-                
-                // round to 2 decimal places
-                cell.distanceLabel.text = String(miles) + " Mi"
+                if self.userLocation != nil {
+                    // get location
+                    let serviceLocation = (placemark.location?.coordinate)!
+                    
+                    // create coordinate
+                    let lat = serviceLocation.latitude
+                    let long = serviceLocation.longitude
+                    let coordinte = CLLocation(latitude: lat, longitude: long)
+                    
+                    let meters:CLLocationDistance = self.userLocation!.distanceFromLocation(coordinte)
+                    let miles = Double((meters/1000.0)*0.62137).roundToPlaces(1)
+                    
+                    // round to 2 decimal places
+                    cell.distanceLabel.text = String(miles) + " Mi"
+                } else {
+                    cell.distanceLabel.text = ""
+                }
             }
         })
         

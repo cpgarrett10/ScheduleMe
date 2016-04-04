@@ -225,6 +225,29 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
     
     // MARK: Actions
     
+    @IBAction func showActionSheet(sender: UIBarButtonItem) {
+        
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .ActionSheet)
+        
+        let logoutAction = UIAlertAction(title: "Log Out", style: .Destructive) { _ in
+            // log out user
+            self.ref.unauth()
+            
+            // redirect to user auth view
+            let authStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+            let authViewController = authStoryBoard.instantiateInitialViewController()! as UIViewController
+            
+            self.presentViewController(authViewController, animated: true, completion: nil)
+        }
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        
+        actionSheet.addAction(logoutAction)
+        actionSheet.addAction(cancelAction)
+        self.presentViewController(actionSheet, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func editButtonTapped(sender: AnyObject) {
         
         if (self.serviceTableView.editing) {

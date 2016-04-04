@@ -166,10 +166,6 @@ class ViewController: UIViewController {
 //                                    let uid = self.ref.authData.uid
                                     let imageData: NSData = UIImageJPEGRepresentation(self.defaultProfileImage, 0.1)!
                                     let base64String = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
-                                    
- 
- 
-                                    // We are now logged in
 
                                     
                                     //create new user dictionary
@@ -234,6 +230,16 @@ class ViewController: UIViewController {
         self.gradientView.initGradient()
         initComponents()
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        // check if authenticated
+        if ref.authData != nil {
+            //send them to home screen
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+            let MainPageViewController : UIViewController = mainStoryboard.instantiateViewControllerWithIdentifier("transView") as UIViewController
+            self.presentViewController(MainPageViewController, animated: true, completion: nil)
+        }
     }
     
     func initComponents() {

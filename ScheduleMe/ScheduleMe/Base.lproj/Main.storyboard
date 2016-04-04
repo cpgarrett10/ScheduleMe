@@ -101,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-98.5" y="246.5"/>
+            <point key="canvasLocation" x="-89.5" y="143.5"/>
         </scene>
         <!--UserProfile-->
         <scene sceneID="zvB-uu-BOO">
@@ -130,6 +130,12 @@
                                         <barButtonItem key="leftBarButtonItem" image="homeIcon" id="GFd-YY-dGW">
                                             <connections>
                                                 <segue destination="JIV-FC-yIF" kind="show" id="WkA-iP-doB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="gear" id="N5a-8f-gkH">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="showActionSheet:" destination="gSX-Rh-dxq" id="5la-fU-Oii"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -877,7 +883,7 @@
         <scene sceneID="uV6-ng-PGF">
             <objects>
                 <tableViewController id="fdK-ip-IqA" customClass="SingleServiceViewController" customModule="ScheduleMe" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9PP-dY-JtU">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="60" sectionHeaderHeight="44" sectionFooterHeight="28" id="9PP-dY-JtU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="711"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -916,7 +922,7 @@
                             <tableViewSection headerTitle="Service Name" id="rBo-Pa-CDK">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="175" id="RQ4-9T-V6U">
-                                        <rect key="frame" x="0.0" y="292" width="375" height="175"/>
+                                        <rect key="frame" x="0.0" y="308" width="375" height="175"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RQ4-9T-V6U" id="kdL-UA-djU">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="174.5"/>
@@ -1003,8 +1009,8 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="hGm-5R-E3x"/>
                                                     <exclude reference="Qt7-yT-0Pd"/>
+                                                    <exclude reference="hGm-5R-E3x"/>
                                                     <exclude reference="n8a-tt-CDC"/>
                                                     <exclude reference="Pmi-CH-3Kr"/>
                                                     <exclude reference="bki-Ro-CsQ"/>
@@ -1016,15 +1022,15 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lcu-q2-WXZ">
-                                        <rect key="frame" x="0.0" y="467" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="483" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lcu-q2-WXZ" id="NPN-cZ-Ydb">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="XXY-zH-KO5">
-                                        <rect key="frame" x="0.0" y="511" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="543" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XXY-zH-KO5" id="H0M-gX-cn1">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
@@ -1107,12 +1113,13 @@
         <image name="defaultProfileImage" width="645" height="645"/>
         <image name="defaultServiceImage" width="42" height="42"/>
         <image name="email-icon" width="16" height="18"/>
+        <image name="gear" width="22" height="22"/>
         <image name="homeIcon" width="25" height="25"/>
         <image name="smartphone-icon" width="18" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xp6-JT-TlL"/>
         <segue reference="vGQ-hD-9u8"/>
+        <segue reference="Xp6-JT-TlL"/>
         <segue reference="WkA-iP-doB"/>
     </inferredMetricsTieBreakers>
 </document>

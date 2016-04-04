@@ -36,6 +36,7 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
     // locationManager
     let locationManager = CLLocationManager()
     var userLocation: CLLocation?
+    var alerted = false
     
 
     
@@ -223,6 +224,16 @@ class ServiceListViewController : UIViewController, UITableViewDelegate, UITable
                     cell.distanceLabel.text = String(miles) + " Mi"
                 } else {
                     cell.distanceLabel.text = ""
+                    
+                    if !self.alerted {
+                        self.alerted = true
+                        let alertController = UIAlertController(title: "Location Services", message: "Enable loction services to view your distance from each service", preferredStyle: UIAlertControllerStyle.Alert)
+                        
+                        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                        
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+                    
                 }
             }
         })

@@ -254,6 +254,18 @@ class ViewController: UIViewController {
         scheduleMeLabel.layer.cornerRadius = 5
         scheduleMeLabel.layer.borderWidth = 3
         scheduleMeLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        // tap to dismiss keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    
+    // MARK: UITextField Helpers
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 
 }

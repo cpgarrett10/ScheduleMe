@@ -48,6 +48,7 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet var editServiceImage: UIButton!
     @IBOutlet var serviceImage: UIImageView!
     
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     // MARK: Initialization
     
@@ -105,6 +106,10 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
         
         
         navigationItem.leftBarButtonItem = editButtonItem()
+        
+        // tap to dismiss keyboard
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
     }
     
     func setLabelValues() {
@@ -138,6 +143,23 @@ class ServiceViewController : UIViewController, UIImagePickerControllerDelegate,
             self.descriptionTextView.text = ""
             serviceImage.image = UIImage(named: "defaultServiceImage")
         }
+    }
+    
+    
+    // MARK: UITextField Helpers
+    
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+        var info = notification.userInfo!
+        var keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.bottomConstraint.constant = keyboardFrame.size.height + 20
+        })
     }
     
     

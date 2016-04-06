@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class UserProfileViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class UserProfileViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: Properties
     
@@ -68,10 +68,6 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
         let usersRef = ref.childByAppendingPath("users")
         let userIDRef = usersRef.childByAppendingPath(uid)
         
-        
-        //Looks for single or multiple taps.
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-        view.addGestureRecognizer(tap)
         
         //let servicesRef = ref.childByAppendingPath("services")
         //let imageUrl = ref.authData.providerData["profileImageURL"]
@@ -228,16 +224,6 @@ class UserProfileViewController : UIViewController, UIImagePickerControllerDeleg
         
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    
-    // MARK: UITextFieldDelegate
-    
-    //Calls this function when the tap is recognized.
-    func dismissKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
-        view.endEditing(true)
-    }
-    
     
     // MARK: Actions
     

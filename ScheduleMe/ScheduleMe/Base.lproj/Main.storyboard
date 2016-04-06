@@ -171,20 +171,20 @@
                                                     </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Skateboarding Repair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlG-92-qL7">
-                                                    <rect key="frame" x="106" y="14" width="210" height="27"/>
+                                                    <rect key="frame" x="106" y="14" width="238" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LBK-Vw-GOW">
-                                                    <rect key="frame" x="106" y="43" width="210" height="40"/>
+                                                    <rect key="frame" x="106" y="43" width="238" height="40"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec euismod neque. Cras pulvinar ligula in justo imperdiet, vel aliquam diam accumsan. Donec nec congue enim, et sodales turpis. Morbi molestie eu felis nec ultricies. Proin consectetur ante eu commodo aliquam. Nullam feugiat ligula finibus neque ullamcorper, nec pellentesque nunc dictum. Maecenas imperdiet mollis sodales. Suspendisse in feugiat tellus, vitae elementum nibh.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.2 Mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5Z-lU-KRl">
-                                                    <rect key="frame" x="373" y="25" width="37" height="16"/>
+                                                    <rect key="frame" x="373" y="35" width="37" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -196,7 +196,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUl-It-dKz">
-                                                    <rect key="frame" x="368" y="55" width="41.5" height="21"/>
+                                                    <rect key="frame" x="368" y="60" width="41.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.1529411765" green="0.68235294120000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -207,9 +207,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="HUl-It-dKz" secondAttribute="trailing" constant="20" id="3LP-fC-4A5"/>
                                                 <constraint firstItem="ySR-Vw-DIG" firstAttribute="centerX" secondItem="xkD-yT-5WX" secondAttribute="centerX" id="3bZ-h3-jXi"/>
                                                 <constraint firstItem="xkD-yT-5WX" firstAttribute="top" secondItem="rVK-Xt-AlN" secondAttribute="topMargin" constant="5" id="6sV-Be-F0w"/>
-                                                <constraint firstItem="q5Z-lU-KRl" firstAttribute="top" secondItem="rVK-Xt-AlN" secondAttribute="topMargin" constant="17" id="9YZ-oB-Hqb"/>
+                                                <constraint firstItem="q5Z-lU-KRl" firstAttribute="top" secondItem="rVK-Xt-AlN" secondAttribute="topMargin" constant="27" id="9YZ-oB-Hqb"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="q5Z-lU-KRl" secondAttribute="trailing" constant="47" id="Axf-nc-MDG"/>
-                                                <constraint firstItem="HUl-It-dKz" firstAttribute="top" secondItem="q5Z-lU-KRl" secondAttribute="bottom" constant="14" id="dZY-xP-iaq"/>
+                                                <constraint firstItem="HUl-It-dKz" firstAttribute="top" secondItem="q5Z-lU-KRl" secondAttribute="bottom" constant="9" id="dZY-xP-iaq"/>
                                                 <constraint firstItem="ySR-Vw-DIG" firstAttribute="top" secondItem="xkD-yT-5WX" secondAttribute="bottom" constant="5" id="dzL-cq-Rdf"/>
                                                 <constraint firstItem="xkD-yT-5WX" firstAttribute="leading" secondItem="rVK-Xt-AlN" secondAttribute="leadingMargin" constant="13" id="mQU-Km-lZM"/>
                                             </constraints>

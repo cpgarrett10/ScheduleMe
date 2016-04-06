@@ -799,13 +799,13 @@
                                                     </variation>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Skateboarding Repair" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixm-Cj-k4N">
-                                                    <rect key="frame" x="106" y="14" width="210" height="27"/>
+                                                    <rect key="frame" x="110" y="14" width="219" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.2 Mi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ws-z5-c9d">
-                                                    <rect key="frame" x="338" y="23" width="37" height="16"/>
+                                                    <rect key="frame" x="356" y="34" width="37" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -817,13 +817,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c5z-5Y-VnC">
-                                                    <rect key="frame" x="333.5" y="53" width="41.5" height="21"/>
+                                                    <rect key="frame" x="351" y="59" width="41.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.15294117647058825" green="0.68235294117647061" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE0-6E-xCq">
-                                                    <rect key="frame" x="106" y="43" width="210" height="53"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IE0-6E-xCq">
+                                                    <rect key="frame" x="110" y="43" width="219" height="53"/>
                                                     <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec euismod neque. Cras pulvinar ligula in justo imperdiet, vel aliquam diam accumsan. Donec nec congue enim, et sodales turpis. Morbi molestie eu felis nec ultricies. Proin consectetur ante eu commodo aliquam. Nullam feugiat ligula finibus neque ullamcorper, nec pellentesque nunc dictum. Maecenas imperdiet mollis sodales. Suspendisse in feugiat tellus, vitae elementum nibh.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -831,15 +831,21 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="1Ws-z5-c9d" secondAttribute="trailing" constant="39" id="0rd-KU-nPN"/>
-                                                <constraint firstItem="1Ws-z5-c9d" firstAttribute="top" secondItem="5lJ-fS-Jvd" secondAttribute="topMargin" constant="15" id="2om-yZ-SGA"/>
-                                                <constraint firstAttribute="trailing" secondItem="c5z-5Y-VnC" secondAttribute="trailing" constant="39" id="4Cq-oa-F0y"/>
+                                                <constraint firstAttribute="trailing" secondItem="1Ws-z5-c9d" secondAttribute="trailing" constant="21" id="0rd-KU-nPN"/>
+                                                <constraint firstItem="1Ws-z5-c9d" firstAttribute="top" relation="greaterThanOrEqual" secondItem="5lJ-fS-Jvd" secondAttribute="topMargin" constant="15" id="2om-yZ-SGA"/>
+                                                <constraint firstAttribute="trailing" secondItem="c5z-5Y-VnC" secondAttribute="trailing" constant="21" id="4Cq-oa-F0y"/>
+                                                <constraint firstItem="1Ws-z5-c9d" firstAttribute="top" secondItem="5lJ-fS-Jvd" secondAttribute="topMargin" constant="26" id="E5K-hq-A4M"/>
                                                 <constraint firstItem="Vss-nm-BWk" firstAttribute="leading" secondItem="5lJ-fS-Jvd" secondAttribute="leadingMargin" constant="13" id="OAl-xV-lpC"/>
                                                 <constraint firstItem="0Wx-jB-bXF" firstAttribute="centerX" secondItem="Vss-nm-BWk" secondAttribute="centerX" id="eaE-sp-tkw"/>
                                                 <constraint firstItem="Vss-nm-BWk" firstAttribute="top" secondItem="5lJ-fS-Jvd" secondAttribute="topMargin" constant="5" id="f4b-G7-gde"/>
                                                 <constraint firstItem="0Wx-jB-bXF" firstAttribute="top" secondItem="Vss-nm-BWk" secondAttribute="bottom" constant="5" id="kLG-Cu-c1N"/>
-                                                <constraint firstItem="c5z-5Y-VnC" firstAttribute="top" secondItem="1Ws-z5-c9d" secondAttribute="bottom" constant="14" id="mpa-vr-xp7"/>
+                                                <constraint firstItem="c5z-5Y-VnC" firstAttribute="top" secondItem="1Ws-z5-c9d" secondAttribute="bottom" constant="9" id="mpa-vr-xp7"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="2om-yZ-SGA"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="cityLabel" destination="0Wx-jB-bXF" id="1xa-Ph-soy"/>
